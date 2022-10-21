@@ -1,0 +1,109 @@
+.container {
+  width: 100vw;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  font-family: "Roboto Flex", sans-serif;
+  /* background-color: yellow */
+}
+
+.header {
+  margin: 30px 0px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.h2 {
+  font-size: 32px;
+  align-self: auto;
+  margin-bottom: 10px;
+  font-family: "Bree Serif", serif;
+}
+
+.content {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.ul {
+  margin: 10px auto;
+}
+
+.ul > li {
+  list-style-type: disc;
+}
+
+.header2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+  background-color: #262e7c;
+  opacity: 0.8;
+  flex: 1;
+  /* z-index: 2; */
+}
+
+.interviewHeader {
+  margin: 20px;
+  /* background-color: blue; */
+  height: 265px;
+  width: 50%;
+  position: relative;
+}
+
+.h1 {
+  margin-top: 40px;
+  line-height: 36px;
+  font-size: 34px;
+  color: #fff;
+  text-align: center;
+}
+
+.interviewImg {
+  width: 100%;
+  height: 100%;
+  background: url("../../../static/images/resume.jpg");
+  background-size: 100% 100%;
+  z-index: -1;
+}
+
+.cover {
+  width: 100%;
+  height: 100%;
+  background-color: #262e7c;
+  opacity: 0.8;
+}
+
+.buildCvBtn {
+  position: absolute;
+  bottom: 30px;
+  display: flex;
+  justify-content: center;
+  left: 7%;
+  width: 277px;
+  height: 60px;
+}
+
+.button {
+  /* background-color: #070707; */
+  background-color: #02818c;
+  border-radius: 20px;
+  border: 1px solid #fff;
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: transparent;
+  color: #02818c;
+  border: 1px solid #02818c;
+}

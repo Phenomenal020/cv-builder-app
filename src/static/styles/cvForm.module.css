@@ -1,0 +1,300 @@
+/* ---------------------------------------------- */
+.itemContainer {
+  width: 100%;
+  /* background-color: green; */
+  margin: 0 auto;
+  padding: 0 10px;
+  margin-bottom: 50px;
+}
+
+.formHeader {
+  margin: 10px 0px auto;
+  font-weight: bold;
+  font-size: 20px;
+}
+/*  */
+.formSummary {
+  padding: 10px;
+  line-height: 16px;
+  font-size: 14px;
+  color: #545454;
+  font-weight: normal;
+  /* font-family: Roboto, serif; */
+}
+
+.hr {
+  border-top: 1px solid;
+  opacity: 0.2;
+}
+
+/* ----------------------------------------------------------- */
+
+.fileUploadWrapper {
+  /* background-color: aqua; */
+  height: 60px;
+  margin: 10px auto;
+}
+
+.fileUploadLabel {
+  display: flex;
+  width: 50%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+  /* border: 1px solid #ccc; */
+  cursor: pointer;
+  margin: 0 auto;
+  padding: 0px 20px;
+  /* background-color: red; */
+}
+
+.fileUploadIconWrapper {
+  border: 5px solid;
+  flex: 0.35;
+  background-color: #ccc;
+  width: 45px;
+  height: 45px;
+  display: grid;
+  place-items: center;
+}
+
+.fileUploadIcon {
+  font-weight: bold;
+  opacity: 0.8;
+  /* font-size: 50px; */
+}
+
+.fileInputWrapper {
+  flex: 0.65;
+}
+
+.namesWrapper,
+.emailWrapper,
+.countryCityWrapper,
+.stateZipWrapper,
+.headlineWrapper,
+.dobAndNationalityWrapper,
+.linkedInGithubWrapper,
+.websiteWrapper,
+.degreeAndProgramWrapper,
+.schoolWrapper,
+.certificationWrapper,
+.certificationateWrapper,
+.jobTitleNameDescWrapper .startEndWrapper,
+.dateWrapper {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.countryCityWrapper,
+.monthListWrapper {
+  font-size: 16px;
+  text-align: left;
+}
+
+.countryListWrapper,
+.degreeWrapper,
+.monthListWrapper {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #e1e8ee;
+  cursor: pointer;
+  font-weight: lighter;
+  font-size: 14px;
+  position: relative;
+  margin: 0px 5px 5px 0px;
+  color: #545454;
+}
+
+.degreeWrapper {
+  z-index: 90;
+}
+
+.headlineWrapper {
+  margin-bottom: 15px
+}
+
+.dobAndNationalityWrapper {
+  margin-top: 20px;
+}
+
+.contactNextButtonWrapper {
+  margin-top: 20px;
+}
+
+/* -----------------------------------  */
+
+.degreeAndProgramWrapper {
+  margin-top: 10px;
+}
+
+.degreeWrapper {
+  flex: 2.5;
+  margin-right: 5px;
+}
+
+.programWrapper {
+  flex: 7.5;
+}
+
+.start,
+.end {
+  flex: 1;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+.start {
+  margin-right: 5px;
+}
+
+.startDateLabel,
+.endDateLabel {
+  text-align: left;
+}
+
+.cgpaWrapper {
+  display: flex;
+  flex-direction: column;
+  /* background-color: yellow; */
+}
+
+.infoText {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  align-self: flex-end;
+  font-weight: normal;
+  margin-bottom: 10px;
+  color: blue;
+}
+
+.awardWrapper,
+.extraCurricularWrapper,
+.addEducationWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.addAwardWrapper,
+.addExtraCurricularWrapper {
+  display: flex;
+}
+
+.extraCurricularWrapper {
+  margin-bottom: 20px;
+}
+
+.addWrapper,
+.addWrapper,
+.addWrapper {
+  margin: 20px auto;
+}
+
+.addBtn {
+  border: none;
+  padding: 10px;
+  background-color: #ddd;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+/* ---------------------------------------------------------- */
+
+.skillWrapper {
+  display: flex;
+  /* flex-direction: column; */
+  margin-bottom: 10px;
+}
+
+.skillProgress,
+.skill {
+  flex: 2;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  outline: none;
+}
+
+.skill {
+  flex: 8;
+}
+
+.skipButtonWrapper {
+  width: 100%;
+  height: 40px;
+  margin: 20px auto;
+  /* background-color: blue; */
+}
+
+.skipButton {
+  margin-bottom: 10px;
+}
+
+/* ------------------------------------------------------- */
+.presentWrapper {
+  display: flex;
+  /* padding-right: 10px; */
+  /* background-color: red; */
+  justify-content: center;
+  align-items: center;
+}
+
+.startEndWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px auto;
+}
+
+.currentlyWorkHere {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.placeRight {
+  display: flex;
+  flex: 0.5;
+  justify-content: flex-end;
+  /* background-color: green; */
+  width: 100%;
+}
+
+/* --------------------------------------------------------- */
+
+.volunteerExperience {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+/* --------------------------------------------------- */
+
+.finishButtonWrapper {
+  margin-top: 20px;
+}
+
+.nextButton,
+.skipButton, .submitBtn {
+  width: 100%;
+  background-color: #D5D7DD;
+  color: #374046;
+  font-weight: bold;
+  border: none;
+  font-size: 16px;
+  padding: 12px 16px;
+  text-align: center;
+  text-decoration: none;
+  /* transition-duration: 0.4s; */
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.nextButton:hover, .submitBtn:hover, .skipButton:hover, .addBtn:hover {
+  background-color: #2E3138;
+  color: #fff;
+}

@@ -1,0 +1,180 @@
+.container {
+  max-height: 100vh;
+  background-color: #f1f1f1;
+  font-family: "Roboto", sans-serif;
+  color: #374046;
+}
+
+.wrapper {
+  display: flex;
+  /* background-color: aquamarine; */
+  /* padding: 10px; */
+  position: relative;
+}
+
+.pages,
+.template {
+  width: 50%;
+  background-color: #fff;
+  margin: 8px;
+  margin-bottom: 0px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 10px;
+  position: relative;
+  height: calc(100vh - 60px);
+  overflow: hidden;
+}
+
+.template {
+  display: flex;
+  overflow-y: scroll;
+  padding: 8px;
+  position: relative;
+  /* background-color: green */
+}
+
+.templateCover {
+  background-color: #000;
+  width: 100%;
+  height: calc(100vh - 60px);
+  position: absolute;
+  top: 0px;
+  left: -10px;
+  padding: 10px;
+  opacity: 0.5;
+}
+
+.downloadOptionsWrapper {
+  display: flex;
+  background-color: #ddd;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  width: 50px;
+  position: fixed;
+  bottom: 40px;
+  right: 10px;
+  z-index: 99;
+  opacity: 0.1;
+}
+
+.downloadOptionsWrapper:hover {
+  opacity: 0.7;
+}
+
+.downloadCvIcon {
+  height: 40px;
+  width: 40px;
+  margin-bottom: 10px;
+  align-self: center;
+  cursor: pointer;
+}
+
+.downloadCvIcon:hover {
+  scale: 1.1;
+}
+
+.formContainer {
+  width: 100%;
+  /* overflow: hidden scroll; */
+  display: flex;
+  /* position: relative; */
+  /* justify-content: center; */
+  background-color: blue;
+}
+
+.activeSlide,
+.lastSlide,
+.nextSlide {
+  position: absolute;
+  /* background-color: red; */
+  /* width: 100%; */
+  height: 550px;
+  top: 40px;
+  left: 8px;
+  right: 0;
+  bottom: 0;
+  opacity: 1;
+  overflow: hidden scroll;
+  /* z-index: 1; */
+}
+
+.activeSlide {
+  transform: translateX(0);
+}
+
+.lastSlide {
+  transform: translateX(-100%);
+}
+
+.nextSlide {
+  transform: translateX(100%);
+}
+
+/* kc */
+.progressContainer {
+  height: 32px;
+  width: 16%;
+  margin: auto;
+  /* background-color: green; */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.progressDot {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: blue;
+  display: inline-block;
+}
+
+.activeDot {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background-color: blue;
+  display: inline-block;
+}
+
+.hr {
+  border-top: 1px solid;
+  opacity: 0.2;
+}
+
+.nextButtonWrapper {
+  width: 100%;
+  max-height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* margin-top: 30px; */
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  background-color: yellow;
+}
+
+.nextButton,
+.skipButton {
+  width: 100%;
+  background-color: #d5d7dd;
+  color: #374046;
+  font-weight: bold;
+  border: none;
+  font-size: 16px;
+  padding: 12px 16px;
+  text-align: center;
+  text-decoration: none;
+  /* transition-duration: 0.4s; */
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.nextButton:hover {
+  background-color: #2e3138;
+  color: #fff;
+}

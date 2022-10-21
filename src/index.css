@@ -1,0 +1,189 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+/* scrollbar */
+/* ::-webkit-scrollbar {
+  width: 5px;
+  /* background: transparent; make scrollbar transparent */
+/* }  */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+a {
+  text-decoration: none;
+  color: #263a5f;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+  box-sizing: border-box;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input,
+select {
+  width: 100%;
+  margin: 0px 5px 5px 0px;
+  padding: 10px;
+  border: 2px solid #e1e8ee;
+  border-radius: 6px;
+}
+
+input[id="otherNames"] {
+  width: 100%;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+input[type="checkbox"] {
+  display: inline;
+}
+
+label {
+  margin-right: 10px;
+}
+
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border: 2px solid #0088ff;
+}
+
+
+textarea {
+  width: 100%;
+  height: 120px;
+  padding: 20px;
+  border-radius: 6px;
+  border: 2px solid #e1e8ee;
+  resize: none;
+}

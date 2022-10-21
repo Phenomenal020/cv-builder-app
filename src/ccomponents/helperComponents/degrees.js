@@ -1,0 +1,31 @@
+const degrees = [
+  { degree: "B.Sc" },
+  { degree: "B.A" },
+  { degree: "B.Eng" },
+  { degree: "B.B.A" },
+  { degree: "M.Sc" },
+  { degree: "M.A" },
+  { degree: "M.Eng" },
+  { degree: "M.Ed" },
+  { degree: "M.B.A" },
+  { degree: "Ph.D" },
+  { degree: "Associate Degree" },
+  { degree: "Advanced Diploma" },
+  { degree: "Academy Profession" },
+  { degree: "Graduate Certificate" },
+  { degree: "Graduate Diploma" },
+  { degree: "Pre-Bachelor" },
+  { degree: "L.L.B" },
+  { degree: "M.Res" },
+  { degree: "M.Phil" },
+  { degree: "M.Litt" },
+  { degree: "M.Phil" },
+  { degree: "LL.M" },
+  { degree: "LL.M" },
+  { degree: "LL.M" },
+  { degree: "Postgraduate Diploma" },
+  { degree: "Postgraduate Certificate" },
+  { degree: "Pre-Master" }
+];
+
+export default degrees;

@@ -1,0 +1,33 @@
+.countryWrapper,
+.degreeWrapper,
+.monthWrapper {
+  height: 250px;
+  width: 220px;
+  overflow: scroll;
+  position: absolute;
+  top: 45px;
+  left: -5px;
+  background-color: #fff;
+}
+
+.monthWrapper {
+  z-index: 90;
+}
+
+.degreeWrapper {
+  width: 160px;
+}
+
+.countryItem,
+.degreeItem,
+.monthItem {
+  line-height: 25px;
+  border-bottom: solid #ddd 1px;
+  color: #545454;
+  cursor: pointer;
+  font-weight: normal;
+  font-size: 14px;
+  padding: 5px 0;
+}
+
+/* // countryListWrapper */

@@ -1,0 +1,182 @@
+.container {
+  padding: 16px 8px;
+  display: flex;
+  width: 100%;
+  background-color: #ededed;
+}
+
+.left {
+  flex: 3;
+  font-size: 12px;
+  text-align: left;
+  padding: 0px 8px;
+  background-color: #ededed;
+  min-height: 100vh;
+}
+
+.wrapper {
+  width: 100%;
+}
+
+.leftHeader {
+  margin-top: 8px;
+  font-size: 14px;
+  border-bottom: 1px solid #ccc;
+  line-height: 18px;
+  color: #ed3d3e;
+  margin-bottom: 8px;
+  text-transform: capitalize;
+}
+
+.leftItem {
+  line-height: 18px;
+  align-items: center;
+  height: fit-content;
+  font-weight: normal;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.leftItemImg {
+  /* color: #ed3d3e !important; */
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+}
+
+.right {
+  flex: 7;
+  padding: 8px;
+  padding-left: 12px;
+  background-color: #fff;
+  height: fit-content
+}
+
+.skillContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.headlineName {
+  color: #ed3d3e;
+  font-size: 20px;
+  text-align: left;
+  margin: 4px;
+  margin-left: 0px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+.headlineText {
+  font-size: 14px;
+  font-weight: normal;
+  text-align: left;
+  margin: 4px;
+  margin-left: 0px;
+}
+
+.skillWrapper {
+  display: flex;
+}
+
+.progressWrapper {
+  flex: 1.3;
+  background-color: #ddd;
+  border-radius: 10px;
+  height: 16px;
+}
+
+.skillNameWrapper {
+  flex: 2;
+  line-height: 18px;
+}
+
+.progressBar {
+  height: 100%;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-size: 10px;
+}
+
+.educationContainer {
+  height: fit-content;
+  margin: 12px 0;
+}
+
+.educationHeader {
+  font-size: 14px;
+  border-bottom: 1px solid #ccc;
+  line-height: 20px;
+  color: #ed3d3e;
+  text-align: left;
+  text-transform: capitalize;
+  /* padding: 4px; */
+}
+
+.educationWrapper {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  color: #ed3d3e;
+}
+
+.degreeWrapper,
+.certificationWrapper {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  color: #374046;
+  padding: 4px;
+  padding-left: 0px
+}
+
+.certificationWrapper {
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  /* padding: 4px; */
+  padding-left: 0px;
+}
+
+.degreeTime {
+  color: #ed3d3e;
+  flex: 4;
+  text-align: right;
+}
+
+.degreeHeader,
+.certificationHeader {
+  flex: 8;
+  text-align: left;
+}
+
+.degreeSchool,
+.employmentLoc {
+  color: #ed3d3e;
+  font-weight: 300;
+  text-align: left;
+  width: calc(8 / 12 * 100%);
+  /* padding-left: 4px; */
+  margin-bottom: 8px;
+}
+
+.employmentLoc {
+  margin-bottom: 4px;
+}
+
+/* .certificationHeader { */
+  /* padding-left: 4px;
+} */
+
+.employmentDesc, .volunteerDesc, .certificationDesc {
+  text-align: left;
+  color: #374046;
+  font-weight: normal;
+  margin-bottom: 8px;
+  width: 80%;
+  font-size: 12px;
+  line-height: 14px;
+}
