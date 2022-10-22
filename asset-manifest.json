@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/cv-builde-app/static/css/main.47c76121.css",
+    "main.js": "/cv-builde-app/static/js/main.db71cc97.js",
+    "static/media/resume.jpg": "/cv-builde-app/static/media/resume.c71c96e35b255ad72f2e.jpg",
+    "static/media/avatar.jpg": "/cv-builde-app/static/media/avatar.e65f63284bace887c18b.jpg",
+    "static/media/website.svg": "/cv-builde-app/static/media/website.c159f430fdbb6eb81440022fc77cc3b0.svg",
+    "index.html": "/cv-builde-app/index.html",
+    "static/media/dob.svg": "/cv-builde-app/static/media/dob.5307428124670cee616e4e2af27e6962.svg",
+    "static/media/github.svg": "/cv-builde-app/static/media/github.1678155c382797483150d1c4683555e7.svg",
+    "static/media/database.svg": "/cv-builde-app/static/media/database.91e23fd4d8ab00ba5cce382a54bb411c.svg",
+    "static/media/call.svg": "/cv-builde-app/static/media/call.02af061e66783ca2006ed508969a4506.svg",
+    "static/media/lightBulb.svg": "/cv-builde-app/static/media/lightBulb.ef8634a53ce69ff0dc0fb7d453e82beb.svg",
+    "static/media/save_file.svg": "/cv-builde-app/static/media/save_file.40070c442978bec40dd19c83068caac1.svg",
+    "static/media/linkedIn.svg": "/cv-builde-app/static/media/linkedIn.68faaf816389b50be4f3fd96c5438047.svg",
+    "static/media/file_download_off.svg": "/cv-builde-app/static/media/file_download_off.31bfc97ad44d87bf10391a1df74603a7.svg",
+    "static/media/other.svg": "/cv-builde-app/static/media/other.f93f5557ba7f4d842a3da58177cefd75.svg",
+    "static/media/email.svg": "/cv-builde-app/static/media/email.5a387e74dbef285fe81a3cd40ea170b5.svg",
+    "static/media/fileUploadIcon.svg": "/cv-builde-app/static/media/fileUploadIcon.360da27fc723e21183eafee159af9cdb.svg",
+    "static/media/draftIcon.svg": "/cv-builde-app/static/media/draftIcon.a0c4b0a94d20e1d2d6472fd65464353e.svg",
+    "static/media/downloadIcon.svg": "/cv-builde-app/static/media/downloadIcon.dd83c5b616561a0ea0f6b248b40865fa.svg",
+    "static/media/flag.svg": "/cv-builde-app/static/media/flag.d69a02c7e6870e024511e5db5541d2e6.svg",
+    "static/media/home.svg": "/cv-builde-app/static/media/home.5a85d11a5d6fb5e0ac68e6cf1fabf8ef.svg",
+    "main.47c76121.css.map": "/cv-builde-app/static/css/main.47c76121.css.map",
+    "main.db71cc97.js.map": "/cv-builde-app/static/js/main.db71cc97.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.47c76121.css",
+    "static/js/main.db71cc97.js"
+  ]
+}
