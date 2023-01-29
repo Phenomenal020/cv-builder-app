@@ -16,9 +16,17 @@ import { SkillsContext } from "../context/skillsContext";
 import { VolunteerContext } from "../context/volunteerContext";
 import { FinalizeContext } from "../context/finalizeContext";
 
+
+// import { Print } from "./print";
+import {  useNavigate } from "react-router-dom"
+
 const BuildCv = () => {
+
+  let navigate = useNavigate()
+
   const [index, setIndex] = useState(1);
   const [showDownloadOptions, setShowDownloadOptions] = useState(false);
+  // const [printed, setPrinted] = useState(false)
 
   const { contact } = useContext(ContactContext);
   const { education } = useContext(EducationContext);
@@ -28,7 +36,7 @@ const BuildCv = () => {
   const { volunteer } = useContext(VolunteerContext);
   const { finalize } = useContext(FinalizeContext);
 
-  // console.log("buildcv education", education);
+  // console.log("finalize", finalize);
 
   const handlePrevious = () => {
     if (index === 1) {
@@ -83,11 +91,12 @@ const BuildCv = () => {
       localStorage.setItem("educationArr", JSON.stringify(education));
     employment &&
       localStorage.setItem("employmentArr", JSON.stringify(employment));
-      finalize &&
+    finalize &&
       localStorage.setItem("finalizeObj", JSON.stringify(finalize));
     skills && localStorage.setItem("skillsArr", JSON.stringify(skills));
     volunteer &&
       localStorage.setItem("volunteerArr", JSON.stringify(volunteer));
+      // navigate("/print")
   };
 
   return (
@@ -184,7 +193,7 @@ const BuildCv = () => {
             <div
               className={styles.downloadOptionsWrapper}
               onMouseEnter={() => setShowDownloadOptions(true)}
-              // onMouseLeave={() => setShowDownloadOptions(false)}
+            // onMouseLeave={() => setShowDownloadOptions(false)}
             >
               <img
                 src={cvDownloadIcon}

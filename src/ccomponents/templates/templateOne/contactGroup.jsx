@@ -1,16 +1,7 @@
 import React from "react";
 import styles from "./templateOne.module.css";
-import personIcon from "../../../static/icons/home.svg";
-import mailIcon from "../../../static/icons/email.svg";
-import phoneIcon from "../../../static/icons/call.svg";
-import homeIcon from "../../../static/icons/home.svg";
-import dobIcon from "../../../static/icons/dob.svg";
-import flagIcon from "../../../static/icons/flag.svg";
-import githubIcon from "../../../static/icons/github.svg";
-import websiteIcon from "../../../static/icons/website.svg";
-import linkedInIcon from "../../../static/icons/linkedIn.svg";
-import otherIcon from "../../../static/icons/other.svg";
-import { formatBirth } from "../../helperComponents/helpers";
+import { formatBirth } from "../../helperComponents/helpers"
+
 
 const ContactGroup = props => {
   const { contactHeader, group } = props;
@@ -25,11 +16,10 @@ const ContactGroup = props => {
 
       {group.firstName ? (
         <div className={styles.leftItem}>
-          <img src={personIcon} alt="Person" className={styles.leftItemImg} />
+          <i className={`fa fa-user ${styles.leftItemImg}`} aria-hidden="true"></i>
           <p>
-            {`${group.firstName} ${group.lastName ? group.lastName : ""} ${
-              group.otherNames ? group.otherNames : ""
-            } `}{" "}
+            {`${group.firstName} ${group.lastName ? group.lastName : ""} ${group.otherNames ? group.otherNames : ""
+              } `}{" "}
           </p>
         </div>
       ) : (
@@ -38,7 +28,7 @@ const ContactGroup = props => {
 
       {group.email ? (
         <div className={styles.leftItem}>
-          <img src={mailIcon} alt="E-mail" className={styles.leftItemImg} />
+          <i className={`fa fa-envelope ${styles.leftItemImg}`} aria-hidden="true"></i>
           <p>{group.email}</p>
         </div>
       ) : (
@@ -47,23 +37,18 @@ const ContactGroup = props => {
 
       {group.phoneNumber ? (
         <div className={styles.leftItem}>
-          <img
-            src={phoneIcon}
-            alt="Phone number"
-            className={styles.leftItemImg}
-          />
+          <i className={`fa fa-phone ${styles.leftItemImg}`} aria-hidden="true"></i>
           <p className={styles.leftItem}>{group.phoneNumber}</p>{" "}
         </div>
       ) : (
         ""
       )}
 
-      {group.city ? (
+      {group.state ? (
         <div className={styles.leftItem}>
-          <img src={homeIcon} alt="City" className={styles.leftItemImg} />
-          <p>{`${group.city ? group.city : ""} ${group.zip ? group.zip : ""} ${
-            group.state ? group.state : ""
-          } ${group.country ? group.country : ""}`}</p>
+          <i className={`fa fa-map-marker ${styles.leftItemImgLoc}`} aria-hidden="true"></i>
+          <p>{`${group.city ? `${group.city},` : ""}  ${group.state ? `${group.state}.` : ""
+            } ${group.country ? group.country : ""} ${group.zip ? `(${group.zip})` : ""}`}</p>
         </div>
       ) : (
         ""
@@ -71,11 +56,7 @@ const ContactGroup = props => {
 
       {group.nationality ? (
         <div className={styles.leftItem}>
-          <img
-            src={flagIcon}
-            alt="Nationality"
-            className={styles.leftItemImg}
-          />
+          <i className={`fa fa-flag ${styles.leftItemImg}`} aria-hidden="true"></i>
           <p>{group.nationality}</p>
         </div>
       ) : (
@@ -84,11 +65,7 @@ const ContactGroup = props => {
 
       {group.dob ? (
         <div className={styles.leftItem}>
-          <img
-            src={dobIcon}
-            alt="Date Of Birth"
-            className={styles.leftItemImg}
-          />
+          <i className={`fa fa-calendar ${styles.leftItemImg}`} aria-hidden="true"></i>
           <p>{formatBirth(group.dob)}</p>
         </div>
       ) : (
@@ -97,11 +74,7 @@ const ContactGroup = props => {
 
       {group.linkedIn ? (
         <div className={styles.leftItem}>
-          <img
-            src={linkedInIcon}
-            alt="linkedIn url"
-            className={styles.leftItemImg}
-          />
+          <i className={`fa fa-linkedin ${styles.leftItemImg}`} aria-hidden="true"></i>
           <p>{group.linkedIn}</p>
         </div>
       ) : (
@@ -110,11 +83,7 @@ const ContactGroup = props => {
 
       {group.github ? (
         <div className={styles.leftItem}>
-          <img
-            src={githubIcon}
-            alt="github url"
-            className={styles.leftItemImg}
-          />
+          <i className={`fa fa-github ${styles.leftItemImg}`} aria-hidden="true"></i>
           <p>{group.github}</p>
         </div>
       ) : (
@@ -123,21 +92,8 @@ const ContactGroup = props => {
 
       {group.website ? (
         <div className={styles.leftItem}>
-          <img
-            src={websiteIcon}
-            alt="github url"
-            className={styles.leftItemImg}
-          />
+          <i className={`fa fa-globe ${styles.leftItemImg}`} aria-hidden="true"></i>
           <p>{group.website}</p>
-        </div>
-      ) : (
-        ""
-      )}
-
-      {group.other ? (
-        <div className={styles.leftItem}>
-          <img src={otherIcon} alt="other" className={styles.leftItemImg} />
-          <p>{group.other}</p>
         </div>
       ) : (
         ""

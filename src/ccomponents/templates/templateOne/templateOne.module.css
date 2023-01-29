@@ -2,16 +2,19 @@
   padding: 16px 8px;
   display: flex;
   width: 100%;
-  background-color: #ededed;
+  /* background-color: #ededed; */
 }
 
 .left {
   flex: 3;
   font-size: 12px;
+  margin-right: 12px;
   text-align: left;
   padding: 0px 8px;
   background-color: #ededed;
-  min-height: 100vh;
+  height: fit-content;
+  min-height: 100%;
+  padding-bottom: 16px;
 }
 
 .wrapper {
@@ -29,28 +32,60 @@
 }
 
 .leftItem {
-  line-height: 18px;
-  align-items: center;
+  line-height: 20px;
   height: fit-content;
   font-weight: normal;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
+  /* background-color: blue; */
 }
 
-.leftItemImg {
+.leftItemImg, .leftItemImgLoc {
   /* color: #ed3d3e !important; */
+  /* background-color: white; */
   width: 16px;
   height: 16px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  color: #ed3d3e;
+  /* color: blue; */
+  opacity: 0.8;
+}
+
+.leftItemImgLoc {
+  /* width: 22px; */
+  /* height: 22px; */
+  align-items: flex-start;
   margin-right: 10px;
 }
 
 .right {
   flex: 7;
+  height: fit-content;
+  /* background-color: white; */
+}
+
+.headLine {
+  display: flex;
   padding: 8px;
-  padding-left: 12px;
+  padding-left: 0px;
   background-color: #fff;
-  height: fit-content
+}
+
+.headLineText {
+  width: 80%;
+  font-weight: bold;
+  line-height: 16px;
+}
+
+.profileImg {
+  width: 60px;
+  height: 60px;
+  background-color: red;
+  margin: 4px;
+  border-radius: 4px;
 }
 
 .skillContainer {

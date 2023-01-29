@@ -25,7 +25,7 @@ const Contact = () => {
   const linkedIn = useRef(null);
   const github = useRef(null);
   const website = useRef(null);
-  const other = useRef(null);
+  // const other = useRef(null);
 
   const { updateContact } = useContext(ContactContext);
 
@@ -62,7 +62,7 @@ const Contact = () => {
       linkedIn: linkedIn.current.value ? linkedIn.current.value : null,
       github: github.current.value ? github.current.value : null,
       website: website.current.value ? website.current.value : null,
-      other: other.current.value ? other.current.value : null
+      // other: other.current.value ? other.current.value : null
     };
     updateContact(contactDetails);
   };
@@ -72,9 +72,7 @@ const Contact = () => {
       {/* Page header */}
       <h2 className={styles.formHeader}>Contact & Personal details</h2>
       <p className={styles.formSummary}>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s,
+        Include relevant contact details. Required fields are marked with red asterisks.
       </p>
       <hr className={styles.hr} />
 
@@ -107,6 +105,7 @@ const Contact = () => {
           id="firstName"
           required
         ></input>
+        <span className={styles.requiredField}>*</span>
         <input
           ref={lastName}
           type="text"
@@ -115,6 +114,7 @@ const Contact = () => {
           id="lastName"
           required
         ></input>
+        <span className={styles.requiredField}>*</span>
         <input
           ref={otherNames}
           type="text"
@@ -134,6 +134,7 @@ const Contact = () => {
           id="email"
           required
         ></input>
+        <span className={styles.requiredField}>*</span>
         <input
           ref={phoneNumber}
           type="text"
@@ -142,6 +143,7 @@ const Contact = () => {
           id="phoneNumber"
           required
         ></input>
+        <span className={styles.requiredField}>*</span>
       </div>
 
       {/* country-city */}
@@ -170,7 +172,9 @@ const Contact = () => {
           placeholder="state"
           name="state"
           id="state"
+          required
         ></input>
+        <span className={styles.requiredField}>*</span>
         <input
           ref={zip}
           type="text"
@@ -190,7 +194,9 @@ const Contact = () => {
           onFocus={handleFocus}
           value={msg}
           onChange={handleChange}
+          required
         ></textarea>
+        <span className={styles.requiredField}>*</span>
       </div>
 
       {/* DOB & Nationality */}
@@ -216,14 +222,14 @@ const Contact = () => {
         <input
           ref={linkedIn}
           type="text"
-          placeholder="LinkedIn"
+          placeholder="LinkedIn, if you have any"
           name="linkedIn"
           id="linkedIn"
         ></input>
         <input
           ref={github}
           type="text"
-          placeholder="Github"
+          placeholder="Github, if you have any"
           name="github"
           id="github"
         ></input>
@@ -234,18 +240,18 @@ const Contact = () => {
         <input
           ref={website}
           type="text"
-          placeholder="Your website"
+          placeholder="Your website, if you have any"
           name="website"
           id="website"
         ></input>
         {/* Other */}
-        <input
+        {/* <input
           ref={other}
           type="text"
-          placeholder="Other"
+          placeholder="E.g, Age : 36 years"
           name="other"
           id="other"
-        ></input>
+        ></input> */}
       </div>
 
       <button type="submit" className={styles.submitBtn}>

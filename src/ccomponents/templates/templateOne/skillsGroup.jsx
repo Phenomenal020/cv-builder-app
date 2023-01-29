@@ -21,11 +21,11 @@ const SkillsGroup = props => {
                   <div
                     className={styles.progressBar}
                     style={{
-                      backgroundColor: "green",
+                      backgroundColor: "#95C730",
                       width: `${skill.progress}%`
                     }}
                   >
-                    {skill.progress}%
+                    {/* {skill.progress}% */}
                   </div>
                 </div>
               </div>

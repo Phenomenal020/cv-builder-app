@@ -14,6 +14,7 @@ const MainGroup = props => {
     awardArr,
     awardHeader
   } = props;
+  // 
 
   return (
     <section>
@@ -22,34 +23,28 @@ const MainGroup = props => {
         <section className={styles.educationContainer}>
           <h2 className={styles.educationHeader}>{educationHeader}</h2>
 
-          {educationArr.map(education => (
-            <section
+          {educationArr.map(education => {
+            return <section
               className={styles.educationWrapper}
               key={Math.random() * 10000}
             >
               <div className={styles.degreeWrapper}>
                 {
-                  <h3 className={styles.degreeHeader}>{`${
-                    education.degree ? education.degree : ""
-                  }: ${education.program ? education.program : ""} ${
-                    education.gpa ? "(" + education.gpa + ")" : ""
-                  }`}</h3>
+                  <h3 className={styles.degreeHeader}>{`${education.degree ? education.degree : ""
+                    }: ${education.program ? education.program : ""} ${education.gpa ? `(${education.gpa})` : ""
+                    }`}</h3>
                 }
                 {
-                  <span className={styles.degreeTime}>{`${
-                    education.start ? formatFullDate(education.start) : ""
-                  } - ${
-                    education.end ? formatFullDate(education.end) : ""
-                  }`}</span>
+                  <span className={styles.degreeTime}>{`${education.start ? formatFullDate(education.start) : ""
+                    } - ${education.end ? formatFullDate(education.end) : ""
+                    }`}</span>
                 }
               </div>
-              <h3 className={styles.degreeSchool}>{`${
-                education.school ? education.school : ""
-              }, ${education.city ? education.city : ""} ${
-                education.state ? education.state : ""
-              } ${education.country ? education.country : ""}`}</h3>
+              <h3 className={styles.degreeSchool}>{`${education.school ? education.school : ""
+                }, ${education.city ? education.city : ""} ${education.state ? education.state : ""
+                } ${education.country ? education.country : ""}`}</h3>
             </section>
-          ))}
+          })}
         </section>
       ) : (
         ""
@@ -85,16 +80,14 @@ const MainGroup = props => {
                   ""
                 )}
                 {employment.companyName ? (
-                  <h3 className={styles.employmentLoc}>{`${
-                    employment.companyName
-                  }, ${employment.location ? employment.location : ""}`}</h3>
+                  <h3 className={styles.employmentLoc}>{`${employment.companyName
+                    }, ${employment.location ? employment.location : ""}`}</h3>
                 ) : (
                   ""
                 )}
                 {employment.jobDesc ? (
-                  <p className={styles.employmentDesc}>{`${
-                    employment.jobDesc ? employment.jobDesc : ""
-                  }`}</p>
+                  <p className={styles.employmentDesc}>{`${employment.jobDesc ? employment.jobDesc : ""
+                    }`}</p>
                 ) : (
                   ""
                 )}
@@ -114,21 +107,20 @@ const MainGroup = props => {
           ""
         )}
         {certificationArr.length > 0 &&
-          certificationArr.map(certification => (
-            <div key={Math.random() * 100000}>
+          certificationArr.map(certification => {
+            // console.log("certification", certification)
+            return <div key={Math.random() * 100000}>
               <section className={styles.certificationWrapper}>
-                <h3 className={styles.certificationHeader}>{`${
-                  certification.certification ? certification.certification : ""
-                }`}</h3>
-                <h3 className={styles.degreeTime}>{`${
-                  certification.year ? formatMonth(certification.year) : ""
-                }`}</h3>
+                <h3 className={styles.certificationHeader}>{`${certification.certification ? certification.certification : ""
+                  }`}</h3>
+                <h3 className={styles.degreeTime}>{`${(certification.year > -1 || certification.year) ? formatMonth(certification.year) : ""
+                  }`}</h3>
               </section>
               <p className={styles.certificationDesc}>
                 {certification.other ? certification.other : ""}
               </p>
             </div>
-          ))}
+          })}
       </section>
 
       {/* volunteer */}
@@ -159,16 +151,14 @@ const MainGroup = props => {
                   ""
                 )}
                 {volunteer.project ? (
-                  <h3 className={styles.employmentLoc}>{`${
-                    volunteer.project
-                  }, ${volunteer.location ? volunteer.location : ""}`}</h3>
+                  <h3 className={styles.employmentLoc}>{`${volunteer.project
+                    }, ${volunteer.location ? volunteer.location : ""}`}</h3>
                 ) : (
                   ""
                 )}
                 {volunteer.responsibilities ? (
-                  <p className={styles.volunteerDesc}>{`${
-                    volunteer.responsibilities ? volunteer.responsibilities : ""
-                  }`}</p>
+                  <p className={styles.volunteerDesc}>{`${volunteer.responsibilities ? volunteer.responsibilities : ""
+                    }`}</p>
                 ) : (
                   ""
                 )}
@@ -190,13 +180,13 @@ const MainGroup = props => {
           )}
           {awardArr.length > 0
             ? awardArr.map(award => (
-                <section
-                  className={styles.educationWrapper}
-                  key={Math.random() * 10000}
-                >
-                  <h3 className={styles.volunteerDesc}>{award}</h3>
-                </section>
-              ))
+              <section
+                className={styles.educationWrapper}
+                key={Math.random() * 10000}
+              >
+                <h3 className={styles.volunteerDesc}>{award}</h3>
+              </section>
+            ))
             : ""}
         </section>
       ) : (

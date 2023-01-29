@@ -29,7 +29,7 @@
 .template {
   display: flex;
   overflow-y: scroll;
-  padding: 8px;
+  /* padding: 8px; */
   position: relative;
   /* background-color: green */
 }

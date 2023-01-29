@@ -12,6 +12,7 @@
   font-weight: bold;
   font-size: 20px;
 }
+
 /*  */
 .formSummary {
   padding: 10px;
@@ -84,6 +85,33 @@
 .dateWrapper {
   display: flex;
   margin-bottom: 10px;
+  /* background-color: yellow; */
+}
+
+.dateWrapper {
+  width: 100%;
+  /* background-color: green; */
+}
+
+.start,
+.end {
+  flex: 1;
+  /* width: 100%; */
+  height: 60px;
+  display: flex;
+  /* flex-direction: column; */
+}
+
+.start {
+  margin-right: 5px;
+}
+
+.requiredField {
+  color: red;
+  margin-left: -2px;
+  margin-right: 8px;
+  font-size: 12px;
+  opacity: 0.7;
 }
 
 .countryCityWrapper,
@@ -111,7 +139,7 @@
 }
 
 .headlineWrapper {
-  margin-bottom: 15px
+  margin-bottom: 15px;
 }
 
 .dobAndNationalityWrapper {
@@ -136,22 +164,13 @@
 .programWrapper {
   flex: 7.5;
 }
-
-.start,
-.end {
-  flex: 1;
-  height: 60px;
-  display: flex;
-  flex-direction: column;
-}
-
-.start {
-  margin-right: 5px;
-}
+startEndWrapper
 
 .startDateLabel,
 .endDateLabel {
   text-align: left;
+  min-width: fit-content;
+  /* background-color: yellow; */
 }
 
 .cgpaWrapper {
@@ -189,7 +208,7 @@
 .addWrapper,
 .addWrapper,
 .addWrapper {
-  margin: 20px auto;
+  margin: 8px auto;
 }
 
 .addBtn {
@@ -234,15 +253,21 @@
 /* ------------------------------------------------------- */
 .presentWrapper {
   display: flex;
-  /* padding-right: 10px; */
+  padding: 4px;
+  padding-right: 10px;
   /* background-color: red; */
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
+}
+
+.presentWrapper input {
+  width: 24px;
+  margin-right: 2px;
 }
 
 .startEndWrapper {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
   margin: 10px auto;
 }
@@ -250,9 +275,10 @@
 .currentlyWorkHere {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   margin-bottom: 10px;
+  /* background-color: red; */
 }
 
 .placeRight {
@@ -263,7 +289,22 @@
   width: 100%;
 }
 
+.placeRight > input {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+.placeRight > label {
+  min-width: fit-content;
+}
+
 /* --------------------------------------------------------- */
+.employmentRow {
+  display: flex;
+  /* background-color: red; */
+  align-items: center;
+}
 
 .volunteerExperience {
   width: 50%;
@@ -279,9 +320,11 @@
 }
 
 .nextButton,
-.skipButton, .submitBtn {
+.skipButton,
+.submitBtn,
+.updateBtn {
   width: 100%;
-  background-color: #D5D7DD;
+  background-color: #d5d7dd;
   color: #374046;
   font-weight: bold;
   border: none;
@@ -294,7 +337,223 @@
   text-transform: uppercase;
 }
 
-.nextButton:hover, .submitBtn:hover, .skipButton:hover, .addBtn:hover {
-  background-color: #2E3138;
+.submitBtn {
+  margin-bottom: 32px;
+}
+
+.editFieldBtn {
+  background-color: #d5d7dd;
+  color: #374046;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.updateBtn {
+  font-weight: semi-bold;
+  padding: 8px 8px;
+  background-color: transparent;
+}
+
+.updateBtn:hover {
+  background-color: #d5d7dd;
+}
+
+.updateFieldsWrapper {
+  display: flex;
+}
+
+.nextButton:hover,
+.submitBtn:hover,
+.skipButton:hover,
+.addBtn:hover {
+  background-color: #2e3138;
   color: #fff;
 }
+
+/* ---------------------------------------------------------------- */
+/* edits */
+.editEducationContainer,
+.editCertContainer,
+.editSkillContainer,
+.editVolunteerContainer {
+  width: 100%;
+  min-height: fit-content;
+  margin: 24px auto;
+  margin-bottom: 80px;
+}
+
+.editFinalizeContainer {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  font-weight: normal;
+}
+
+.editFinalizeWrapper {
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+}
+
+.editHeader {
+  font-weight: bold;
+  background-color: #d5d7dd;
+  width: 100%;
+  padding: 8px 0px;
+}
+
+.editField {
+  display: flex;
+  justify-content: space-between;
+  line-height: 24px;
+  border-top: 1px solid #ddd;
+  padding: 8px;
+}
+
+.editEducationWrapper,
+.editCertWrapper,
+.editSkillWrapper,
+.editEmploymentWrapper,
+.editVolunteerWrapper {
+  padding: 8px;
+  background-color: #ddd;
+  border-radius: 24px;
+  /* padding-top: 24px; */
+  margin-bottom: 24px;
+  line-height: 32px;
+  text-align: left;
+  font-weight: normal;
+}
+
+.editDoubleRow,
+.editTripleRow,
+.editDoubleRowEmp {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+}
+
+.editVolunteerWrapper {
+  margin-bottom: 24px;
+}
+
+.editDoubleRowEmp {
+  padding: 0px 8px;
+  font-weight: normal;
+  justify-content: flex-start;
+  border-bottom: 1px solid #ddd;
+}
+
+.editEmploymentDesc,
+.editVolunteerDesc {
+  font-weight: normal;
+  background-color: white;
+  line-height: 24px;
+  padding: 0px 8px;
+}
+
+.editSingleRow,
+.editSchool,
+.editSkillRow {
+  display: flex;
+  width: 100%;
+  padding-left: 8px;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  font-weight: normal;
+}
+
+.editSkillRow {
+  border-radius: 8px;
+}
+
+.editDegree,
+.editCountry,
+.editCity,
+.editState,
+.editZip,
+.editEducationCountry,
+.editCertYear,
+.editSkillsProgress {
+  width: 30%;
+  padding-left: 8px;
+  background-color: white;
+}
+
+.editCountry {
+  width: 40%;
+}
+
+.editState,
+.editZip {
+  width: 50%;
+}
+
+.editProgram,
+.editCity {
+  width: 70%;
+  padding-left: 8px;
+}
+
+.editStart,
+.editEnd,
+.editGpa {
+  width: 33.33%;
+  padding-left: 8px;
+}
+
+/* ---------------- certification edits ------------------ */
+.editCertDetails {
+  font-weight: normal;
+  background-color: white;
+  line-height: 18px;
+  font-size: 14px;
+  padding: 8px;
+}
+
+.editCertHeader {
+  line-height: 20px;
+  padding: 8px;
+}
+
+/* ----------------------- skills ----------------------- */
+.editSkill {
+  width: 75%;
+}
+
+.editSkillWrapper {
+  line-height: 28px;
+}
+
+.updateSkill {
+  border: none;
+  /* border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px; */
+  cursor: pointer;
+}
+
+.employmentStart,
+.volunteerStart {
+  width: 50%;
+}
+
+.editFinalizeContainer {
+  margin-bottom: 24px;
+}
+
+.updateSkillsWrapper {
+  display: flex;
+}
+
+/* dark: '#1F4490',
+          dark500: '#122B46',
+          light: `#00A9E1`,
+          light200: '#EBF3F9',
+          light300: '#3E49D3',
+          light500: '#2E91CB',
+          background: '#E7E7E7', */
