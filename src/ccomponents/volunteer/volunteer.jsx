@@ -55,6 +55,10 @@ const Volunteer = () => {
     setPresent(presently.current.checked);
   };
 
+  const handleFocus = () => {
+    responsibilities.current.value = "";
+  };
+
   const resetFields = () => {
     position.current.value = "";
     project.current.value = "";
@@ -122,8 +126,9 @@ const Volunteer = () => {
         </p>
         <hr className={styles.hr} />
         <button className={styles.skipButton}>skip this step</button>
+
         {/* Position/Title*/}
-        <div>
+        <div className={styles.volunteerRow}>
           <input
             ref={position}
             type="text"
@@ -132,9 +137,11 @@ const Volunteer = () => {
             id="position"
             required
           ></input>
+          <span className={styles.requiredField}>*</span>
         </div>
+
         {/* Company/Project */}
-        <div>
+        <div className={styles.volunteerRow}>
           <input
             ref={project}
             type="text"
@@ -143,17 +150,24 @@ const Volunteer = () => {
             id="project"
             required
           ></input>
+          <span className={styles.requiredField}>*</span>
         </div>
+
         {/* location */}
-        <input
-          ref={location}
-          type="text"
-          placeholder="Location"
-          name="location"
-          id="location"
-          required
-        ></input>
-        F{/* start/end dates */}
+        <div className={styles.volunteerRow}>
+          <input
+            ref={location}
+            type="text"
+            placeholder="Location"
+            name="location"
+            id="location"
+            required
+          ></input>
+          <span className={styles.requiredField}>*</span>
+        </div>
+
+
+        {/* start/end dates */}
         <div className={styles.startEndWrapper}>
           <label htmlFor="start">start date:</label>
           <input
@@ -163,6 +177,7 @@ const Volunteer = () => {
             name="start"
             id="start"
           ></input>
+          <span className={styles.requiredField}>*</span>
           <label htmlFor="end">end date:</label>
           <input
             ref={end}
@@ -173,6 +188,7 @@ const Volunteer = () => {
           ></input>
           {present ? "" : <span className={styles.requiredField}>*</span>}
         </div>
+
         <div className={styles.currentlyWorkHere}>
           <div></div>
           <div className={styles.placeRight}>
@@ -194,6 +210,7 @@ const Volunteer = () => {
           cols="50"
           value={msg}
           onChange={handleChange}
+          onFocus={handleFocus}
         ></textarea>
         <hr className={styles.hr} />
 

@@ -210,6 +210,7 @@ const Employment = () => {
           cols="50"
           value={msg}
           onChange={handleChange}
+          onFocus={handleFocus}
         ></textarea>
 
         <hr className={styles.hr} />

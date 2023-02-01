@@ -54,6 +54,10 @@ const Certifications = () => {
     }
   };
 
+  const handleFocus = () => {
+    description.current.value = "";
+  };
+
   const handleSkip = () => {
     return;
   };
@@ -185,7 +189,9 @@ const Certifications = () => {
             rows="10"
             cols="50"
             defaultValue={msg}
-            onFocus={() => setMsg("")}
+            onFocus={() => {
+              setMsg(""); handleFocus()
+            }}
             onChange={handleChange}
           ></textarea>
         </div>

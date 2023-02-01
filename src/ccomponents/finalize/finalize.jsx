@@ -3,7 +3,7 @@ import { FinalizeContext } from "../../context/finalizeContext";
 import { useRef, useContext, useState } from "react";
 
 const Finalize = () => {
-  const { updateFinalize, finalize } = useContext(FinalizeContext);
+  const { updateFinalize, finalize, deleteFinalize } = useContext(FinalizeContext);
 
   const [edit, setEdit] = useState(finalize)
   const [editAward, setEditAward] = useState(false)
@@ -13,6 +13,8 @@ const Finalize = () => {
   const [editLanguage, setEditLanguage] = useState(false)
   const [editExtracurr, setEditExtracurr] = useState(false)
 
+  const [oldEdit, setOldEdit] = useState("")
+
   let interestsRef = useRef(null);
   let softwareRef = useRef(null);
   let publicationRef = useRef(null);
@@ -21,6 +23,8 @@ const Finalize = () => {
   let extraCurricularRef = useRef(null);
 
   const populateFields = () => {
+    // setOldEdit(field)
+    // console.log("old value", oldEdit)
     let interest = interestsRef.current.value
       ? interestsRef.current.value
       : null;
@@ -40,7 +44,7 @@ const Finalize = () => {
         language,
         award,
         publication,
-        extraCurricular
+        extraCurricular, oldEdit
       )
       // if (newFields) {
       return newFields
@@ -50,6 +54,7 @@ const Finalize = () => {
   }
 
   const handleAdd = ref => {
+    setOldEdit("")
     let newFields = populateFields();
     if (newFields) {
       setEdit(newFields)
@@ -81,23 +86,34 @@ const Finalize = () => {
     if (key === "software") {
       softwareRef.current.value = value
       setEditSoftware(true)
+      // setOldEdit(value)
     }
     if (key === "publication") {
       publicationRef.current.value = value
       setEditPublication(true)
+      // setOldEdit(value)
     }
     if (key === "language") {
       languageRef.current.value = value
       setEditLanguage(true)
+      // setOldEdit(value)
     }
     if (key === "award") {
       awardRef.current.value = value
       setEditAward(true)
+      // setOldEdit(value)
     }
     if (key === "extraCurricular") {
       extraCurricularRef.current.value = value
       setEditExtracurr(true)
+      // setOldEdit(value)
     }
+  }
+
+  const deleteHandler = (key, value) => {
+    // console.log("calling deleteFinalize", key, value)
+    let newFields = deleteFinalize(key, value)
+    setEdit(newFields)
   }
 
   return (
@@ -249,7 +265,10 @@ const Finalize = () => {
               {edit.interests.map(interest => (
                 <div key={Math.random() * 10000} className={styles.editField}>
                   <p>{interest}</p>
-                  <button type="submit" className={styles.editFieldBtn} onClick={(evt) => { evt.preventDefault(); updateHandler("interests", interest) }}>update</button>
+                  <div className={styles.updateFinalizeWrapper}>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); setOldEdit(interest); updateHandler("interests", interest) }}>update</button>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); deleteHandler("interests", interest) }}>delete</button>
+                  </div>
                 </div>
               ))}
             </div>
@@ -261,7 +280,10 @@ const Finalize = () => {
               {edit.software.map(software => (
                 <div key={Math.random() * 10000} className={styles.editField}>
                   <p>{software}</p>
-                  <button type="submit" onClick={(evt) => { evt.preventDefault(); updateHandler("software", software) }}>update</button>
+                  <div className={styles.updateFinalizeWrapper}>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); setOldEdit(software); updateHandler("software", software) }}>update</button>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); deleteHandler("software", software) }}>delete</button>
+                  </div>
                 </div>
               ))}
             </div>
@@ -273,7 +295,10 @@ const Finalize = () => {
               {edit.publication.map(publication => (
                 <div key={Math.random() * 10000} className={styles.editField}>
                   <p>{publication}</p>
-                  <button type="submit" onClick={(evt) => { evt.preventDefault(); updateHandler("publication", publication) }}>update</button>
+                  <div className={styles.updateFinalizeWrapper}>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); setOldEdit(publication); updateHandler("publication", publication) }}>update</button>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); deleteHandler("publication", publication) }}>delete</button>
+                  </div>
                 </div>
               ))}
             </div>
@@ -285,7 +310,10 @@ const Finalize = () => {
               {edit.language.map(language => (
                 <div key={Math.random() * 10000} className={styles.editField}>
                   <p>{language}</p>
-                  <button type="submit" onClick={(evt) => { evt.preventDefault(); updateHandler("language", language) }}>update</button>
+                  <div className={styles.updateFinalizeWrapper}>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); setOldEdit(language); updateHandler("language", language) }}>update</button>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); deleteHandler("language", language) }}>delete</button>
+                  </div>
                 </div>
               ))}
             </div>
@@ -297,7 +325,10 @@ const Finalize = () => {
               {edit.award.map(award => (
                 <div key={Math.random() * 10000} className={styles.editField}>
                   <p>{award}</p>
-                  <button type="submit" onClick={(evt) => { evt.preventDefault(); updateHandler("award", award) }}>update</button>
+                  <div className={styles.updateFinalizeWrapper}>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); setOldEdit(award); updateHandler("award", award) }}>update</button>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); deleteHandler("award", award) }}>delete</button>
+                  </div>
                 </div>
               ))}
             </div>
@@ -309,7 +340,10 @@ const Finalize = () => {
               {edit.extraCurricular.map(extraCurricular => (
                 <div key={Math.random() * 10000} className={styles.editField}>
                   <p>{extraCurricular}</p>
-                  <button type="submit" onClick={(evt) => { evt.preventDefault(); updateHandler("extraCurricular", extraCurricular) }}>update</button>
+                  <div className={styles.updateFinalizeWrapper}>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); setOldEdit(extraCurricular); updateHandler("extraCurricular", extraCurricular) }}>update</button>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); deleteHandler("extraCurricular", extraCurricular) }}>delete</button>
+                  </div>
                 </div>
               ))}
             </div>
