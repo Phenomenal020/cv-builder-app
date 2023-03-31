@@ -17,12 +17,15 @@ const Certifications = () => {
   const [msg, setMsg] = useState(defaultMsg);
   const [checked, setChecked] = useState(false);
   const certificate = useRef(null);
+  const link = useRef(null);
   const year = useRef(null);
   const description = useRef(null);
 
   const handleCheck = () => {
     setChecked(check => !check);
   };
+
+  // console.log("year", year)
 
   const handleChange = evt => {
     setMsg(evt.target.value);
@@ -37,14 +40,15 @@ const Certifications = () => {
         : null,
       // if checked, use current month
       year: checked
-        ? d.getMonth()
+        ? "ongoing"
         : (year.current.value
           ? year.current.value
           : null),
       other:
         description.current.value.trim() !== defaultMsg && description.current.value
           ? description.current.value
-          : null
+          : null,
+      link: link.current.value ? link.current.value : null
     };
     // check required fields
     if (!certDetails.certification) {
@@ -64,7 +68,8 @@ const Certifications = () => {
 
   const resetFields = () => {
     certificate.current.value = "";
-    year.current.value = "2022-08";
+    link.current.value = "";
+    year.current.value = "";
     description.current.value = defaultMsg
     // setMsg(defaultMsg);
     setChecked(false);
@@ -99,6 +104,7 @@ const Certifications = () => {
       // console.log("edit year", __edit.year)
       // console.log("edit other", __edit.other)
       certificate.current.value = __edit.certification
+      link.current.value = __edit.link
       year.current.value = `${d.getFullYear()}-${monthOnly}`;
       description.current.value = __edit.other;
       setEditMode(true)
@@ -145,7 +151,7 @@ const Certifications = () => {
         </button>
 
         {/* Certification name */}
-        <div className={styles.certificationWrapper}>
+        <div className={styles.fieldWrapper}>
           <input
             ref={certificate}
             type="text"
@@ -158,15 +164,14 @@ const Certifications = () => {
         </div>
 
         {/* Date obtained */}
-        <div className={styles.certificationWrapper}>
+        <div className={styles.fieldWrapper}>
           <input
             ref={year}
             type="month"
             name="year"
             id="year"
-            defaultValue="2022-08"
+          // defaultValue="2022-08"
           ></input>
-          <span className={styles.requiredField}>*</span>
         </div>
 
         <div className={styles.presentWrapper}>
@@ -177,11 +182,22 @@ const Certifications = () => {
             name="present"
             value="present"
             checked={checked}
+            className={styles.checkedBox}
           />
           <label htmlFor="present">Present</label>
         </div>
 
-        <div className={styles.headlineWrapper}>
+        <div className={styles.fieldWrapper}>
+          <input
+            ref={link}
+            type="url"
+            placeholder="Any link to the training/certification details"
+            name="link"
+            id="link"
+          ></input>
+        </div>
+
+        <div className={styles.fieldWrapper}>
           <textarea
             ref={description}
             id="description"
@@ -209,19 +225,27 @@ const Certifications = () => {
       </form>
 
       <section className={styles.editCertContainer}>
+        <span className={styles.summaryText}>Summary</span>
         {edit.map(_edit => (
           <div key={Math.random() * 1000} className={styles.editCertWrapper}>
             <div>
               {/* first row */}
-              <div className={styles.editDoubleRow}>
-                <p className={styles.editCertHeader}>{_edit.certification}</p>
-                <p className={styles.editCertYear}>{formatMonth(_edit.year)}</p>
+              <div className={styles.editInputLine}>
+                <p>{_edit.certification}</p>
+              </div>
+              {_edit.year ? (<div className={styles.editInputLine}>{_edit.year == "ongoing" ? <p>ongoing</p> : <p>{formatMonth(_edit.year)}</p>
+              } </div>) : ""}
+              <div className={styles.editInputLine}>
+                <p>{_edit.link}</p>
               </div>
               {/* second row */}
-              <p className={styles.editCertDetails}>{_edit.other}</p>
+              <div className={styles.editInputLine}>
+                <p className={styles.editCertDetails}>{_edit.other}</p>
+              </div>
+
               <div className={styles.updateFieldsWrapper}>
-                <button type="submit" onClick={() => updateHandler(_edit, "update")} className={styles.updateBtn}>update certification</button>
-                <button type="submit" onClick={() => updateHandler(_edit, "delete")} className={styles.updateBtn}>delete certification</button>
+                <button type="submit" onClick={() => updateHandler(_edit, "update")} className={styles.iconBtn}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                <button type="submit" onClick={() => updateHandler(_edit, "delete")} className={styles.iconBtn}><i className="fa fa-trash" aria-hidden="true"></i></button>
               </div>
 
             </div>

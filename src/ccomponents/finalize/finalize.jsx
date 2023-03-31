@@ -7,44 +7,46 @@ const Finalize = () => {
 
   const [edit, setEdit] = useState(finalize)
   const [editAward, setEditAward] = useState(false)
-  const [editInterest, setEditInterest] = useState(false)
-  const [editPublication, setEditPublication] = useState(false)
-  const [editSoftware, setEditSoftware] = useState(false)
-  const [editLanguage, setEditLanguage] = useState(false)
   const [editExtracurr, setEditExtracurr] = useState(false)
+  const [editAcademicWork, setEditAcademicWork] = useState(false)
+  const [editMembership, setEditMembership] = useState(false)
+  const [editLanguage, setEditLanguage] = useState(false)
+  const [editCustom, setEditCustom] = useState(false)
 
   const [oldEdit, setOldEdit] = useState("")
 
-  let interestsRef = useRef(null);
-  let softwareRef = useRef(null);
-  let publicationRef = useRef(null);
-  let languageRef = useRef(null);
   let awardRef = useRef(null);
   let extraCurricularRef = useRef(null);
+  let academicRef = useRef(null);
+  let membershipRef = useRef(null);
+  let languageRef = useRef(null);
+  let customRef = useRef(null);
 
   const populateFields = () => {
     // setOldEdit(field)
     // console.log("old value", oldEdit)
-    let interest = interestsRef.current.value
-      ? interestsRef.current.value
-      : null;
-    let software = softwareRef.current.value ? softwareRef.current.value : null;
-    let language = languageRef.current.value ? languageRef.current.value : null;
     let award = awardRef.current.value ? awardRef.current.value : null;
-    let publication = publicationRef.current.value
-      ? publicationRef.current.value
-      : null;
     let extraCurricular = extraCurricularRef.current.value
       ? extraCurricularRef.current.value
       : null;
-    if (interest || software || language || award || publication || extraCurricular) {
+    let academicWork = academicRef.current.value
+      ? academicRef.current.value
+      : null;
+    let membership = membershipRef.current.value
+      ? membershipRef.current.value
+      : null;
+    let language = languageRef.current.value ? languageRef.current.value : null;
+    let custom = customRef.current.value ? customRef.current.value : null;
+
+    if (membership || custom || language || award || academicWork || extraCurricular) {
       let newFields = updateFinalize(
-        interest,
-        software,
-        language,
         award,
-        publication,
-        extraCurricular, oldEdit
+        extraCurricular,
+        academicWork,
+        membership,
+        language,
+        custom,
+        oldEdit
       )
       // if (newFields) {
       return newFields
@@ -79,25 +81,6 @@ const Finalize = () => {
   }
 
   const updateHandler = (key, value) => {
-    if (key === "interests") {
-      interestsRef.current.value = value
-      setEditInterest(true)
-    }
-    if (key === "software") {
-      softwareRef.current.value = value
-      setEditSoftware(true)
-      // setOldEdit(value)
-    }
-    if (key === "publication") {
-      publicationRef.current.value = value
-      setEditPublication(true)
-      // setOldEdit(value)
-    }
-    if (key === "language") {
-      languageRef.current.value = value
-      setEditLanguage(true)
-      // setOldEdit(value)
-    }
     if (key === "award") {
       awardRef.current.value = value
       setEditAward(true)
@@ -106,6 +89,25 @@ const Finalize = () => {
     if (key === "extraCurricular") {
       extraCurricularRef.current.value = value
       setEditExtracurr(true)
+      // setOldEdit(value)
+    }
+    if (key === "academicWork") {
+      academicRef.current.value = value
+      setEditAcademicWork(true)
+      // setOldEdit(value)
+    }
+    if (key === "membership") {
+      membershipRef.current.value = value
+      setEditMembership(true)
+    }
+    if (key === "language") {
+      languageRef.current.value = value
+      setEditLanguage(true)
+      // setOldEdit(value)
+    }
+    if (key === "custom") {
+      customRef.current.value = value
+      setEditCustom(true)
       // setOldEdit(value)
     }
   }
@@ -119,8 +121,8 @@ const Finalize = () => {
   return (
     <>
       <form className={styles.itemContainer}>
-        <h2 className={styles.formHeader}>Finalize</h2>
-        <p className={styles.formSummary}>This section is optional</p>
+        <h2 className={styles.formHeader}>Additional Activities</h2>
+        <p className={styles.formSummary}>(This section is optional)</p>
         <hr className={styles.hr} />
         <button className={styles.skipButton}>skip this step</button>
 
@@ -155,33 +157,55 @@ const Finalize = () => {
             {editExtracurr ? <button
               className={styles.addBtn}
               onClick={(evt) => { evt.preventDefault(); handleEdit(extraCurricularRef); setEditExtracurr(false) }}
-            ><span>Update extra curricular activity</span>
+            ><span>Update extracurricular activity</span>
             </button> : <button
               className={styles.addBtn}
               onClick={(evt) => { evt.preventDefault(); handleAdd(extraCurricularRef) }}
-            >+ <span>Add extra curricular activity</span>
+            >+ <span>Add extracurricular activity</span>
             </button>}
           </div>
         </div>
 
-        {/* interests */}
+        {/* Academic work */}
         <div className={styles.extraCurricularWrapper}>
           <input
-            ref={interestsRef}
+            ref={academicRef}
             type="text"
-            placeholder="interests"
-            name="interests"
-            id="interests"
+            placeholder="Academic works like Publications, Presentations, Conferences, Seminars, Citations, etc"
+            name="academicWork"
+            id="academicWork"
           ></input>
           <div className={styles.addExtraCurricularWrapper}>
-            {editInterest ? <button
+            {editAcademicWork ? <button
               className={styles.addBtn}
-              onClick={(evt) => { evt.preventDefault(); handleEdit(interestsRef); setEditInterest(false) }}
-            ><span>Update interest</span>
+              onClick={(evt) => { evt.preventDefault(); handleEdit(academicRef); setEditAcademicWork(false) }}
+            ><span>Update Academic Work</span>
             </button> : <button
               className={styles.addBtn}
-              onClick={(evt) => { evt.preventDefault(); handleAdd(interestsRef) }}
-            >+ <span>Add interest</span>
+              onClick={(evt) => { evt.preventDefault(); handleAdd(academicRef) }}
+            >+ <span>Add Academic Work</span>
+            </button>}
+          </div>
+        </div>
+
+        {/* Memberships/Professional bodies */}
+        <div className={styles.extraCurricularWrapper}>
+          <input
+            ref={membershipRef}
+            type="text"
+            placeholder="Memberships, professional Institutions, e.t.c"
+            name="memberships"
+            id="memberships"
+          ></input>
+          <div className={styles.addExtraCurricularWrapper}>
+            {editMembership ? <button
+              className={styles.addBtn}
+              onClick={(evt) => { evt.preventDefault(); handleEdit(membershipRef); setEditMembership(false) }}
+            ><span>Update membership</span>
+            </button> : <button
+              className={styles.addBtn}
+              onClick={(evt) => { evt.preventDefault(); handleAdd(membershipRef) }}
+            >+ <span>Add membership</span>
             </button>}
           </div>
         </div>
@@ -208,96 +232,72 @@ const Finalize = () => {
           </div>
         </div>
 
-        {/* Publication */}
+        {/* custom */}
         <div className={styles.extraCurricularWrapper}>
           <input
-            ref={publicationRef}
+            ref={customRef}
             type="text"
-            placeholder="Publication"
-            name="Publication"
-            id="Publication"
+            placeholder="custom field"
+            name="custom"
+            id="custom"
           ></input>
           <div className={styles.addExtraCurricularWrapper}>
-            {editPublication ? <button
+            {editCustom ? <button
               className={styles.addBtn}
-              onClick={(evt) => { evt.preventDefault(); handleEdit(publicationRef); setEditPublication(false) }}
-            ><span>Update Publication</span>
+              onClick={(evt) => { evt.preventDefault(); handleEdit(customRef); setEditCustom(false) }}
+            ><span>Update custom</span>
             </button> : <button
               className={styles.addBtn}
-              onClick={(evt) => { evt.preventDefault(); handleAdd(publicationRef) }}
-            >+ <span>Add Publication</span>
+              onClick={(evt) => { evt.preventDefault(); handleAdd(customRef) }}
+            >+ <span>Add custom</span>
             </button>}
-
-          </div>
-        </div>
-
-        {/* Software */}
-        <div className={styles.extraCurricularWrapper}>
-          <input
-            ref={softwareRef}
-            type="text"
-            placeholder="software"
-            name="software"
-            id="software"
-          ></input>
-          <div className={styles.addExtraCurricularWrapper}>
-            {editSoftware ? <button
-              className={styles.addBtn}
-              onClick={(evt) => { evt.preventDefault(); handleEdit(softwareRef); setEditSoftware(false) }}
-            ><span>Update software</span>
-            </button> : <button
-              className={styles.addBtn}
-              onClick={(evt) => { evt.preventDefault(); handleAdd(softwareRef) }}
-            >+ <span>Add software</span>
-            </button>}
-
           </div>
         </div>
 
       </form>
 
       {
-        (edit.interests.length > 0 || edit.software.length > 0 || edit.publication.length > 0 || edit.language.length > 0 || edit.award.length > 0 || edit.extraCurricular.length > 0) && <section className={styles.editFinalizeContainer}>
-          {/* render interests */}
-          {edit.interests.length > 0 && <div className={styles.editFinalizeWrapper}>
-            <div className={styles.editHeader}>interests</div>
+        (edit.membership.length > 0 || edit.custom.length > 0 || edit.academicWork.length > 0 || edit.language.length > 0 || edit.award.length > 0 || edit.extraCurricular.length > 0) && <section className={styles.editFinalizeContainer}>
+          {/* render membership */}
+          {edit.membership.length > 0 && <div className={styles.editFinalizeWrapper}>
+            <div className={styles.editHeader}>Memberships and Professional bodies</div>
             <div>
-              {edit.interests.map(interest => (
+              {edit.membership.map(_membership => (
                 <div key={Math.random() * 10000} className={styles.editField}>
-                  <p>{interest}</p>
+                  <p>{_membership}</p>
                   <div className={styles.updateFinalizeWrapper}>
-                    <button type="submit" onClick={(evt) => { evt.preventDefault(); setOldEdit(interest); updateHandler("interests", interest) }}>update</button>
-                    <button type="submit" onClick={(evt) => { evt.preventDefault(); deleteHandler("interests", interest) }}>delete</button>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); setOldEdit(_membership); updateHandler("membership", _membership) }}>update</button>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); deleteHandler("membership", _membership) }}>delete</button>
                   </div>
                 </div>
               ))}
             </div>
           </div>}
-          {/* render software */}
-          {edit.software.length > 0 && <div className={styles.editFinalizeWrapper}>
-            <div className={styles.editHeader}>software</div>
+          {/* render custom */}
+          {edit.custom.length > 0 && <div className={styles.editFinalizeWrapper}>
+            <div className={styles.editHeader}>Custom fields</div>
             <div>
-              {edit.software.map(software => (
+              {edit.custom.map(_custom => (
                 <div key={Math.random() * 10000} className={styles.editField}>
-                  <p>{software}</p>
+                  <p>{_custom}</p>
                   <div className={styles.updateFinalizeWrapper}>
-                    <button type="submit" onClick={(evt) => { evt.preventDefault(); setOldEdit(software); updateHandler("software", software) }}>update</button>
-                    <button type="submit" onClick={(evt) => { evt.preventDefault(); deleteHandler("software", software) }}>delete</button>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); setOldEdit(_custom); updateHandler("custom", _custom) }}>update</button>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); deleteHandler("custom", _custom) }}>delete</button>
                   </div>
                 </div>
               ))}
             </div>
           </div>}
-          {/* render publication */}
-          {edit.publication.length > 0 && <div className={styles.editFinalizeWrapper}>
-            <div className={styles.editHeader}>publication</div>
+          {/* render academic work */}
+          {edit.academicWork.length > 0 && <div className={styles.editFinalizeWrapper}>
+            <div className={styles.editHeader}>Academic works and Seminars</div>
             <div>
-              {edit.publication.map(publication => (
+              {edit.academicWork.map(_academicWork => (
                 <div key={Math.random() * 10000} className={styles.editField}>
-                  <p>{publication}</p>
+                  <p>{_academicWork}</p>
                   <div className={styles.updateFinalizeWrapper}>
-                    <button type="submit" onClick={(evt) => { evt.preventDefault(); setOldEdit(publication); updateHandler("publication", publication) }}>update</button>
-                    <button type="submit" onClick={(evt) => { evt.preventDefault(); deleteHandler("publication", publication) }}>delete</button>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); setOldEdit(_academicWork); updateHandler("academicWork", _academicWork) }}>update</button>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); deleteHandler("academicWork", _academicWork) }}>delete</button>
                   </div>
                 </div>
               ))}
@@ -307,12 +307,12 @@ const Finalize = () => {
           {edit.language.length > 0 && <div className={styles.editFinalizeWrapper}>
             <div className={styles.editHeader}>language</div>
             <div>
-              {edit.language.map(language => (
+              {edit.language.map(_language => (
                 <div key={Math.random() * 10000} className={styles.editField}>
-                  <p>{language}</p>
+                  <p>{_language}</p>
                   <div className={styles.updateFinalizeWrapper}>
-                    <button type="submit" onClick={(evt) => { evt.preventDefault(); setOldEdit(language); updateHandler("language", language) }}>update</button>
-                    <button type="submit" onClick={(evt) => { evt.preventDefault(); deleteHandler("language", language) }}>delete</button>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); setOldEdit(_language); updateHandler("language", _language) }}>update</button>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); deleteHandler("language", _language) }}>delete</button>
                   </div>
                 </div>
               ))}
@@ -322,12 +322,12 @@ const Finalize = () => {
           {edit.award.length > 0 && <div className={styles.editFinalizeWrapper}>
             <div className={styles.editHeader}>award</div>
             <div>
-              {edit.award.map(award => (
+              {edit.award.map(_award => (
                 <div key={Math.random() * 10000} className={styles.editField}>
-                  <p>{award}</p>
+                  <p>{_award}</p>
                   <div className={styles.updateFinalizeWrapper}>
-                    <button type="submit" onClick={(evt) => { evt.preventDefault(); setOldEdit(award); updateHandler("award", award) }}>update</button>
-                    <button type="submit" onClick={(evt) => { evt.preventDefault(); deleteHandler("award", award) }}>delete</button>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); setOldEdit(_award); updateHandler("award", _award) }}>update</button>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); deleteHandler("award", _award) }}>delete</button>
                   </div>
                 </div>
               ))}
@@ -337,12 +337,12 @@ const Finalize = () => {
           {edit.extraCurricular.length > 0 && <div className={styles.editFinalizeWrapper}>
             <div className={styles.editHeader}>extraCurricular</div>
             <div>
-              {edit.extraCurricular.map(extraCurricular => (
+              {edit.extraCurricular.map(_extraCurricular => (
                 <div key={Math.random() * 10000} className={styles.editField}>
-                  <p>{extraCurricular}</p>
+                  <p>{_extraCurricular}</p>
                   <div className={styles.updateFinalizeWrapper}>
-                    <button type="submit" onClick={(evt) => { evt.preventDefault(); setOldEdit(extraCurricular); updateHandler("extraCurricular", extraCurricular) }}>update</button>
-                    <button type="submit" onClick={(evt) => { evt.preventDefault(); deleteHandler("extraCurricular", extraCurricular) }}>delete</button>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); setOldEdit(_extraCurricular); updateHandler("extraCurricular", _extraCurricular) }}>update</button>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); deleteHandler("extraCurricular", _extraCurricular) }}>delete</button>
                   </div>
                 </div>
               ))}

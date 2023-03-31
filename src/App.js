@@ -2,12 +2,17 @@ import Navbar from "./ccomponents/navbar/navbar";
 import BuildCv from "./pages/cv";
 import Home from "./pages/home";
 // import Print from "./pages/print"
-import Contact from "./pages/contactPage"
-import Login from "./pages/login"
-import About from "./pages/about"
+import Contact from "./pages/contactPage";
+import Login from "./pages/login";
+import About from "./pages/about";
 import ContactContextProvider from "./context/contactContext";
 
-import { BrowserRouter, Routes, Route, Navigate } from "../node_modules/react-router-dom/dist";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+} from "../node_modules/react-router-dom/dist";
 import EducationContextProvider from "./context/educationContext";
 import CertificationContextProvider from "./context/certificationContext";
 import EmploymentContextProvider from "./context/employmentContext";

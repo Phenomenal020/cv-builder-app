@@ -24,11 +24,12 @@ const Education = () => {
   // references
   const program = useRef(null);
   const school = useRef(null);
-  const city = useRef(null);
   const state = useRef(null);
   const start = useRef(null);
   const end = useRef(null);
   const gpa = useRef(null);
+  const relevantCourses = useRef(null)
+  const project = useRef(null)
   // populate relevant fields
   const populateFields = () => {
     const educationDetails = {
@@ -38,10 +39,12 @@ const Education = () => {
       degree: selectedDegree ? selectedDegree : null,
       end: end.current.value ? end.current.value : null,
       start: start.current.value ? start.current.value : null,
-      city: city.current.value ? city.current.value : null,
       state: state.current.value ? state.current.value : null,
       country: selectedCountry ? selectedCountry : null,
-      gpa: gpa.current.value ? gpa.current.value : null
+      gpa: gpa.current.value ? gpa.current.value : null,
+      relevantCourses: relevantCourses.current.value ? relevantCourses.current.value : null,
+      project: project.current.value ? project.current.value : null
+
     };
     // check required fields
     if (!educationDetails.program || !educationDetails.degree || !educationDetails.school || !educationDetails.start || !educationDetails.end) {
@@ -53,7 +56,7 @@ const Education = () => {
   // reset fields
   const resetFields = () => {
     program.current.value = "";
-    city.current.value = "";
+    // city.current.value = "";
     state.current.value = "";
     program.current.value = "";
     start.current.value = "";
@@ -61,6 +64,8 @@ const Education = () => {
     gpa.current.value = "";
     school.current.value = "";
     program.current.value = "";
+    relevantCourses.current.value = "";
+    project.current.value = "";
     setSelectedCountry(null);
     setSelectedDegree(null);
   }
@@ -82,13 +87,15 @@ const Education = () => {
     if (mode === "update") {
       // evt.preventDefault()
       // program.current.value = __edit.program
-      city.current.value = __edit.city
+      // city.current.value = __edit.city
       state.current.value = __edit.state;
       program.current.value = __edit.program;
       start.current.value = __edit.start;
       end.current.value = __edit.end;
       gpa.current.value = __edit.gpa;
       school.current.value = __edit.school;
+      relevantCourses.current.value = __edit.relevantCourses;
+      project.current.value = __edit.project;
       // program.current.value = __edit.program;
       setSelectedCountry(__edit.country);
       setSelectedDegree(__edit.degree);
@@ -129,13 +136,17 @@ const Education = () => {
         <hr className={styles.hr} />
 
         {/* Degree */}
-        <div className={styles.degreeAndProgramWrapper}>
+        <div className={styles.fieldWrapper}>
+          <label htmlFor="project" className={styles.labelText}>Degree: </label>
           <div className={styles.degreeWrapper} onClick={toggleDropdown}>
             {selectedDegree || "---select degree---"}
             {degreeList && <DegreeList setSelectedDegree={setSelectedDegree} />}
           </div>
           <span className={styles.requiredField}>*</span>
+        </div>
 
+        <div className={styles.fieldWrapper}>
+          <label htmlFor="project" className={styles.labelText}>Program: </label>
           <input
             ref={program}
             type="text"
@@ -149,7 +160,8 @@ const Education = () => {
         </div>
 
         {/* school */}
-        <div className={styles.schoolWrapper}>
+        <div className={styles.fieldWrapper}>
+          <label htmlFor="project" className={styles.labelText}>School: </label>
           <input
             ref={school}
             type="text"
@@ -161,8 +173,21 @@ const Education = () => {
           <span className={styles.requiredField}>*</span>
         </div>
 
+        <div className={styles.fieldWrapper}>
+          <label htmlFor="project" className={styles.labelText}>State: </label>
+          <input
+            ref={state}
+            type="text"
+            placeholder="state"
+            name="state"
+            id="state"
+          ></input>
+          <span className={styles.requiredField}></span>
+        </div>
+
         {/* country and city */}
-        <div className={styles.countryCityWrapper}>
+        <div className={styles.fieldWrapper}>
+          <label htmlFor="project" className={styles.labelText}>Country: </label>
           <div
             className={styles.countryListWrapper}
             onClick={() => toggleCountryList(prevState => !prevState)}
@@ -172,62 +197,75 @@ const Education = () => {
               <CountryList setSelectedCountry={setSelectedCountry} />
             )}
           </div>
-          <span className={styles.requiredField}>*</span>
+        </div>
+
+
+        {/* start */}
+        <div className={styles.start}>
+          <label htmlFor="start" className={styles.labelText}>
+            Start date:
+          </label>
           <input
-            ref={city}
-            type="city"
-            placeholder="city"
-            name="city"
-            id="city"
-          ></input>
-          <input
-            ref={state}
-            type="text"
-            placeholder="state"
-            name="state"
-            id="state"
+            ref={start}
+            type="date"
+            placeholder="Start date"
+            name="start"
+            id="start"
+            required
+            className={styles.startDateInput}
           ></input>
           <span className={styles.requiredField}>*</span>
         </div>
 
-        <div className={styles.dateWrapper}>
-          {/* start */}
-          <div className={styles.start}>
-            <label htmlFor="start" className={styles.startDateLabel}>
-              Start date:
-            </label>
-            <input
-              ref={start}
-              type="date"
-              placeholder="Start date"
-              name="start"
-              id="start"
-              required
-              className={styles.startDateInput}
-            ></input>
-            <span className={styles.requiredField}>*</span>
-          </div>
-
-          {/* end */}
-          <div className={styles.end}>
-            <label htmlFor="end" className={styles.endDateLabel}>
-              End date:
-            </label>
-            <input
-              ref={end}
-              type="date"
-              placeholder="End date"
-              name="end"
-              id="end"
-              required
-              className={styles.endDateInput}
-            ></input>
-            <span className={styles.requiredField}>*</span>
-          </div>
+        {/* end */}
+        <div className={styles.end}>
+          <label htmlFor="end" className={styles.labelText}>
+            End date:
+          </label>
+          <input
+            ref={end}
+            type="date"
+            placeholder="End date"
+            name="end"
+            id="end"
+            required
+            className={styles.endDateInput}
+          ></input>
+          <span className={styles.requiredField}>*</span>
         </div>
+
+        <div className={styles.textFieldWrapper}>
+          <label htmlFor="project" className={styles.labelText}>Relevant courses taken: </label>
+          <textarea
+            ref={relevantCourses}
+            id="relevantCourses"
+            name="relevantCourses"
+            rows="10"
+            cols="50"
+          // value={msg}
+          // onChange={handleChange}
+          // onFocus={handleFocus}
+          ></textarea>
+        </div>
+
+        <div className={styles.textFieldWrapper}>
+          <label htmlFor="project" className={styles.labelText}>Project: </label>
+          <textarea
+            ref={project}
+            id="project"
+            name="project"
+            rows="10"
+            cols="50"
+          // value={msg}
+          // onChange={handleChange}
+          // onFocus={handleFocus}
+          ></textarea>
+        </div>
+
 
         {/* cgpa */}
         <div className={styles.cgpaWrapper}>
+          <label htmlFor="project" className={styles.labelText}>CGPA: </label>
           <input
             ref={gpa}
             type="text"
@@ -235,8 +273,8 @@ const Education = () => {
             name="gpa"
             id="gpa"
           ></input>
-          <p className={styles.infoText}>* Only add your CGPA if it's above 3.5/5.0 or equivalent</p>
         </div>
+        <p className={styles.infoText}>* Only add your CGPA if it's above 3.5/5.0 or equivalent</p>
 
         <div className={styles.addWrapper}>
           {editMode ? <button className={styles.addBtn} onClick={handleEditSubmit}>
@@ -248,39 +286,52 @@ const Education = () => {
 
       </form>
 
-      {/* summary section */}
+      {/* -----------------------summary section ------------------- */}
       <section className={styles.editEducationContainer}>
+        <span className={styles.summaryText}>Summary</span>
         {edit.map(_edit => (
           // wrapper
           <div className={styles.editEducationWrapper} key={_edit.educationId}>
 
             {/* first row */}
-            <div className={styles.editDoubleRow}>
+            <div className={styles.editInputLine}>
               <p className={styles.editDegree}>{_edit.degree}</p>
               <p className={styles.editProgram}>{_edit.program}</p>
             </div>
             {/* second row */}
-            <p className={styles.editSchool}>{_edit.school}</p>
+            <div className={styles.editInputLine}>
+              <p className={styles.editSchool}>{_edit.school}</p>
+
+            </div>
             {/* third row */}
-            <div className={styles.editDoubleRow}>
+            <div className={styles.editInputLine}>
               <p className={styles.editCountry}>{_edit.country}</p>
-              <p className={styles.editCity}>{_edit.city}</p>
             </div>
             {/* fourth row */}
-            <div className={styles.editDoubleRow}>
+            <div className={styles.editInputLine}>
               <p className={styles.editState}>{_edit.state}</p>
-              <p className={styles.editZip}>{_edit.zip}</p>
             </div>
             {/* fifth row */}
-            <div className={styles.editTripleRow}>
+            <div className={styles.editInputLine}>
               <p className={styles.editStart}>{_edit.start}</p>
               <p className={styles.editEnd}>{_edit.end}</p>
+            </div>
+
+            <div className={styles.editInputLine}>
               <p className={styles.editGpa}>{_edit.gpa}</p>
             </div>
 
+            <div className={styles.editInputLine}>
+              <p className={styles.editDetails}>{_edit.relevantCourses}</p>
+            </div>
+
+            <div className={styles.editInputLine}>
+              <p className={styles.editDetails}>{_edit.project}</p>
+            </div>
+
             <div className={styles.updateFieldsWrapper}>
-              <button type="submit" onClick={() => updateHandler(_edit, "update")} className={styles.updateBtn}>update education</button>
-              <button type="submit" onClick={() => updateHandler(_edit, "delete")} className={styles.updateBtn}>delete education</button>
+              <button type="submit" onClick={() => updateHandler(_edit, "update")} className={styles.iconBtn}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+              <button type="submit" onClick={() => updateHandler(_edit, "delete")} className={styles.iconBtn}><i className="fa fa-trash" aria-hidden="true"></i></button>
             </div>
 
 

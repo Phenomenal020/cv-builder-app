@@ -20,7 +20,7 @@
   margin-bottom: 0px;
   font-weight: bold;
   text-align: center;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   position: relative;
   height: calc(100vh - 60px);
   overflow: hidden;

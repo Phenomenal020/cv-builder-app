@@ -95,15 +95,18 @@ const Skills = () => {
 
         {/* skill */}
         <div className={styles.skillWrapper}>
-          <input
-            className={styles.skill}
-            ref={skill}
-            type="text"
-            placeholder="Skill"
-            name="skill"
-            id="skill"
-            required
-          ></input>
+          <div className={styles.skillTextWrapper}>
+            <label htmlFor="skill" className={styles.labelText}>Skill: </label>
+            <input
+              className={styles.skill}
+              ref={skill}
+              type="text"
+              placeholder="Skill"
+              name="skill"
+              id="skill"
+              required
+            ></input>
+          </div>
           <input
             type="number"
             min="10"
@@ -115,6 +118,8 @@ const Skills = () => {
             className={styles.skillProgress}
           ></input>
         </div>
+
+
 
         <hr className={styles.hr} />
 
@@ -129,6 +134,7 @@ const Skills = () => {
       </form>
 
       {skills.length > 0 && <section className={styles.editSkillContainer}>
+        <span className={styles.summaryText}>Summary</span>
         <div key={Math.random() * 1000} className={styles.editSkillWrapper}>
           <div>
             {edit.map(_edit => (
@@ -136,8 +142,8 @@ const Skills = () => {
                 <p className={styles.editSkill}>{_edit.skill}</p>
                 <p className={styles.editSkillsProgress}>{_edit.progress}%</p>
                 <div className={styles.updateSkillsWrapper}>
-                  <button type="submit" onClick={() => updateHandler(_edit, "update")} className={styles.updateSkill}>update</button>
-                  <button type="submit" onClick={() => updateHandler(_edit, "delete")} className={styles.updateSkill}>delete</button>
+                  <button type="submit" onClick={() => updateHandler(_edit, "update")} className={styles.updateSkill}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                  <button type="submit" onClick={() => updateHandler(_edit, "delete")} className={styles.updateSkill}><i className="fa fa-trash" aria-hidden="true"></i></button>
                 </div>
               </div>
             ))}

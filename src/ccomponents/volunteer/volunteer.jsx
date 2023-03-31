@@ -3,17 +3,13 @@ import { useRef, useContext, useState } from "react";
 import { VolunteerContext } from "../../context/volunteerContext";
 // 
 const Volunteer = () => {
-  const defaultMsg =
-    "Add a brief description of what you did/do as a volunteer Eg,Taught Ultrasound for free";
 
   const { volunteer, updateVolunteer, deleteVolunteer } = useContext(VolunteerContext);
   const [present, setPresent] = useState(false);
-  const [msg, setMsg] = useState(defaultMsg);
 
   const [editMode, setEditMode] = useState(false)
   const [editId, setEditId] = useState(null)
   const [edit, setEdit] = useState(volunteer)
-  // console.log("edit", edit)
 
   const position = useRef(null);
   const project = useRef(null);
@@ -31,11 +27,7 @@ const Volunteer = () => {
       location: location.current.value ? location.current.value : null,
       start: start.current.value ? start.current.value : null,
       end: end.current.value ? end.current.value : null,
-      responsibilities:
-        responsibilities.current.value.trim() !== defaultMsg &&
-          responsibilities.current.value
-          ? responsibilities.current.value
-          : null,
+      responsibilities: responsibilities.current.value ? responsibilities.current.value : "",
       presently: present
     };
     // check required fields
@@ -47,17 +39,13 @@ const Volunteer = () => {
     }
   };
 
-  const handleChange = evt => {
-    setMsg(evt.target.value);
-  };
-
   const handleCheck = () => {
     setPresent(presently.current.checked);
   };
 
-  const handleFocus = () => {
-    responsibilities.current.value = "";
-  };
+  // const handleFocus = () => {
+  //   responsibilities.current.value = "";
+  // };
 
   const resetFields = () => {
     position.current.value = "";
@@ -66,8 +54,8 @@ const Volunteer = () => {
     start.current.value = "";
     end.current.value = "";
     responsibilities.current.value = "";
+    presently.current.checked = false;
     setPresent(false);
-    // setMsg(defaultMsg);
   }
 
   const handleSubmit = evt => {
@@ -128,7 +116,8 @@ const Volunteer = () => {
         <button className={styles.skipButton}>skip this step</button>
 
         {/* Position/Title*/}
-        <div className={styles.volunteerRow}>
+        <div className={styles.fieldWrapper}>
+          <label htmlFor="position" className={styles.labelText}>Position: </label>
           <input
             ref={position}
             type="text"
@@ -141,7 +130,8 @@ const Volunteer = () => {
         </div>
 
         {/* Company/Project */}
-        <div className={styles.volunteerRow}>
+        <div className={styles.fieldWrapper}>
+          <label htmlFor="project" className={styles.labelText}>Project: </label>
           <input
             ref={project}
             type="text"
@@ -154,7 +144,8 @@ const Volunteer = () => {
         </div>
 
         {/* location */}
-        <div className={styles.volunteerRow}>
+        <div className={styles.fieldWrapper}>
+          <label htmlFor="location" className={styles.labelText}>Location: </label>
           <input
             ref={location}
             type="text"
@@ -168,8 +159,8 @@ const Volunteer = () => {
 
 
         {/* start/end dates */}
-        <div className={styles.startEndWrapper}>
-          <label htmlFor="start">start date:</label>
+        <div className={styles.fieldWrapper}>
+          <label htmlFor="start" className={styles.labelText}>start date:</label>
           <input
             ref={start}
             type="date"
@@ -178,7 +169,9 @@ const Volunteer = () => {
             id="start"
           ></input>
           <span className={styles.requiredField}>*</span>
-          <label htmlFor="end">end date:</label>
+        </div>
+        <div className={styles.fieldWrapper}>
+          <label htmlFor="end" className={styles.labelText}>End:</label>
           <input
             ref={end}
             type="date"
@@ -189,8 +182,7 @@ const Volunteer = () => {
           {present ? "" : <span className={styles.requiredField}>*</span>}
         </div>
 
-        <div className={styles.currentlyWorkHere}>
-          <div></div>
+        <div className={styles.fieldWrapper}>
           <div className={styles.placeRight}>
             <input
               type="checkbox"
@@ -202,16 +194,15 @@ const Volunteer = () => {
           </div>
         </div>
         {/* Responsibilities */}
-        <textarea
-          ref={responsibilities}
-          id="responsibilities"
-          name="responsibilities"
-          rows="10"
-          cols="50"
-          value={msg}
-          onChange={handleChange}
-          onFocus={handleFocus}
-        ></textarea>
+        <div className={styles.fieldWrapper}>
+          <textarea
+            ref={responsibilities}
+            id="responsibilities"
+            name="responsibilities"
+            rows="10"
+            cols="50"
+          ></textarea>
+        </div>
         <hr className={styles.hr} />
 
         <div className={styles.addWrapper}>
@@ -224,34 +215,34 @@ const Volunteer = () => {
       </form>
 
       <section className={styles.editVolunteerContainer}>
+        <span className={styles.summaryText}>Summary</span>
         {edit.map(_edit => (
           <div key={Math.random() * 1000} className={styles.editVolunteerWrapper}>
-
             <div>
               {/* first row */}
-              <div className={styles.editSingleRow}>
+              <div className={styles.editInputLine}>
                 <p>{_edit.position}</p>
               </div>
               {/* second row row */}
-              <div className={styles.editSingleRow}>
+              <div className={styles.editInputLine}>
                 <p>{_edit.project}</p>
               </div>
               {/* third row */}
-              <div className={styles.editSingleRow}>
+              <div className={styles.editInputLine}>
                 <p>{_edit.location}</p>
               </div>
               {/* fourth row */}
-              <div className={styles.editDoubleRowEmp}>
+              <div className={styles.editInputLine}>
                 {/* present ticked? */}
-                {_edit.presently ? <p>I currently work here</p> : <><p className={styles.volunteerStart}>{_edit.start}</p>
-                  <p className={styles.volunteerStart}>{_edit.end}</p>
+                {_edit.presently ? <p>I currently volunteer here</p> : <><p className={styles.volunteerStart}>{_edit.start}</p>
+                  <p className={styles.volunteerEnd}>{_edit.end}</p>
                 </>}
               </div>
-              <p className={styles.editVolunteerDesc}>{_edit.responsibilities}</p>
+              <p className={styles.editDetails}>{_edit.responsibilities}</p>
 
-              <div className={styles.employmentRow}>
-                <button type="submit" onClick={() => updateHandler(_edit, "update")} className={styles.updateBtn}>update volunteer</button>
-                <button type="submit" onClick={() => updateHandler(_edit, "delete")} className={styles.updateBtn}>delete volunteer</button>
+              <div className={styles.updateFieldsWrapper}>
+                <button type="submit" onClick={() => updateHandler(_edit, "update")} className={styles.iconBtn}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                <button type="submit" onClick={() => updateHandler(_edit, "delete")} className={styles.iconBtn}><i className="fa fa-trash" aria-hidden="true"></i></button>
               </div>
 
             </div>

@@ -3,12 +3,9 @@ import { useContext, useRef, useState } from "react";
 import { EmploymentContext } from "../../context/employmentContext";
 
 const Employment = () => {
-  const defaultMsg =
-    "Enter short descriptions of tasks completed during your employment and how it helped the company";
 
   const { employment, updateEmployment, deleteEmployment } = useContext(EmploymentContext);
   const [present, setPresent] = useState(false);
-  const [msg, setMsg] = useState(defaultMsg);
 
   const [edit, setEdit] = useState(employment)
   const [editMode, setEditMode] = useState(false)
@@ -27,13 +24,10 @@ const Employment = () => {
       jobId: Math.random() * 10000,
       jobTitle: jobTitle.current.value ? jobTitle.current.value : null,
       companyName: companyName.current.value ? companyName.current.value : null,
+      jobDesc: jobDesc.current.value ? jobDesc.current.value : null,
       location: location.current.value ? location.current.value : null,
-      start: present ? null : (start.current.value ? start.current.value : null),
+      start: start.current.value ? start.current.value : null,
       end: present ? null : (end.current.value ? end.current.value : null),
-      jobDesc:
-        jobDesc.current.value.trim() !== defaultMsg && jobDesc.current.value
-          ? jobDesc.current.value
-          : null,
       presently: present
     };
     // check required fields
@@ -90,13 +84,9 @@ const Employment = () => {
 
   }
 
-  const handleFocus = () => {
-    jobDesc.current.value = "";
-  };
-
-  const handleChange = evt => {
-    setMsg(evt.target.value);
-  };
+  // const handleFocus = () => {
+  //   jobDesc.current.value = "";
+  // };
 
   const handleCheck = () => {
     setPresent(presently.current.checked);
@@ -127,7 +117,8 @@ const Employment = () => {
         <hr className={styles.hr} />
 
         {/* Job title */}
-        <div className={styles.employmentRow}>
+        <div className={styles.fieldWrapper}>
+          <label htmlFor="start" className={styles.labelText}>Job Title:</label>
           <input
             ref={jobTitle}
             type="text"
@@ -140,7 +131,8 @@ const Employment = () => {
         </div>
 
         {/* Company/Organization name */}
-        <div className={styles.employmentRow}>
+        <div className={styles.fieldWrapper}>
+          <label htmlFor="start" className={styles.labelText}>Organization:</label>
           <input
             ref={companyName}
             type="text"
@@ -153,7 +145,8 @@ const Employment = () => {
         </div>
 
         {/* location */}
-        <div className={styles.employmentRow}>
+        <div className={styles.fieldWrapper}>
+          <label htmlFor="start" className={styles.labelText}>Location:</label>
           <input
             ref={location}
             type="text"
@@ -167,8 +160,8 @@ const Employment = () => {
 
 
         {/* start/end dates */}
-        <div className={styles.startEndWrapper}>
-          <label htmlFor="start">start date:</label>
+        <div className={styles.fieldWrapper}>
+          <label htmlFor="start" className={styles.labelText}>Start:</label>
           <input
             ref={start}
             type="date"
@@ -177,7 +170,10 @@ const Employment = () => {
             id="start"
           ></input>
           <span className={styles.requiredField}>*</span>
-          <label htmlFor="end">end date:</label>
+        </div>
+
+        <div className={styles.fieldWrapper}>
+          <label htmlFor="end" className={styles.labelText}>End:</label>
           <input
             ref={end}
             type="date"
@@ -187,31 +183,32 @@ const Employment = () => {
           ></input>
           {present ? "" : <span className={styles.requiredField}>*</span>}
         </div>
-        <div className={styles.currentlyWorkHere}>
+
+        <div className={styles.fieldWrapper}>
           <div className={styles.placeRight}>
             <input
               type="checkbox"
               name="present"
               ref={presently}
               onChange={handleCheck}
-              onFocus={handleFocus}
+              // onFocus={handleFocus}
             />
-            <label htmlFor="present">I currently work here</label>
+            <label htmlFor="present" className={styles.currentlyWorkHere}>I currently work here</label>
           </div>
         </div>
 
         {/* Job description */}
 
-        <textarea
-          ref={jobDesc}
-          id="jobDesc"
-          name="jobDesc"
-          rows="10"
-          cols="50"
-          value={msg}
-          onChange={handleChange}
-          onFocus={handleFocus}
-        ></textarea>
+        <div className={styles.fieldWrapper}>
+          <label htmlFor="end" className={styles.labelText}>Role description:</label>
+          <textarea
+            ref={jobDesc}
+            id="jobDesc"
+            name="jobDesc"
+            rows="10"
+            cols="50"
+          ></textarea>
+        </div>
 
         <hr className={styles.hr} />
 
@@ -226,33 +223,34 @@ const Employment = () => {
       </form>
 
       <section className={styles.editCertContainer}>
+        <span className={styles.summaryText}>Summary</span>
         {edit.map(_edit => (
           <div key={Math.random() * 1000} className={styles.editEmploymentWrapper}>
             <div>
               {/* first row */}
-              <div className={styles.editSingleRow}>
+              <div className={styles.editInputLine}>
                 <p>{_edit.jobTitle}</p>
               </div>
               {/* second row row */}
-              <div className={styles.editSingleRow}>
+              <div className={styles.editInputLine}>
                 <p>{_edit.companyName}</p>
               </div>
               {/* third row */}
-              <div className={styles.editSingleRow}>
+              <div className={styles.editInputLine}>
                 <p>{_edit.location}</p>
               </div>
               {/* fourth row */}
-              <div className={styles.editDoubleRowEmp}>
+              <div className={styles.editInputLine}>
                 {/* present ticked? */}
                 {_edit.presently ? <p>I currently work here</p> : <><p className={styles.employmentStart}>{_edit.start}</p>
-                  <p className={styles.employmentStart}>{_edit.end}</p>
+                  <p className={styles.employmentEnd}>{_edit.end}</p>
                 </>}
               </div>
-              <p className={styles.editEmploymentDesc}>{_edit.jobDesc}</p>
+              <p className={styles.editDetails}>{_edit.jobDesc}</p>
 
-              <div className={styles.employmentRow}>
-                <button type="submit" onClick={() => updateHandler(_edit, "update")} className={styles.updateBtn}>update employment</button>
-                <button type="submit" onClick={() => updateHandler(_edit, "delete")} className={styles.updateBtn}>delete employment</button>
+              <div className={styles.updateFieldsWrapper}>
+                <button type="submit" onClick={() => updateHandler(_edit, "update")} className={styles.iconBtn}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                <button type="submit" onClick={() => updateHandler(_edit, "delete")} className={styles.iconBtn}><i className="fa fa-trash" aria-hidden="true"></i></button>
               </div>
 
             </div>

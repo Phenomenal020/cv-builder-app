@@ -1,0 +1,290 @@
+.container {
+  height: 100%;
+  width: 100%;
+  padding: 16px;
+  color: #2A2A2A;
+  font-weight: 400;
+}
+
+/* ------------------------------------------------------------------------- */
+
+.contactWrapper,
+.summaryWrapper,
+.educationWrapper,
+.experienceWrapper,
+.skillsWrapper,
+.certificationsWrapper,
+.projectsWrapper,
+.activitiesWrapper {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+}
+
+.displayName {
+  line-height: 32px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #2d2683;
+  font-family: 'Bree Serif', serif;
+  letter-spacing: 2.8px
+}
+
+.role {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.otherDetails {
+  display: flex;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.otherDetail {
+  margin-left: 2px;
+  line-height: 20px;
+}
+
+.otherDetail::after {
+  content: " • ";
+  font-size: 16px;
+  margin: 0px 4px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.otherDetail:last-of-type::after {
+  content: "";
+}
+
+.headerText {
+  width: 100%;
+  text-align: center !important;
+  color: #2d2683;
+}
+/* ------------------------------------------------------------ */
+
+.summaryWrapper {
+  margin: 12px auto;
+  /* background-color: yellow; */
+}
+
+.headerText {
+  margin-top: 12px;
+  margin-bottom: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  /* background-color: pink; */
+}
+
+.horizontalRule {
+  border: 0.1 solid #2d2683 !important;
+  width: 100%;
+  margin-top: 0px !important;
+}
+
+.summaryText,
+.activitiesText {
+  font-weight: normal;
+  width: 100%;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: left;
+  text-justify: distribute;
+}
+
+/* ----------------------------------------------------------------------- */
+/* Education styles */
+.educationWrapper {
+  margin: 12px auto;
+  /* background-color: blue; */
+  align-items: flex-start;
+}
+
+.educationItemSection,
+.employmentItemSection {
+  margin-bottom: 12px;
+  border-bottom: 1px solid #ededed;
+  width: 100%;
+}
+
+.schoolNameWrapper,
+.experiencePlaceWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.schoolDuration,
+.employmentDuration {
+  font-weight: normal;
+}
+
+.degree,
+.grade,
+.companyText {
+  text-align: left;
+  font-weight: normal;
+  line-height: 18px;
+  font-size: 12px;
+}
+
+.relevantCoursesWrapper,
+.projectWrapper {
+  margin: 8px 0px;
+  text-align: left;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.relevantCoursesHeader,
+.projectHeader {
+  font-weight: bold;
+  text-align: left;
+  margin-right: 6px;
+}
+
+.relevantCoursesText,
+.projectText {
+  font-weight: normal;
+}
+
+.jobRole {
+  width: 100%;
+  font-size: 12px;
+  text-align: left;
+  line-height: 18px;
+}
+
+.relevantCourses,
+.projectDesc {
+  font-weight: normal;
+  display: inline;
+}
+
+/* ------------------------------------------------------------- */
+
+.jobDesc,
+.activitiesUl {
+  font-weight: normal;
+  font-size: 12px;
+  width: 100%;
+  /* background-color: yellow; */
+  list-style-type: disc;
+  margin-bottom: 12px;
+}
+
+.jobDescItem,
+.activitiesText {
+  width: 100%;
+  text-align: left;
+  /* background-color: red; */
+  line-height: 18px;
+  list-style-position: inside;
+  /* list-style-size: inside; */
+}
+
+.jobDescText {
+  font-weight: normal;
+  text-align: left;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+/* ------------------------------------------------------------ */
+.skillsWrapper {
+  margin: 12px 0px;
+}
+
+.skillsItemWrapper {
+  display: flex;
+  width: 100%;
+  text-align: left;
+}
+
+.skillItem {
+  /* margin-right: 16px; */
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.skillItem::after {
+  content: " • ";
+  font-size: 28px;
+  margin: 0px 6px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.skillItem:last-of-type::after {
+  content: "";
+}
+
+/* ----------------------------------------------------------------------- */
+
+.certificationsWrapper {
+  margin: 12px 0px;
+}
+
+.certificationWrapper,
+.projectItemWrapper {
+  width: 100%;
+  height: fit-content;
+  /* background-color: yellow; */
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: normal;
+  text-align: left;
+  margin: 6px;
+}
+
+.certificationItemWrapper {
+  /* background-color: green; */
+  display: flex;
+  justify-content: space-between;
+}
+
+.certificationHeaderText,
+.projectHeaderText {
+  font-weight: 500;
+  line-height: 18px;
+  text-decoration: underline;
+  /* background-color: blue; */
+  flex: 1;
+  max-width: 80%;
+}
+
+.certificationDesc,
+.projectDesc {
+  line-height: 14px;
+  /* background-color: yellow; */
+  max-width: 90%;
+}
+
+.certificateHref {
+  color: blue;
+  font-weight: normal;
+  /* text-decoration: none; */
+}
+
+.certificationLink {
+  width: 100%;
+  text-align: left;
+  font-size: 12px;
+  font-weight: normal;
+  text-decoration: underline;
+}
+
+.projectLink {
+  margin-right: 6px;
+  color: blue;
+  font-weight: normal;
+  text-decoration: none;
+}

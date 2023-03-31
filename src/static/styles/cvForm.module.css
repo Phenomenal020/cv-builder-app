@@ -3,16 +3,16 @@
   width: 100%;
   /* background-color: green; */
   margin: 0 auto;
-  padding: 0 10px;
-  margin-bottom: 50px;
+  padding: 0 16px;
+  margin-bottom: 48px;
+  overflow: hidden;
 }
 
 .formHeader {
-  margin: 10px 0px auto;
+  margin: 8px 0px auto;
   font-weight: bold;
   font-size: 20px;
 }
-
 /*  */
 .formSummary {
   padding: 10px;
@@ -22,7 +22,7 @@
   font-weight: normal;
   /* font-family: Roboto, serif; */
 }
-
+employmentEnd
 .hr {
   border-top: 1px solid;
   opacity: 0.2;
@@ -38,25 +38,27 @@
 
 .fileUploadLabel {
   display: flex;
-  width: 50%;
+  align-self: center;
+  justify-self: center;
+  width: 60%;
   height: 100%;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   /* border: 1px solid #ccc; */
   cursor: pointer;
-  margin: 0 auto;
-  padding: 0px 20px;
+  margin: 4px auto;
+  padding: 8px 20px;
   /* background-color: red; */
 }
 
 .fileUploadIconWrapper {
   border: 5px solid;
-  flex: 0.35;
+  flex: 0.6;
   background-color: #ccc;
-  width: 45px;
+  max-width: 50px;
   height: 45px;
   display: grid;
-  place-items: center;
+  margin-right: 2px;
 }
 
 .fileUploadIcon {
@@ -66,7 +68,10 @@
 }
 
 .fileInputWrapper {
-  flex: 0.65;
+  flex: 1;
+  font-size: 12px;
+  margin-left: 16px;
+  /* background-color: yellow; */
 }
 
 .namesWrapper,
@@ -93,24 +98,38 @@
   /* background-color: green; */
 }
 
+.textFieldWrapper,
+.cgpaWrapper {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.cgpaWrapper {
+  margin-bottom: 0px;
+  /* background-color: red; */
+}
+
 .start,
 .end {
   flex: 1;
-  /* width: 100%; */
+  width: 100%;
   height: 60px;
   display: flex;
-  /* flex-direction: column; */
+  /* margin-bottom: 16px; */
+  font-size: 12px;
+  position: relative;
+  align-items: center;
 }
 
 .start {
-  margin-right: 5px;
-}
-
-.requiredField {
-  color: red;
-  margin-left: -2px;
   margin-right: 8px;
-  font-size: 12px;
+}
+.requiredField {
+  position: absolute;
+  color: red;
+  margin-left: 100%;
+  font-size: 14px;
   opacity: 0.7;
 }
 
@@ -124,32 +143,52 @@
 .degreeWrapper,
 .monthListWrapper {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   border: 2px solid #e1e8ee;
   cursor: pointer;
   font-weight: lighter;
   font-size: 14px;
   position: relative;
-  margin: 0px 5px 5px 0px;
+  /* margin: 0px 5px 5px 0px; */
   color: #545454;
 }
 
-.degreeWrapper {
+.countryListWrapper {
+  text-align: left;
+  /* margin-bottom: 16px; */
   z-index: 90;
+  border-radius: 6px;
 }
 
-.headlineWrapper {
-  margin-bottom: 15px;
+.degreeWrapper {
+  z-index: 1000 !important;
+  border-radius: 6px;
 }
 
-.dobAndNationalityWrapper {
-  margin-top: 20px;
+.fieldWrapper,
+.presentWrapper {
+  position: relative;
+  text-align: left;
+  display: flex;
+  margin-bottom: 8px;
+  align-items: center;
+  padding-right: 0px !important;
+  /* background-color: yellow; */
 }
 
 .contactNextButtonWrapper {
   margin-top: 20px;
 }
 
+.checkedBox {
+  width: 16px;
+  height: 16px;
+  align-self: flex-end;
+}
+.presentWrapper {
+  justify-content: flex-end;
+  margin-top: -12px;
+}
 /* -----------------------------------  */
 
 .degreeAndProgramWrapper {
@@ -164,19 +203,12 @@
 .programWrapper {
   flex: 7.5;
 }
-startEndWrapper
 
-.startDateLabel,
-.endDateLabel {
+.labelText {
   text-align: left;
-  min-width: fit-content;
-  /* background-color: yellow; */
-}
-
-.cgpaWrapper {
-  display: flex;
-  flex-direction: column;
-  /* background-color: yellow; */
+  min-width: 15%;
+  margin-bottom: 16px;
+  font-size: 14px;
 }
 
 .infoText {
@@ -184,7 +216,7 @@ startEndWrapper
   font-size: 12px;
   align-self: flex-end;
   font-weight: normal;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
   color: blue;
 }
 
@@ -223,18 +255,26 @@ startEndWrapper
 
 .skillWrapper {
   display: flex;
-  /* flex-direction: column; */
   margin-bottom: 10px;
+}
+
+.skillTextWrapper {
+  flex: 2;
+  min-width: 70%;
+  display: flex;
+  align-items: center;
 }
 
 .skillProgress,
 .skill {
-  flex: 2;
   border: none;
   border-bottom: 1px solid #ddd;
   outline: none;
+  /* background-color: yellow; */
 }
-
+.skillProgress {
+  flex: 0.5;
+}
 .skill {
   flex: 8;
 }
@@ -259,8 +299,7 @@ startEndWrapper
   justify-content: flex-end;
   align-items: center;
 }
-
-.presentWrapper input {
+.editEducationContainer .presentWrapper input {
   width: 24px;
   margin-right: 2px;
 }
@@ -273,22 +312,17 @@ startEndWrapper
 }
 
 .currentlyWorkHere {
-  width: 100%;
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
   margin-bottom: 10px;
-  /* background-color: red; */
+  font-weight: normal;
 }
 
 .placeRight {
   display: flex;
-  flex: 0.5;
+  margin-top: -8px;
   justify-content: flex-end;
-  /* background-color: green; */
   width: 100%;
 }
-
 .placeRight > input {
   width: 16px;
   height: 16px;
@@ -300,11 +334,6 @@ startEndWrapper
 }
 
 /* --------------------------------------------------------- */
-.employmentRow, .volunteerRow{
-  display: flex;
-  /* background-color: red; */
-  /* align-items: center; */
-}
 
 .volunteerExperience {
   width: 50%;
@@ -359,10 +388,6 @@ startEndWrapper
   background-color: #d5d7dd;
 }
 
-.updateFieldsWrapper {
-  display: flex;
-}
-
 .nextButton:hover,
 .submitBtn:hover,
 .skipButton:hover,
@@ -372,7 +397,8 @@ startEndWrapper
 }
 
 /* ---------------------------------------------------------------- */
-/* edits */
+
+/* summary */
 .editEducationContainer,
 .editCertContainer,
 .editSkillContainer,
@@ -380,7 +406,74 @@ startEndWrapper
   width: 100%;
   min-height: fit-content;
   margin: 24px auto;
+  padding: 24px 16px 0px 16px;
   margin-bottom: 80px;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  font-size: 14px;
+  position: relative;
+}
+.summaryText {
+  position: absolute;
+  top: -16px;
+  left: 43.5%;
+  font-size: 16px;
+  background-color: white;
+  z-index: 4;
+  display: inline-block;
+  padding: 8px;
+  font-weight: 900;
+}
+
+.updateFieldsWrapper {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  max-width: 20%;
+  border: 1px solid #ddd;
+}
+
+/* delete and edit summary button */
+.iconBtn {
+  color: #374046;
+  font-weight: bold;
+  border: none;
+  font-size: 16px;
+  padding: 4px 12px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.iconBtn:last-of-type {
+  border: 1px solid #ddd;
+}
+
+.editEducationWrapper,
+.editCertWrapper,
+.editSkillWrapper,
+.editEmploymentWrapper,
+.editVolunteerWrapper {
+  /* padding: 8px; */
+  position: relative;
+  margin-bottom: 32px;
+  line-height: 28px;
+  text-align: left;
+  font-weight: normal;
+  border: 1px solid #ddd;
+}
+
+.editInputLine,
+.editTripleRow,
+.editDoubleRowEmp {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  padding-left: 8px;
 }
 
 .editFinalizeContainer {
@@ -398,6 +491,45 @@ startEndWrapper
   border-radius: 16px;
 }
 
+.editDegree,
+.editCity,
+.editState,
+.editZip,
+.editEducationCountry,
+.editCertYear,
+.editSkillsProgress {
+  width: 25%;
+  background-color: white;
+  border-right: 1px solid #ddd;
+}
+
+.editSkillsProgress {
+  padding-left: 8px;
+}
+.editProgram {
+  width: 70%;
+  /* padding-left: 8px; */
+}
+
+.editSingleRow,
+.editSchool,
+.editSkillRow {
+  display: flex;
+  width: 100%;
+  /* padding-left: 8px; */
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  font-weight: normal;
+}
+
+.editDetails {
+  padding: 4px 0px;
+  line-height: 20px;
+  font-size: 14px;
+  padding-right: 4px;
+  padding-left: 8px;
+}
+
 .editHeader {
   font-weight: bold;
   background-color: #d5d7dd;
@@ -410,32 +542,6 @@ startEndWrapper
   justify-content: space-between;
   line-height: 24px;
   border-top: 1px solid #ddd;
-  /* padding: 8px; */
-}
-
-.editEducationWrapper,
-.editCertWrapper,
-.editSkillWrapper,
-.editEmploymentWrapper,
-.editVolunteerWrapper {
-  padding: 8px;
-  background-color: #ddd;
-  border-radius: 24px;
-  /* padding-top: 24px; */
-  margin-bottom: 24px;
-  line-height: 32px;
-  text-align: left;
-  font-weight: normal;
-}
-
-.editDoubleRow,
-.editTripleRow,
-.editDoubleRowEmp {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  background-color: white;
-  border-bottom: 1px solid #ddd;
 }
 
 .editVolunteerWrapper {
@@ -457,54 +563,24 @@ startEndWrapper
   padding: 0px 8px;
 }
 
-.editSingleRow,
-.editSchool,
-.editSkillRow {
-  display: flex;
-  width: 100%;
-  padding-left: 8px;
-  background-color: white;
-  border-bottom: 1px solid #ddd;
-  font-weight: normal;
-}
-
 .editSkillRow {
   border-radius: 8px;
 }
 
-.editDegree,
-.editCountry,
-.editCity,
-.editState,
-.editZip,
-.editEducationCountry,
-.editCertYear,
-.editSkillsProgress {
-  width: 30%;
-  padding-left: 8px;
-  background-color: white;
-}
-
 .editCountry {
   width: 40%;
-}
-
-.editState,
-.editZip {
-  width: 50%;
-}
-
-.editProgram,
-.editCity {
-  width: 70%;
-  padding-left: 8px;
+  /* padding-left: 8px; */
 }
 
 .editStart,
 .editEnd,
 .editGpa {
-  width: 33.33%;
-  padding-left: 8px;
+  width: 50%;
+  border-right: 1px solid #ddd;
+}
+
+.editGpa {
+  width: 100%;
 }
 
 /* ---------------- certification edits ------------------ */
@@ -513,7 +589,7 @@ startEndWrapper
   background-color: white;
   line-height: 18px;
   font-size: 14px;
-  padding: 8px;
+  padding: 8px 0px;
 }
 
 .editCertHeader {
@@ -523,30 +599,37 @@ startEndWrapper
 
 /* ----------------------- skills ----------------------- */
 .editSkill {
-  width: 75%;
+  width: 70%;
+  /* background-color: yellow; */
+  padding-left: 8px;
+  border-right: 1px solid #ddd;
 }
-
-.editSkillWrapper {
+skillWrapper .editSkillWrapper {
   line-height: 28px;
 }
 
 .updateSkill {
   border: none;
-  /* border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px; */
   cursor: pointer;
+  border-right: 1px solid #ddd;
 }
 
 .employmentStart,
 .volunteerStart {
   width: 50%;
+  border-right: 1px solid #ddd;
 }
 
+.employmentEnd, .volunteerEnd {
+  width: 50%;
+  padding-left: 8px;
+}
 .editFinalizeContainer {
   margin-bottom: 24px;
 }
 
-.updateSkillsWrapper, .updateFinalizeWrapper {
+.updateSkillsWrapper,
+.updateFinalizeWrapper {
   display: flex;
   /* background-color: red; */
 }
@@ -568,11 +651,3 @@ startEndWrapper
   padding: 4px;
   padding-right: 0px;
 }
-
-/* dark: '#1F4490',
-          dark500: '#122B46',
-          light: `#00A9E1`,
-          light200: '#EBF3F9',
-          light300: '#3E49D3',
-          light500: '#2E91CB',
-          background: '#E7E7E7', */

@@ -7,12 +7,12 @@ const FinalizeContextProvider = (props) => {
   let initialData = data
     ? data
     : {
-        interests: [],
-        software: [],
-        publication: [],
-        language: [],
         award: [],
         extraCurricular: [],
+        academicWork: [],
+        membership: [],
+        language: [],
+        custom: [],
       };
   const [finalize, setFinalize] = useState(initialData);
 
@@ -21,65 +21,65 @@ const FinalizeContextProvider = (props) => {
   // if it doesn't, update finalize
 
   const updateFinalize = (
-    interest,
-    software,
-    language,
     award,
-    publication,
     extraCurricular,
+    academicWork,
+    membership,
+    language,
+    custom,
     oldValue
   ) => {
     let newState = { ...finalize };
     // console.log("before", finalize);
     // check if same field
-    if (interest) {
-      let checkInterest = fieldExists("interests", interest);
+    if (membership) {
+      let checkInterest = fieldExists("membership", membership);
       if (!checkInterest) {
         // console.log("field does not exist");
         // let index = arr.indexOf(value);
         if (oldValue) {
           // console.log("checking if I found old value", oldValue);
-          let index = newState["interests"].indexOf(oldValue);
+          let index = newState["membership"].indexOf(oldValue);
           // console.log("old value found?", oldValue);
-          newState["interests"].splice(index, 1, interest);
+          newState["membership"].splice(index, 1, membership);
           // console.log("updated state", newState);
         } else {
-          newState["interests"].push(interest);
+          newState["membership"].push(membership);
         }
       } else {
-        console.log(`${interest} already exists`);
+        console.log(`${membership} already exists`);
         return false;
       }
     }
-    if (software) {
-      let checkSoftware = fieldExists("software", software);
-      if (!checkSoftware) {
+    if (custom) {
+      let checkCustom = fieldExists("custom", custom);
+      if (!checkCustom) {
         // console.log("field does not exist");
         // let index = arr.indexOf(value);
         if (oldValue) {
-          let index = newState["software"].indexOf(oldValue);
-          newState["software"].splice(index, 1, software);
+          let index = newState["custom"].indexOf(oldValue);
+          newState["custom"].splice(index, 1, custom);
         } else {
-          newState["software"].push(software);
+          newState["custom"].push(custom);
         }
       } else {
-        console.log(`${software}already exists`);
+        console.log(`${custom}already exists`);
         return false;
       }
     }
-    if (publication) {
-      let checkPublication = fieldExists("publication", publication);
-      if (!checkPublication) {
+    if (academicWork) {
+      let checkAcademicWork = fieldExists("academicWork", academicWork);
+      if (!checkAcademicWork) {
         // console.log("field does not exist");
         // let index = arr.indexOf(value);
         if (oldValue) {
-          let index = newState["publication"].indexOf(oldValue);
-          newState["publication"].splice(index, 1, publication);
+          let index = newState["academicWork"].indexOf(oldValue);
+          newState["academicWork"].splice(index, 1, academicWork);
         } else {
-          newState["publication"].push(publication);
+          newState["academicWork"].push(academicWork);
         }
       } else {
-        console.log(`${publication}already exists`);
+        console.log(`${academicWork}already exists`);
         return false;
       }
     }

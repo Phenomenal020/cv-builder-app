@@ -2,11 +2,7 @@ import styles from "../static/styles/cv.module.css";
 import componentsList from "../lib/data/componentList";
 
 import { useState, useContext } from "react";
-import TemplateOne from "../ccomponents/templates/templateOne/templateOne";
-
-import donotSaveIcon from "../static/icons/file_download_off.svg";
-import cvDownloadIcon from "../static/icons/save_file.svg";
-import databaseIcon from "../static/icons/database.svg";
+// import TemplateOne from "../ccomponents/templates/templateOne/templateOne";
 
 import { ContactContext } from "../context/contactContext";
 import { EducationContext } from "../context/educationContext";
@@ -16,18 +12,13 @@ import { SkillsContext } from "../context/skillsContext";
 import { VolunteerContext } from "../context/volunteerContext";
 import { FinalizeContext } from "../context/finalizeContext";
 
-
-// import { Print } from "./print";
-import {  useNavigate } from "react-router-dom"
+import TemplateTwo from "../ccomponents/templates/templateTwo/TemplateTwo";
 
 const BuildCv = () => {
 
-  let navigate = useNavigate()
+  // let navigate = useNavigate()
 
   const [index, setIndex] = useState(1);
-  const [showDownloadOptions, setShowDownloadOptions] = useState(false);
-  // const [printed, setPrinted] = useState(false)
-
   const { contact } = useContext(ContactContext);
   const { education } = useContext(EducationContext);
   const { certificationArr } = useContext(CertificationContext);
@@ -158,7 +149,17 @@ const BuildCv = () => {
 
         {/* template */}
         <section className={styles.template}>
-          <TemplateOne
+          {/* <TemplateOne
+            contact={contact}
+            education={education}
+            certificationArr={certificationArr}
+            employment={employment}
+            skills={skills}
+            volunteer={volunteer}
+            finalize={finalize}
+          /> */}
+
+          <TemplateTwo
             contact={contact}
             education={education}
             certificationArr={certificationArr}
@@ -167,41 +168,7 @@ const BuildCv = () => {
             volunteer={volunteer}
             finalize={finalize}
           />
-          {showDownloadOptions ? (
-            <div
-              className={styles.downloadOptionsWrapper}
-              onMouseLeave={() => setShowDownloadOptions(false)}
-            >
-              <img
-                src={cvDownloadIcon}
-                className={styles.downloadCvIcon}
-                alt="Download cv and save data to browser"
-                onClick={handleSaveToLocalStorage}
-              />
-              <img
-                src={databaseIcon}
-                className={styles.downloadCvIcon}
-                alt="Download cv and save data to database"
-              />
-              <img
-                src={donotSaveIcon}
-                className={styles.downloadCvIcon}
-                alt="Download cv and do not save"
-              />
-            </div>
-          ) : (
-            <div
-              className={styles.downloadOptionsWrapper}
-              onMouseEnter={() => setShowDownloadOptions(true)}
-            // onMouseLeave={() => setShowDownloadOptions(false)}
-            >
-              <img
-                src={cvDownloadIcon}
-                className={styles.downloadCvIcon}
-                alt="Download cv and save data to browser"
-              />
-            </div>
-          )}
+         
         </section>
       </div>
     </div>
