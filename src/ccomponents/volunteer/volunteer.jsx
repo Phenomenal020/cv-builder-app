@@ -113,7 +113,6 @@ const Volunteer = () => {
           Please include volunteer jobs you did in the past or are still doing
         </p>
         <hr className={styles.hr} />
-        <button className={styles.skipButton}>skip this step</button>
 
         {/* Position/Title*/}
         <div className={styles.fieldWrapper}>

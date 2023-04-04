@@ -11,14 +11,15 @@ import { EmploymentContext } from "../context/employmentContext";
 import { SkillsContext } from "../context/skillsContext";
 import { VolunteerContext } from "../context/volunteerContext";
 import { FinalizeContext } from "../context/finalizeContext";
+import { PageContext } from "../context/pageContext";
 
 import TemplateTwo from "../ccomponents/templates/templateTwo/TemplateTwo";
+import TemplateThree from "../ccomponents/templates/templateThree/TemplateThree";
+import TemplateContextProvider, {
+  TemplateContext,
+} from "../context/templateContext";
 
 const BuildCv = () => {
-
-  // let navigate = useNavigate()
-
-  const [index, setIndex] = useState(1);
   const { contact } = useContext(ContactContext);
   const { education } = useContext(EducationContext);
   const { certificationArr } = useContext(CertificationContext);
@@ -26,14 +27,16 @@ const BuildCv = () => {
   const { skills } = useContext(SkillsContext);
   const { volunteer } = useContext(VolunteerContext);
   const { finalize } = useContext(FinalizeContext);
+  const { index, setIndex } = useContext(PageContext);
 
-  // console.log("finalize", finalize);
+  const { handleNextTemplate, handlePrevTemplate, template } =
+    useContext(TemplateContext);
 
   const handlePrevious = () => {
     if (index === 1) {
       return;
     } else {
-      setIndex(index => index - 1);
+      setIndex((index) => index - 1);
     }
   };
 
@@ -41,7 +44,7 @@ const BuildCv = () => {
     if (index === 7) {
       return;
     } else {
-      setIndex(index => index + 1);
+      setIndex((index) => index + 1);
     }
   };
 
@@ -50,6 +53,9 @@ const BuildCv = () => {
       <button className={styles.nextButton} onClick={handlePrevious}>
         prev
       </button>
+      {/* <button className={styles.nextButton} onClick={handleNext}>
+        skip
+      </button> */}
       <button className={styles.nextButton} onClick={handleNext}>
         next
       </button>
@@ -58,9 +64,14 @@ const BuildCv = () => {
 
   if (index === 1) {
     componentToRender = (
-      <button className={styles.nextButton} onClick={handleNext}>
-        next
-      </button>
+      <>
+        {/* <button className={styles.nextButton} onClick={handleNext}>
+          skip
+        </button> */}
+        <button className={styles.nextButton} onClick={handleNext}>
+          next
+        </button>
+      </>
     );
   }
   if (index === 7) {
@@ -82,12 +93,19 @@ const BuildCv = () => {
       localStorage.setItem("educationArr", JSON.stringify(education));
     employment &&
       localStorage.setItem("employmentArr", JSON.stringify(employment));
-    finalize &&
-      localStorage.setItem("finalizeObj", JSON.stringify(finalize));
+    finalize && localStorage.setItem("finalizeObj", JSON.stringify(finalize));
     skills && localStorage.setItem("skillsArr", JSON.stringify(skills));
     volunteer &&
       localStorage.setItem("volunteerArr", JSON.stringify(volunteer));
-      // navigate("/print")
+    // navigate("/print")
+  };
+
+  const _handleNextTemplate = () => {
+    handleNextTemplate();
+  };
+
+  const _handlePrevTemplate = () => {
+    handlePrevTemplate();
   };
 
   return (
@@ -149,6 +167,26 @@ const BuildCv = () => {
 
         {/* template */}
         <section className={styles.template}>
+          <button className={styles.prevTemplate} onClick={_handlePrevTemplate}>
+            previous
+          </button>
+          <button className={styles.nextTemplate} onClick={_handleNextTemplate}>
+            next
+          </button>
+          {template === 1 ? (
+            <TemplateTwo
+              contact={contact}
+              education={education}
+              certificationArr={certificationArr}
+              employment={employment}
+              skills={skills}
+              volunteer={volunteer}
+              finalize={finalize}
+            />
+          ) : (
+            ""
+          )}
+
           {/* <TemplateOne
             contact={contact}
             education={education}
@@ -159,16 +197,19 @@ const BuildCv = () => {
             finalize={finalize}
           /> */}
 
-          <TemplateTwo
-            contact={contact}
-            education={education}
-            certificationArr={certificationArr}
-            employment={employment}
-            skills={skills}
-            volunteer={volunteer}
-            finalize={finalize}
-          />
-         
+          {template === 2 ? (
+            <TemplateThree
+              contact={contact}
+              education={education}
+              certificationArr={certificationArr}
+              employment={employment}
+              skills={skills}
+              volunteer={volunteer}
+              finalize={finalize}
+            />
+          ) : (
+            ""
+          )}
         </section>
       </div>
     </div>

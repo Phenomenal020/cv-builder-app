@@ -25,8 +25,6 @@ const Certifications = () => {
     setChecked(check => !check);
   };
 
-  // console.log("year", year)
-
   const handleChange = evt => {
     setMsg(evt.target.value);
   };
@@ -60,10 +58,6 @@ const Certifications = () => {
 
   const handleFocus = () => {
     description.current.value = "";
-  };
-
-  const handleSkip = () => {
-    return;
   };
 
   const resetFields = () => {
@@ -145,10 +139,6 @@ const Certifications = () => {
         </p>
 
         <hr className={styles.hr} />
-
-        <button className={styles.skipButton} onClick={handleSkip}>
-          skip this step
-        </button>
 
         {/* Certification name */}
         <div className={styles.fieldWrapper}>

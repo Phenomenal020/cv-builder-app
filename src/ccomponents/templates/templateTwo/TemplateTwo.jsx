@@ -21,15 +21,8 @@ const TemplateTwo = props => {
         finalize
     } = props;
 
-    console.log("finalize", finalize)
+    // console.log("finalize", finalize)
     const { award, custom, extraCurricular, language, membership, academicWork } = finalize;
-
-    console.log("award", award)
-    console.log("custom", custom)
-    console.log("extraCurricular", extraCurricular)
-    console.log("language", language)
-    console.log("membership", membership)
-    console.log("academicWork", academicWork)
 
     return (
         <div className={styles.container}>
@@ -141,23 +134,6 @@ const TemplateTwo = props => {
                         </div>
                     })}
                 </section>}
-
-            {/* projects */}
-            {/* <section className={styles.projectsWrapper}>
-                <h3 className={styles.headerText}>Projects</h3>
-                <hr className={styles.horizontalRule} /> */}
-
-            {/* <p className={styles.certificationLink}>Link: <a href="https://google.com" target="_blank" className={styles.certificateHref}>google.com</a></p> */}
-
-            {/* {[1, 2, 3, 4, 5, 6, 7, 8].map(item => {
-                    return <div className={styles.projectItemWrapper} key={Math.random() * 1000}>
-                        <p className={styles.projectHeaderText}>Full-Stack Development with Javascript by Ivory Learning <a href="https://nextpaths.eu" target="_blank" className={styles.projectLink}> - https://nextpaths.eu/</a>
-                        </p>
-
-                        <p className={styles.projectDesc}>Linear Algebra, MultiVariate Calculus, and Principal Component Analysis. Linear Algebra, MultiVariate Calculus, and Principal Component Analysis, Linear Algebra, MultiVariate Calculus, and Principal Component Analysis. Linear Algebra, MultiVariate Calculus, and Principal Component Analysis</p>
-                    </div>
-                })}
-            </section> */}
 
             {/* experience */}
             {volunteer.length > 0 && <section className={styles.experienceWrapper}>

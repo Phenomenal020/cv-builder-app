@@ -1,5 +1,6 @@
 .container {
-  max-height: 100vh;
+  width: 100vw;
+  height: fit-content;
   background-color: #f1f1f1;
   font-family: "Roboto", sans-serif;
   color: #374046;
@@ -24,6 +25,20 @@
   position: relative;
   height: calc(100vh - 60px);
   overflow: hidden;
+}
+
+.prevTemplate, .nextTemplate {
+  position: absolute;
+  width: fit-content;
+  bottom: 50%;
+}
+
+.prevTemplate {
+  left: 0px;
+}
+
+.nextTemplate {
+  right: 0px;
 }
 
 .template {
@@ -82,7 +97,7 @@
   display: flex;
   /* position: relative; */
   /* justify-content: center; */
-  background-color: blue;
+  /* background-color: blue; */
 }
 
 .activeSlide,
@@ -153,7 +168,7 @@
   align-items: center;
   /* margin-top: 30px; */
   position: absolute;
-  bottom: 30px;
+  bottom: 15px;
   left: 0;
   background-color: yellow;
 }

@@ -22,7 +22,7 @@
   font-weight: normal;
   /* font-family: Roboto, serif; */
 }
-employmentEnd
+
 .hr {
   border-top: 1px solid;
   opacity: 0.2;
@@ -91,6 +91,18 @@ employmentEnd
   display: flex;
   margin-bottom: 10px;
   /* background-color: yellow; */
+}
+
+.fileNameWrapper {
+  font-weight: normal;
+  margin-top: -8px;
+  margin-bottom: 16px;
+  /* background-color: green; */
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  color: #8E5748;
 }
 
 .dateWrapper {
@@ -367,7 +379,7 @@ employmentEnd
 }
 
 .submitBtn {
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 }
 
 .editFieldBtn {
@@ -488,7 +500,7 @@ employmentEnd
   display: flex;
   flex-direction: column;
   border: 1px solid #ddd;
-  border-radius: 16px;
+  /* border-radius: 16px; */
 }
 
 .editDegree,
@@ -604,7 +616,7 @@ employmentEnd
   padding-left: 8px;
   border-right: 1px solid #ddd;
 }
-skillWrapper .editSkillWrapper {
+ .editSkillWrapper {
   line-height: 28px;
 }
 

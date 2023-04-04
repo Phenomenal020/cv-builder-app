@@ -91,8 +91,6 @@ const Skills = () => {
         </p>
         <hr className={styles.hr} />
 
-        <button className={styles.skipButton}>skip this step</button>
-
         {/* skill */}
         <div className={styles.skillWrapper}>
           <div className={styles.skillTextWrapper}>

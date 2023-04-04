@@ -41,6 +41,18 @@ const Contact = () => {
     setMsg(evt.target.value);
   };
 
+  const handleFileUpload = evt => {
+    const file = evt.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      localStorage.setItem('profileImage', reader.result);
+      localStorage.setItem('fileName', file.name);
+    };
+  }
+
+  console.log(localStorage.getItem("fileName"))
+
   const handleSubmit = evt => {
     evt.preventDefault();
     const contactDetails = {
@@ -49,6 +61,7 @@ const Contact = () => {
       otherNames: otherNames.current.value ? otherNames.current.value : null,
       email: email.current.value ? email.current.value : null,
       phoneNumber: phoneNumber.current.value ? phoneNumber.current.value : null,
+      // fileName: fileName,
       // city: city.current.value ? city.current.value : null,
       country: !selectedCountry ? null : selectedCountry,
       state: state.current.value ? state.current.value : null,
@@ -89,11 +102,15 @@ const Contact = () => {
             ></img>
           </div>
           <div className={styles.fileInputWrapper}>
-            <input type="file" />
+            <input type="file" onChange={handleFileUpload} />
             Upload your picture (Not compulsory)
           </div>
         </label>
       </div>
+
+      {localStorage.getItem("fileName") ? <div className={styles.fileNameWrapper}>
+        <p>{localStorage.getItem("fileName")}</p>
+      </div> : ""}
 
       {/* names */}
       <div className={styles.fieldWrapper}>

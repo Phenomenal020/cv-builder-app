@@ -124,7 +124,6 @@ const Finalize = () => {
         <h2 className={styles.formHeader}>Additional Activities</h2>
         <p className={styles.formSummary}>(This section is optional)</p>
         <hr className={styles.hr} />
-        <button className={styles.skipButton}>skip this step</button>
 
         {/* award */}
         <div className={styles.awardWrapper}>
@@ -266,8 +265,8 @@ const Finalize = () => {
                 <div key={Math.random() * 10000} className={styles.editField}>
                   <p>{_membership}</p>
                   <div className={styles.updateFinalizeWrapper}>
-                    <button type="submit" onClick={(evt) => { evt.preventDefault(); setOldEdit(_membership); updateHandler("membership", _membership) }}>update</button>
-                    <button type="submit" onClick={(evt) => { evt.preventDefault(); deleteHandler("membership", _membership) }}>delete</button>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); setOldEdit(_membership); updateHandler("membership", _membership) }}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); deleteHandler("membership", _membership) }}><i className="fa fa-trash" aria-hidden="true"></i></button>
                   </div>
                 </div>
               ))}
@@ -281,8 +280,8 @@ const Finalize = () => {
                 <div key={Math.random() * 10000} className={styles.editField}>
                   <p>{_custom}</p>
                   <div className={styles.updateFinalizeWrapper}>
-                    <button type="submit" onClick={(evt) => { evt.preventDefault(); setOldEdit(_custom); updateHandler("custom", _custom) }}>update</button>
-                    <button type="submit" onClick={(evt) => { evt.preventDefault(); deleteHandler("custom", _custom) }}>delete</button>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); setOldEdit(_custom); updateHandler("custom", _custom) }}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); deleteHandler("custom", _custom) }}><i className="fa fa-trash" aria-hidden="true"></i></button>
                   </div>
                 </div>
               ))}
@@ -296,8 +295,8 @@ const Finalize = () => {
                 <div key={Math.random() * 10000} className={styles.editField}>
                   <p>{_academicWork}</p>
                   <div className={styles.updateFinalizeWrapper}>
-                    <button type="submit" onClick={(evt) => { evt.preventDefault(); setOldEdit(_academicWork); updateHandler("academicWork", _academicWork) }}>update</button>
-                    <button type="submit" onClick={(evt) => { evt.preventDefault(); deleteHandler("academicWork", _academicWork) }}>delete</button>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); setOldEdit(_academicWork); updateHandler("academicWork", _academicWork) }}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); deleteHandler("academicWork", _academicWork) }}><i className="fa fa-trash" aria-hidden="true"></i></button>
                   </div>
                 </div>
               ))}
@@ -311,8 +310,8 @@ const Finalize = () => {
                 <div key={Math.random() * 10000} className={styles.editField}>
                   <p>{_language}</p>
                   <div className={styles.updateFinalizeWrapper}>
-                    <button type="submit" onClick={(evt) => { evt.preventDefault(); setOldEdit(_language); updateHandler("language", _language) }}>update</button>
-                    <button type="submit" onClick={(evt) => { evt.preventDefault(); deleteHandler("language", _language) }}>delete</button>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); setOldEdit(_language); updateHandler("language", _language) }}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); deleteHandler("language", _language) }}><i className="fa fa-trash" aria-hidden="true"></i></button>
                   </div>
                 </div>
               ))}
@@ -326,8 +325,8 @@ const Finalize = () => {
                 <div key={Math.random() * 10000} className={styles.editField}>
                   <p>{_award}</p>
                   <div className={styles.updateFinalizeWrapper}>
-                    <button type="submit" onClick={(evt) => { evt.preventDefault(); setOldEdit(_award); updateHandler("award", _award) }}>update</button>
-                    <button type="submit" onClick={(evt) => { evt.preventDefault(); deleteHandler("award", _award) }}>delete</button>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); setOldEdit(_award); updateHandler("award", _award) }}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); deleteHandler("award", _award) }}><i className="fa fa-trash" aria-hidden="true"></i></button>
                   </div>
                 </div>
               ))}
@@ -341,8 +340,8 @@ const Finalize = () => {
                 <div key={Math.random() * 10000} className={styles.editField}>
                   <p>{_extraCurricular}</p>
                   <div className={styles.updateFinalizeWrapper}>
-                    <button type="submit" onClick={(evt) => { evt.preventDefault(); setOldEdit(_extraCurricular); updateHandler("extraCurricular", _extraCurricular) }}>update</button>
-                    <button type="submit" onClick={(evt) => { evt.preventDefault(); deleteHandler("extraCurricular", _extraCurricular) }}>delete</button>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); setOldEdit(_extraCurricular); updateHandler("extraCurricular", _extraCurricular) }}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                    <button type="submit" onClick={(evt) => { evt.preventDefault(); deleteHandler("extraCurricular", _extraCurricular) }}><i className="fa fa-trash" aria-hidden="true"></i></button>
                   </div>
                 </div>
               ))}

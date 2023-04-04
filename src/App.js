@@ -19,36 +19,42 @@ import EmploymentContextProvider from "./context/employmentContext";
 import SkillsContextProvider from "./context/skillsContext";
 import VolunteerContextProvider from "./context/volunteerContext";
 import FinalizeContextProvider from "./context/finalizeContext";
+import PageContextProvider from "./context/pageContext";
+import TemplateContextProvider from "./context/templateContext";
 
 export default function App() {
   return (
     <BrowserRouter>
-      <ContactContextProvider>
-        <EducationContextProvider>
-          <CertificationContextProvider>
-            <EmploymentContextProvider>
-              <SkillsContextProvider>
-                <VolunteerContextProvider>
-                  <FinalizeContextProvider>
-                    <Navbar />
-                    <Routes>
-                      {/* Index page */}
-                      <Route path="/" element={<Home />} />
-                      {/* CV create page */}
-                      <Route path="/create" element={<BuildCv />} />
-                      <Route path="/login" element={<Login />} />
-                      <Route path="/contact" element={<Contact />} />
-                      <Route path="/about" element={<About />} />
-                      {/* <Route path="/print" element={<Print />} /> */}
-                      {/* <Route path="/redirect" element={<Navigate to="/print" />} /> */}
-                    </Routes>
-                  </FinalizeContextProvider>
-                </VolunteerContextProvider>
-              </SkillsContextProvider>
-            </EmploymentContextProvider>
-          </CertificationContextProvider>
-        </EducationContextProvider>
-      </ContactContextProvider>
+      <TemplateContextProvider>
+        <PageContextProvider>
+          <ContactContextProvider>
+            <EducationContextProvider>
+              <CertificationContextProvider>
+                <EmploymentContextProvider>
+                  <SkillsContextProvider>
+                    <VolunteerContextProvider>
+                      <FinalizeContextProvider>
+                        <Navbar />
+                        <Routes>
+                          {/* Index page */}
+                          <Route path="/" element={<Home />} />
+                          {/* CV create page */}
+                          <Route path="/create" element={<BuildCv />} />
+                          <Route path="/login" element={<Login />} />
+                          <Route path="/contact" element={<Contact />} />
+                          <Route path="/about" element={<About />} />
+                          {/* <Route path="/print" element={<Print />} /> */}
+                          {/* <Route path="/redirect" element={<Navigate to="/print" />} /> */}
+                        </Routes>
+                      </FinalizeContextProvider>
+                    </VolunteerContextProvider>
+                  </SkillsContextProvider>
+                </EmploymentContextProvider>
+              </CertificationContextProvider>
+            </EducationContextProvider>
+          </ContactContextProvider>
+        </PageContextProvider>
+      </TemplateContextProvider>
     </BrowserRouter>
   );
 }

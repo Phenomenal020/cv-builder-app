@@ -1,0 +1,300 @@
+.container {
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+/* Head bar */
+.headBar {
+  display: flex;
+  height: fit-content;
+  /* min-height: 150px; */
+  border: 1px solid #8e5748;
+  margin-bottom: 12px;
+}
+
+/* profile image bar */
+.profileImgWrapper,
+.leftBar {
+  flex: 1.3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 160px;
+  background-color: #8e5748;
+}
+.profileImgWrapper {
+  justify-content: center;
+  padding: 8px 0px;
+}
+.leftBar {
+  /* padding-right: 4px; */
+  background-color: #fff;
+  /* margin-right: 12px; */
+}
+.profileImg {
+  height: 136px;
+  width: 136px;
+  max-height: 160px;
+  max-width: 160px;
+  object-fit: cover;
+  align-self: center;
+}
+
+.summaryBar {
+  flex: 3;
+  padding-top: 8px;
+}
+
+.summaryBar  {
+  margin-bottom: 6px;
+}
+
+.summaryBar,
+.customSummaryBar {
+  /* background-color: green; */
+  text-align: left;
+  margin-left: 16px;
+}
+
+/* ----------------------- body ------------------ */
+.bodyBar {
+  display: flex;
+}
+
+/* ---------------------left bar ------------------------ */
+
+.leftBar {
+  flex: 1.3;
+  width: 160px;
+  border-right: 1px solid #8e5748;
+  height: 100%;
+  padding-top: 0px;
+}
+
+.roleWrapper {
+  width: 100%;
+  height: fit-content;
+  /* background-color: red; */
+  text-align: left;
+  line-height: 20px;
+  text-transform: uppercase;
+  padding: 4px;
+  margin-bottom: 24px;
+}
+
+.firstName {
+  font-size: 16px;
+  font-weight: 600;
+  word-wrap: break-word;
+}
+
+.lastName {
+  font-size: 20px;
+  word-wrap: break-word;
+}
+
+.profileRole {
+  word-wrap: break-word;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: normal;
+  text-transform: capitalize;
+}
+
+.mainBar {
+  flex: 3;
+  height: 100%;
+}
+
+.contactWrapper,
+.skillWrapper {
+  text-align: left;
+  width: 100%;
+  min-height: fit-content;
+  padding: 4px;
+  /* background-color: orange; */
+  margin-bottom: 24px;
+}
+
+.contactHeader,
+.skillHeader {
+  font-size: 16px;
+  border-bottom: 2px solid #8e5748;
+  margin-bottom: 8px;
+  width: fit-content;
+}
+
+.contactRow {
+  padding-left: 4px;
+  width: fit-content;
+  display: flex;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  font-weight: normal;
+}
+
+.contentTextBox {
+  display: flex;
+  /* background-color: green; */
+  padding-right: 4px;
+  text-transform: capitalize;
+}
+.contactText,
+.skillText {
+  word-wrap: break-word;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: normal;
+}
+
+/* ------------------------------------------------------------------ */
+
+/* Summary */
+
+.customSummaryBar {
+  display: flex;
+}
+
+.summaryHeader,
+.educationHeader,
+.experienceHeader,
+.certificationsHeader,
+.customHeader,
+.headerText {
+  line-height: 16px;
+  font-size: 14px;
+  width: fit-content;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #8e5748;
+}
+.skillUl {
+  list-style-type: disc;
+}
+.skillRow {
+  padding-left: 4px;
+  line-height: 20px;
+  font-weight: normal;
+  font-size: 12px;
+  list-style-position: inside;
+}
+.summaryText,
+.degreeText,
+.schoolText,
+.contentText,
+.projectText,
+.experienceText,
+.certificationText,
+.certificationContent,
+.jobDesc {
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 16px;
+}
+
+.jobDesc {
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.contentText,
+.projectText {
+  margin-right: 8px;
+  font-weight: 600;
+}
+
+.contentParagraph {
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 18px;
+  font-weight: normal;
+}
+
+.degreeSpan {
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+.summaryText {
+  margin-right: 4px;
+}
+
+.educationBox,
+.experienceBox,
+.certificationBox,
+.customBox {
+  display: flex;
+  /* background-color: green; */
+  margin-bottom: 8px;
+}
+
+.dateHeader {
+  margin-right: 8px;
+  font-size: 12px;
+  flex: 1;
+}
+
+.detailBox {
+  flex: 2.2;
+}
+
+.certificationBox {
+  display: flex;
+}
+
+.certBox {
+  display: flex;
+  margin-right: 4px;
+  font-size: 12px;
+  line-height: 16px;
+  margin-bottom: 4px;
+}
+
+.certDate {
+  min-width: 64px;
+  flex: 1.5;
+  /* background-color: red; */
+}
+
+.certificationDetails {
+  flex: 5;
+  font-weight: normal;
+  margin-left: 6px;
+  /* background-color: yellow; */
+  padding-right: 4px;
+}
+
+.certHeader,
+.certContentSpan {
+  font-weight: 600;
+}
+
+.certContentBox {
+  display: flex;
+}
+
+.certContentParagraph,
+.certContentParagraphLink {
+  margin-left: 4px;
+}
+
+.certContentParagraphLink {
+  color: blue;
+}
+
+.activitiesUl {
+  list-style-type: disc;
+}
+.activitiesText {
+  padding-left: 4px;
+  line-height: 20px;
+  font-weight: normal;
+  font-size: 12px;
+  list-style-position: inside;
+}
