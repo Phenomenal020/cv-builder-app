@@ -47,7 +47,7 @@ const Education = () => {
 
     };
     // check required fields
-    if (!educationDetails.program || !educationDetails.degree || !educationDetails.school || !educationDetails.start || !educationDetails.end) {
+    if (!educationDetails.program || !educationDetails.degree || !educationDetails.school || !educationDetails.state || !educationDetails.country || !educationDetails.start || !educationDetails.end) {
       return null
     } else {
       return educationDetails;
@@ -137,16 +137,15 @@ const Education = () => {
 
         {/* Degree */}
         <div className={styles.fieldWrapper}>
-          <label htmlFor="project" className={styles.labelText}>Degree: </label>
+          <label htmlFor="project" className={styles.labelText}>Degree: <span className={styles.requiredField}>*</span></label>
           <div className={styles.degreeWrapper} onClick={toggleDropdown}>
             {selectedDegree || "---select degree---"}
             {degreeList && <DegreeList setSelectedDegree={setSelectedDegree} />}
           </div>
-          <span className={styles.requiredField}>*</span>
         </div>
 
         <div className={styles.fieldWrapper}>
-          <label htmlFor="project" className={styles.labelText}>Program: </label>
+          <label htmlFor="project" className={styles.labelText}>Program: <span className={styles.requiredField}>*</span></label>
           <input
             ref={program}
             type="text"
@@ -156,12 +155,11 @@ const Education = () => {
             className={styles.programWrapper}
             required
           ></input>
-          <span className={styles.requiredField}>*</span>
         </div>
 
         {/* school */}
         <div className={styles.fieldWrapper}>
-          <label htmlFor="project" className={styles.labelText}>School: </label>
+          <label htmlFor="project" className={styles.labelText}>School: <span className={styles.requiredField}>*</span></label>
           <input
             ref={school}
             type="text"
@@ -170,11 +168,10 @@ const Education = () => {
             id="school"
             required
           ></input>
-          <span className={styles.requiredField}>*</span>
         </div>
 
         <div className={styles.fieldWrapper}>
-          <label htmlFor="project" className={styles.labelText}>State: </label>
+          <label htmlFor="project" className={styles.labelText}>State: <span className={styles.requiredField}>*</span></label>
           <input
             ref={state}
             type="text"
@@ -182,12 +179,11 @@ const Education = () => {
             name="state"
             id="state"
           ></input>
-          <span className={styles.requiredField}></span>
         </div>
 
         {/* country and city */}
         <div className={styles.fieldWrapper}>
-          <label htmlFor="project" className={styles.labelText}>Country: </label>
+          <label htmlFor="project" className={styles.labelText}>Country: <span className={styles.requiredField}>*</span></label>
           <div
             className={styles.countryListWrapper}
             onClick={() => toggleCountryList(prevState => !prevState)}
@@ -203,7 +199,7 @@ const Education = () => {
         {/* start */}
         <div className={styles.start}>
           <label htmlFor="start" className={styles.labelText}>
-            Start date:
+            Start date: <span className={styles.requiredField}>*</span>
           </label>
           <input
             ref={start}
@@ -214,13 +210,12 @@ const Education = () => {
             required
             className={styles.startDateInput}
           ></input>
-          <span className={styles.requiredField}>*</span>
         </div>
 
         {/* end */}
         <div className={styles.end}>
           <label htmlFor="end" className={styles.labelText}>
-            End date:
+            End date: <span className={styles.requiredField}>*</span>
           </label>
           <input
             ref={end}
@@ -231,7 +226,6 @@ const Education = () => {
             required
             className={styles.endDateInput}
           ></input>
-          <span className={styles.requiredField}>*</span>
         </div>
 
         <div className={styles.textFieldWrapper}>
@@ -265,7 +259,7 @@ const Education = () => {
 
         {/* cgpa */}
         <div className={styles.cgpaWrapper}>
-          <label htmlFor="project" className={styles.labelText}>CGPA: </label>
+          <label htmlFor="gpa" className={styles.labelText}>CGPA: </label>
           <input
             ref={gpa}
             type="text"

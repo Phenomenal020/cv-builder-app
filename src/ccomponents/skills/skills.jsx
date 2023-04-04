@@ -94,7 +94,7 @@ const Skills = () => {
         {/* skill */}
         <div className={styles.skillWrapper}>
           <div className={styles.skillTextWrapper}>
-            <label htmlFor="skill" className={styles.labelText}>Skill: </label>
+            <label htmlFor="skill" className={styles.labelText}>Skill: <span className={styles.requiredField}>*</span></label>
             <input
               className={styles.skill}
               ref={skill}
@@ -105,16 +105,20 @@ const Skills = () => {
               required
             ></input>
           </div>
-          <input
-            type="number"
-            min="10"
-            max="100"
-            defaultValue="50"
-            step="10"
-            required
-            ref={progress}
-            className={styles.skillProgress}
-          ></input>
+          <div className={styles.progressWrapper}>
+            <label htmlFor="progress" className={styles.labelText}>Progress: </label>
+            <input
+              type="number"
+              min="10"
+              max="100"
+              defaultValue="50"
+              step="10"
+              name="progress"
+              required
+              ref={progress}
+              className={styles.skillProgress}
+            ></input>
+          </div>
         </div>
 
 

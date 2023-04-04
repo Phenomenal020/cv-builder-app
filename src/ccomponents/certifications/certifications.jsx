@@ -142,6 +142,7 @@ const Certifications = () => {
 
         {/* Certification name */}
         <div className={styles.fieldWrapper}>
+          <label htmlFor="certification" className={styles.labelText}>Certification: <span className={styles.requiredField}>*</span> </label>
           <input
             ref={certificate}
             type="text"
@@ -150,11 +151,11 @@ const Certifications = () => {
             id="certification"
             required
           ></input>
-          <span className={styles.requiredField}>*</span>
         </div>
 
         {/* Date obtained */}
         <div className={styles.fieldWrapper}>
+          <label htmlFor="year" className={styles.labelText}>Date Obtained: </label>
           <input
             ref={year}
             type="month"
@@ -178,6 +179,7 @@ const Certifications = () => {
         </div>
 
         <div className={styles.fieldWrapper}>
+          <label htmlFor="link" className={styles.labelText}>Link: </label>
           <input
             ref={link}
             type="url"
@@ -188,6 +190,7 @@ const Certifications = () => {
         </div>
 
         <div className={styles.fieldWrapper}>
+          <label htmlFor="description" className={styles.labelText}>Description/Content: </label>
           <textarea
             ref={description}
             id="description"

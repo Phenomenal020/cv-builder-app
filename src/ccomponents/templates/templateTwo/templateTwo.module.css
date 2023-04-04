@@ -7,7 +7,7 @@
 }
 
 /* ------------------------------------------------------------------------- */
-
+degree
 .contactWrapper,
 .summaryWrapper,
 .educationWrapper,
@@ -135,7 +135,10 @@
   line-height: 18px;
   font-size: 12px;
 }
-
+jobRole
+.degree {
+  font-weight: 600;
+}
 .relevantCoursesWrapper,
 .projectWrapper {
   margin: 8px 0px;
@@ -162,7 +165,9 @@
   text-align: left;
   line-height: 18px;
 }
-
+.jobRole {
+  font-weight: 600;
+}
 .relevantCourses,
 .projectDesc {
   font-weight: normal;

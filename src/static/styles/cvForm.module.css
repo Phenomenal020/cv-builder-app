@@ -22,7 +22,7 @@
   font-weight: normal;
   /* font-family: Roboto, serif; */
 }
-
+.editEmpDetails
 .hr {
   border-top: 1px solid;
   opacity: 0.2;
@@ -117,8 +117,15 @@
   align-items: center;
 }
 
+.textFieldWrapper {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .cgpaWrapper {
   margin-bottom: 0px;
+  flex-direction: column;
+  align-items: flex-start;
   /* background-color: red; */
 }
 
@@ -131,16 +138,18 @@
   /* margin-bottom: 16px; */
   font-size: 12px;
   position: relative;
-  align-items: center;
+  align-items: flex-start;
 }
 
-.start {
+.start, .end {
   margin-right: 8px;
+  flex-direction: column;
+  margin-bottom: 16px;
 }
 .requiredField {
   position: absolute;
   color: red;
-  margin-left: 100%;
+  margin-left: 4px;
   font-size: 14px;
   opacity: 0.7;
 }
@@ -182,10 +191,15 @@
   position: relative;
   text-align: left;
   display: flex;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   align-items: center;
   padding-right: 0px !important;
   /* background-color: yellow; */
+}
+/* .labelText */
+.fieldWrapper {
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .contactNextButtonWrapper {
@@ -199,7 +213,7 @@
 }
 .presentWrapper {
   justify-content: flex-end;
-  margin-top: -12px;
+  margin-top: -20px;
 }
 /* -----------------------------------  */
 
@@ -217,10 +231,12 @@
 }
 
 .labelText {
+  padding-left: 4px;
   text-align: left;
   min-width: 15%;
-  margin-bottom: 16px;
+  margin-bottom: 4px;
   font-size: 14px;
+  position: relative;
 }
 
 .infoText {
@@ -230,6 +246,7 @@
   font-weight: normal;
   margin-bottom: 16px;
   color: blue;
+  text-align: right;
 }
 
 .awardWrapper,
@@ -271,10 +288,12 @@
 }
 
 .skillTextWrapper {
-  flex: 2;
-  min-width: 70%;
+  /* flex: 2; */
+  min-width: 60%;
+  margin-right: 16px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  flex-direction: column;
 }
 
 .skillProgress,
@@ -290,7 +309,7 @@
 .skill {
   flex: 8;
 }
-
+summary
 .skipButtonWrapper {
   width: 100%;
   height: 40px;
@@ -327,6 +346,7 @@
   display: flex;
   margin-bottom: 10px;
   font-weight: normal;
+  margin-top: -8px;
 }
 
 .placeRight {
@@ -339,10 +359,19 @@
   width: 16px;
   height: 16px;
   margin-right: 8px;
+  margin-top: -8px;
 }
 
 .placeRight > label {
   min-width: fit-content;
+}
+
+.progressWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* background-color: red; */
+  width: 40%;
 }
 
 /* --------------------------------------------------------- */
@@ -428,7 +457,7 @@
 .summaryText {
   position: absolute;
   top: -16px;
-  left: 43.5%;
+  left: 42%;
   font-size: 16px;
   background-color: white;
   z-index: 4;
@@ -488,6 +517,10 @@
   padding-left: 8px;
 }
 
+.editInputLine {
+  justify-content: start;
+}
+employmentStart
 .editFinalizeContainer {
   padding: 8px;
   display: flex;
@@ -520,6 +553,7 @@
 }
 .editProgram {
   width: 70%;
+  margin-left: 4px;
   /* padding-left: 8px; */
 }
 
@@ -534,12 +568,16 @@
   font-weight: normal;
 }
 
-.editDetails {
+.editDetails, .editEmpDetails {
   padding: 4px 0px;
   line-height: 20px;
   font-size: 14px;
   padding-right: 4px;
-  padding-left: 8px;
+  /* padding-left: 8px; */
+}
+
+.editEmpDetails, .editVolDetails {
+  margin-left: 8px;
 }
 
 .editHeader {
@@ -591,6 +629,10 @@
   border-right: 1px solid #ddd;
 }
 
+.editEnd {
+  margin-left: 4px;
+}
+
 .editGpa {
   width: 100%;
 }
@@ -631,13 +673,16 @@
   width: 50%;
   border-right: 1px solid #ddd;
 }
+.employmentStartCurrent {
+  margin-left: 4px;
+}
 
 .employmentEnd, .volunteerEnd {
   width: 50%;
   padding-left: 8px;
 }
 .editFinalizeContainer {
-  margin-bottom: 24px;
+  margin-bottom: 64px;
 }
 
 .updateSkillsWrapper,

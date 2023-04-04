@@ -118,7 +118,7 @@ const Employment = () => {
 
         {/* Job title */}
         <div className={styles.fieldWrapper}>
-          <label htmlFor="start" className={styles.labelText}>Job Title:</label>
+          <label htmlFor="start" className={styles.labelText}>Job Title: <span className={styles.requiredField}>*</span></label>
           <input
             ref={jobTitle}
             type="text"
@@ -127,12 +127,11 @@ const Employment = () => {
             id="jobTitle"
             required
           ></input>
-          <span className={styles.requiredField}>*</span>
         </div>
 
         {/* Company/Organization name */}
         <div className={styles.fieldWrapper}>
-          <label htmlFor="start" className={styles.labelText}>Organization:</label>
+          <label htmlFor="start" className={styles.labelText}>Organization: <span className={styles.requiredField}>*</span></label>
           <input
             ref={companyName}
             type="text"
@@ -141,12 +140,11 @@ const Employment = () => {
             id="companyName"
             required
           ></input>
-          <span className={styles.requiredField}>*</span>
         </div>
 
         {/* location */}
         <div className={styles.fieldWrapper}>
-          <label htmlFor="start" className={styles.labelText}>Location:</label>
+          <label htmlFor="start" className={styles.labelText}>Location: <span className={styles.requiredField}>*</span></label>
           <input
             ref={location}
             type="text"
@@ -155,13 +153,11 @@ const Employment = () => {
             id="location"
             required
           ></input>
-          <span className={styles.requiredField}>*</span>
         </div>
-
 
         {/* start/end dates */}
         <div className={styles.fieldWrapper}>
-          <label htmlFor="start" className={styles.labelText}>Start:</label>
+          <label htmlFor="start" className={styles.labelText}>Start: <span className={styles.requiredField}>*</span></label>
           <input
             ref={start}
             type="date"
@@ -169,11 +165,10 @@ const Employment = () => {
             name="start"
             id="start"
           ></input>
-          <span className={styles.requiredField}>*</span>
         </div>
 
         <div className={styles.fieldWrapper}>
-          <label htmlFor="end" className={styles.labelText}>End:</label>
+          <label htmlFor="end" className={styles.labelText}>End: {present ? "" : <span className={styles.requiredField}>*</span>}</label>
           <input
             ref={end}
             type="date"
@@ -181,7 +176,6 @@ const Employment = () => {
             name="end"
             id="end"
           ></input>
-          {present ? "" : <span className={styles.requiredField}>*</span>}
         </div>
 
         <div className={styles.fieldWrapper}>
@@ -191,7 +185,7 @@ const Employment = () => {
               name="present"
               ref={presently}
               onChange={handleCheck}
-              // onFocus={handleFocus}
+            // onFocus={handleFocus}
             />
             <label htmlFor="present" className={styles.currentlyWorkHere}>I currently work here</label>
           </div>
@@ -242,11 +236,11 @@ const Employment = () => {
               {/* fourth row */}
               <div className={styles.editInputLine}>
                 {/* present ticked? */}
-                {_edit.presently ? <p>I currently work here</p> : <><p className={styles.employmentStart}>{_edit.start}</p>
-                  <p className={styles.employmentEnd}>{_edit.end}</p>
-                </>}
+                <p className={styles.employmentStart}>{_edit.start}</p>
+                {_edit.presently ? <p className={styles.employmentStartCurrent}>I currently work here</p> : <p className={styles.employmentEnd}>{_edit.end}</p>
+                }
               </div>
-              <p className={styles.editDetails}>{_edit.jobDesc}</p>
+              <p className={styles.editEmpDetails}>{_edit.jobDesc}</p>
 
               <div className={styles.updateFieldsWrapper}>
                 <button type="submit" onClick={() => updateHandler(_edit, "update")} className={styles.iconBtn}><i className="fa fa-pencil" aria-hidden="true"></i></button>

@@ -43,10 +43,6 @@ const Volunteer = () => {
     setPresent(presently.current.checked);
   };
 
-  // const handleFocus = () => {
-  //   responsibilities.current.value = "";
-  // };
-
   const resetFields = () => {
     position.current.value = "";
     project.current.value = "";
@@ -116,7 +112,7 @@ const Volunteer = () => {
 
         {/* Position/Title*/}
         <div className={styles.fieldWrapper}>
-          <label htmlFor="position" className={styles.labelText}>Position: </label>
+          <label htmlFor="position" className={styles.labelText}>Position: <span className={styles.requiredField}>*</span></label>
           <input
             ref={position}
             type="text"
@@ -125,12 +121,11 @@ const Volunteer = () => {
             id="position"
             required
           ></input>
-          <span className={styles.requiredField}>*</span>
         </div>
 
         {/* Company/Project */}
         <div className={styles.fieldWrapper}>
-          <label htmlFor="project" className={styles.labelText}>Project: </label>
+          <label htmlFor="project" className={styles.labelText}>Project: <span className={styles.requiredField}>*</span></label>
           <input
             ref={project}
             type="text"
@@ -139,12 +134,11 @@ const Volunteer = () => {
             id="project"
             required
           ></input>
-          <span className={styles.requiredField}>*</span>
         </div>
 
         {/* location */}
         <div className={styles.fieldWrapper}>
-          <label htmlFor="location" className={styles.labelText}>Location: </label>
+          <label htmlFor="location" className={styles.labelText}>Location: <span className={styles.requiredField}>*</span></label>
           <input
             ref={location}
             type="text"
@@ -153,13 +147,12 @@ const Volunteer = () => {
             id="location"
             required
           ></input>
-          <span className={styles.requiredField}>*</span>
         </div>
 
 
         {/* start/end dates */}
         <div className={styles.fieldWrapper}>
-          <label htmlFor="start" className={styles.labelText}>start date:</label>
+          <label htmlFor="start" className={styles.labelText}>start date: <span className={styles.requiredField}>*</span></label>
           <input
             ref={start}
             type="date"
@@ -167,10 +160,9 @@ const Volunteer = () => {
             name="start"
             id="start"
           ></input>
-          <span className={styles.requiredField}>*</span>
         </div>
         <div className={styles.fieldWrapper}>
-          <label htmlFor="end" className={styles.labelText}>End:</label>
+          <label htmlFor="end" className={styles.labelText}>End: {present ? "" : <span className={styles.requiredField}>*</span>}</label>
           <input
             ref={end}
             type="date"
@@ -178,7 +170,6 @@ const Volunteer = () => {
             name="end"
             id="end"
           ></input>
-          {present ? "" : <span className={styles.requiredField}>*</span>}
         </div>
 
         <div className={styles.fieldWrapper}>
@@ -189,11 +180,13 @@ const Volunteer = () => {
               ref={presently}
               onChange={handleCheck}
             />
-            <label htmlFor="present">I currently volunteer here</label>
+            <label htmlFor="present" className={styles.currentlyWorkHere}>I currently volunteer here</label>
           </div>
         </div>
+
         {/* Responsibilities */}
         <div className={styles.fieldWrapper}>
+          <label htmlFor="responsibilities" className={styles.labelText}>Responsibilities: </label>
           <textarea
             ref={responsibilities}
             id="responsibilities"
@@ -233,11 +226,10 @@ const Volunteer = () => {
               {/* fourth row */}
               <div className={styles.editInputLine}>
                 {/* present ticked? */}
-                {_edit.presently ? <p>I currently volunteer here</p> : <><p className={styles.volunteerStart}>{_edit.start}</p>
-                  <p className={styles.volunteerEnd}>{_edit.end}</p>
-                </>}
+                <p className={styles.volunteerStart}>{_edit.start}</p>
+                {_edit.presently ? <p className={styles.employmentStartCurrent}>I currently volunteer here</p> : <p className={styles.volunteerEnd}>{_edit.end}</p>}
               </div>
-              <p className={styles.editDetails}>{_edit.responsibilities}</p>
+              <p className={styles.editVolDetails}>{_edit.responsibilities}</p>
 
               <div className={styles.updateFieldsWrapper}>
                 <button type="submit" onClick={() => updateHandler(_edit, "update")} className={styles.iconBtn}><i className="fa fa-pencil" aria-hidden="true"></i></button>

@@ -16,16 +16,12 @@ const Contact = () => {
   const otherNames = useRef(null);
   const email = useRef(null);
   const phoneNumber = useRef(null);
-  // const city = useRef(null);
   const state = useRef(null);
   const role = useRef(null);
   const headline = useRef(null);
-  // const dob = useRef(null);
-  // const nationality = useRef(null);
   const linkedIn = useRef(null);
   const github = useRef(null);
   const website = useRef(null);
-  // const other = useRef(null);
 
   const { updateContact } = useContext(ContactContext);
 
@@ -61,8 +57,6 @@ const Contact = () => {
       otherNames: otherNames.current.value ? otherNames.current.value : null,
       email: email.current.value ? email.current.value : null,
       phoneNumber: phoneNumber.current.value ? phoneNumber.current.value : null,
-      // fileName: fileName,
-      // city: city.current.value ? city.current.value : null,
       country: !selectedCountry ? null : selectedCountry,
       state: state.current.value ? state.current.value : null,
       role: role.current.value ? role.current.value : null,
@@ -70,12 +64,9 @@ const Contact = () => {
         headline.current.value !== defaultMsg && headline.current.value
           ? headline.current.value
           : null,
-      // dob: dob.current.value ? dob.current.value : null,
-      // nationality: nationality.current.value ? nationality.current.value : null,
       linkedIn: linkedIn.current.value ? linkedIn.current.value : null,
       github: github.current.value ? github.current.value : null,
       website: website.current.value ? website.current.value : null,
-      // other: other.current.value ? other.current.value : null
     };
     updateContact(contactDetails);
   };
@@ -109,12 +100,12 @@ const Contact = () => {
       </div>
 
       {localStorage.getItem("fileName") ? <div className={styles.fileNameWrapper}>
-        <p>{localStorage.getItem("fileName")}</p>
+        <p>Uploaded: {localStorage.getItem("fileName")}</p>
       </div> : ""}
 
       {/* names */}
       <div className={styles.fieldWrapper}>
-        <label htmlFor="firstName" className={styles.labelText}>First name: </label>
+        <label htmlFor="firstName" className={styles.labelText}>First name: <span className={styles.requiredField}>*</span></label>
         <input
           ref={firstName}
           type="text"
@@ -123,11 +114,10 @@ const Contact = () => {
           id="firstName"
           required
         ></input>
-        <span className={styles.requiredField}>*</span>
       </div>
 
       <div className={styles.fieldWrapper}>
-        <label htmlFor="lastName" className={styles.labelText}>Last name: </label>
+        <label htmlFor="lastName" className={styles.labelText}>Last name:  <span className={styles.requiredField}>*</span></label>
         <input
           ref={lastName}
           type="text"
@@ -136,7 +126,6 @@ const Contact = () => {
           id="lastName"
           required
         ></input>
-        <span className={styles.requiredField}>*</span>
       </div>
 
       <div className={styles.fieldWrapper}>
@@ -152,7 +141,7 @@ const Contact = () => {
 
       {/* phone number  & email */}
       <div className={styles.fieldWrapper}>
-        <label htmlFor="email" className={styles.labelText}>Email: </label>
+        <label htmlFor="email" className={styles.labelText}>Email:  <span className={styles.requiredField}>*</span></label>
         <input
           ref={email}
           type="email"
@@ -161,11 +150,10 @@ const Contact = () => {
           id="email"
           required
         ></input>
-        <span className={styles.requiredField}>*</span>
       </div>
 
       <div className={styles.fieldWrapper}>
-        <label htmlFor="phoneNumber" className={styles.labelText}>Phone number: </label>
+        <label htmlFor="phoneNumber" className={styles.labelText}>Phone number:  <span className={styles.requiredField}>*</span></label>
         <input
           ref={phoneNumber}
           type="text"
@@ -174,12 +162,11 @@ const Contact = () => {
           id="phoneNumber"
           required
         ></input>
-        <span className={styles.requiredField}>*</span>
       </div>
 
       {/* role*/}
       <div className={styles.fieldWrapper}>
-        <label htmlFor="role" className={styles.labelText}>Role: </label>
+        <label htmlFor="role" className={styles.labelText}>Role: <span className={styles.requiredField}>*</span></label>
         <input
           ref={role}
           type="text"
@@ -187,12 +174,11 @@ const Contact = () => {
           name="role"
           id="role"
         ></input>
-        <span className={styles.requiredField}>*</span>
       </div>
 
       {/* country-city */}
       <div className={styles.fieldWrapper}>
-        <label htmlFor="country" className={styles.labelText}>Country: </label>
+        <label htmlFor="country" className={styles.labelText}>Country: <span className={styles.requiredField}>*</span></label>
         <div className={styles.countryListWrapper} onClick={toggleDropdown}>
           {selectedCountry || "---select country---"}
           {/* {!selectedCountry && "---select country---"} */}
@@ -210,12 +196,11 @@ const Contact = () => {
           placeholder="city or state"
           name="state"
           id="state"
-          required
         ></input>
       </div>
 
       <div className={styles.textFieldWrapper}>
-        <label htmlFor="headline" className={styles.labelText}>Headline: </label>
+        <label htmlFor="headline" className={styles.labelText}>Headline: <span className={styles.requiredField}>*</span></label>
         <textarea
           ref={headline}
           id="headline"
@@ -227,26 +212,7 @@ const Contact = () => {
           onChange={handleChange}
           required
         ></textarea>
-        <span className={styles.requiredField}>*</span>
       </div>
-
-      {/* DOB & Nationality */}
-      {/* <div className={styles.dobAndNationalityWrapper}>
-        <input
-          ref={dob}
-          type="date"
-          placeholder="Date of birth"
-          name="dob"
-          id="dob"
-        ></input>
-        <input
-          ref={nationality}
-          type="text"
-          placeholder="Nationality"
-          name="nationality"
-          id="nationality"
-        ></input>
-      </div> */}
 
       {/* LinkedIn and Github */}
       <div className={styles.fieldWrapper}>
@@ -281,14 +247,6 @@ const Contact = () => {
           name="website"
           id="website"
         ></input>
-        {/* Other */}
-        {/* <input
-          ref={other}
-          type="text"
-          placeholder="E.g, Age : 36 years"
-          name="other"
-          id="other"
-        ></input> */}
       </div>
 
       <button type="submit" className={styles.submitBtn}>

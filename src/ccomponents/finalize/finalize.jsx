@@ -127,6 +127,9 @@ const Finalize = () => {
 
         {/* award */}
         <div className={styles.awardWrapper}>
+          <label htmlFor="award" className={styles.labelText}>
+            Awards/Honours:
+          </label>
           <input
             ref={awardRef}
             type="text"
@@ -145,6 +148,9 @@ const Finalize = () => {
 
         {/* extraCurricular */}
         <div className={styles.extraCurricularWrapper}>
+          <label htmlFor="extraCurricular" className={styles.labelText}>
+            Extra-curricular Activities:
+          </label>
           <input
             ref={extraCurricularRef}
             type="text"
@@ -167,6 +173,9 @@ const Finalize = () => {
 
         {/* Academic work */}
         <div className={styles.extraCurricularWrapper}>
+          <label htmlFor="academicWork" className={styles.labelText}>
+            Academic Works:
+          </label>
           <input
             ref={academicRef}
             type="text"
@@ -189,6 +198,9 @@ const Finalize = () => {
 
         {/* Memberships/Professional bodies */}
         <div className={styles.extraCurricularWrapper}>
+          <label htmlFor="memberships" className={styles.labelText}>
+            Memberships:
+          </label>
           <input
             ref={membershipRef}
             type="text"
@@ -211,6 +223,9 @@ const Finalize = () => {
 
         {/* language */}
         <div className={styles.extraCurricularWrapper}>
+          <label htmlFor="language" className={styles.labelText}>
+            Languages:
+          </label>
           <input
             ref={languageRef}
             type="text"
@@ -233,6 +248,9 @@ const Finalize = () => {
 
         {/* custom */}
         <div className={styles.extraCurricularWrapper}>
+          <label htmlFor="custom" className={styles.labelText}>
+            Custom:
+          </label>
           <input
             ref={customRef}
             type="text"
