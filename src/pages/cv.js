@@ -168,10 +168,16 @@ const BuildCv = () => {
         {/* template */}
         <section className={styles.template}>
           <button className={styles.prevTemplate} onClick={_handlePrevTemplate}>
-            previous
+            <i
+              className={`fa fa-chevron-left ${styles.leftIcon}`}
+              aria-hidden="true"
+            ></i>
           </button>
           <button className={styles.nextTemplate} onClick={_handleNextTemplate}>
-            next
+            <i
+              className={`fa fa-chevron-right ${styles.leftIcon}`}
+              aria-hidden="true"
+            ></i>
           </button>
           {template === 1 ? (
             <TemplateTwo

@@ -2,14 +2,12 @@
   width: 100vw;
   height: fit-content;
   background-color: #f1f1f1;
-  font-family: "Roboto", sans-serif;
+  font-family: "Nunito", sans-serif;
   color: #374046;
 }
 
 .wrapper {
   display: flex;
-  /* background-color: aquamarine; */
-  /* padding: 10px; */
   position: relative;
 }
 
@@ -29,8 +27,16 @@
 
 .prevTemplate, .nextTemplate {
   position: absolute;
-  width: fit-content;
+  min-width: fit-content;
   bottom: 50%;
+  border: none;
+  background-color: none;
+  padding: 6px;
+  opacity: 0.1;
+}
+
+.prevTemplate:hover, .nextTemplate:hover {
+  opacity: 0.4;
 }
 
 .prevTemplate {
@@ -39,6 +45,10 @@
 
 .nextTemplate {
   right: 0px;
+}
+
+.leftIcon, .rightIcon {
+  font-size: 32px;
 }
 
 .template {

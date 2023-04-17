@@ -53,6 +53,7 @@ const Education = () => {
       return educationDetails;
     }
   };
+
   // reset fields
   const resetFields = () => {
     program.current.value = "";
@@ -85,9 +86,6 @@ const Education = () => {
 
   const updateHandler = (__edit, mode) => {
     if (mode === "update") {
-      // evt.preventDefault()
-      // program.current.value = __edit.program
-      // city.current.value = __edit.city
       state.current.value = __edit.state;
       program.current.value = __edit.program;
       start.current.value = __edit.start;
@@ -96,7 +94,6 @@ const Education = () => {
       school.current.value = __edit.school;
       relevantCourses.current.value = __edit.relevantCourses;
       project.current.value = __edit.project;
-      // program.current.value = __edit.program;
       setSelectedCountry(__edit.country);
       setSelectedDegree(__edit.degree);
       setEditMode(true)
@@ -124,6 +121,8 @@ const Education = () => {
       console.log("Missing one or more required fields")
     }
   }
+
+  // console.log("start", start.current.value)
 
   return (
     <>
@@ -211,6 +210,18 @@ const Education = () => {
             className={styles.startDateInput}
           ></input>
         </div>
+
+        {/* <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <select>
+            <option value="">Year</option>
+          </select>
+          <select>
+            <option value="">Month</option>
+          </select>
+          <select>
+            <option value="">Day</option>
+          </select>
+        </div> */}
 
         {/* end */}
         <div className={styles.end}>

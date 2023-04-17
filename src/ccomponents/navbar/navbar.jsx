@@ -1,5 +1,4 @@
 import styles from "./navbar.module.css";
-import avatar from "../../static/images/avatar.jpg";
 import { Link } from "../../../node_modules/react-router-dom/dist";
 
 const Navbar = () => {
@@ -25,13 +24,13 @@ const Navbar = () => {
             <li className={styles.link}>
               <Link to="/about">About</Link>
             </li>
-            <li className={styles.link}>
+            {/* <li className={styles.link}>
               <Link to="/contact">Contact</Link>
-            </li>
-            <li className={styles.link}>
+            </li> */}
+            {/* <li className={styles.link}>
               <Link to="/login">Login</Link>
-            </li>
-            <div className={styles.profileImageWrapper}>
+            </li> */}
+            {/* <div className={styles.profileImageWrapper}>
               <img
                 className={styles.profileImg}
                 src={avatar}
@@ -39,7 +38,7 @@ const Navbar = () => {
                 width="35"
                 height="35"
               />
-            </div>
+            </div> */}
           </ul>
         </div>
       </div>

@@ -2,7 +2,6 @@ import Navbar from "./ccomponents/navbar/navbar";
 import BuildCv from "./pages/cv";
 import Home from "./pages/home";
 // import Print from "./pages/print"
-import Contact from "./pages/contactPage";
 import Login from "./pages/login";
 import About from "./pages/about";
 import ContactContextProvider from "./context/contactContext";
@@ -41,7 +40,6 @@ export default function App() {
                           {/* CV create page */}
                           <Route path="/create" element={<BuildCv />} />
                           <Route path="/login" element={<Login />} />
-                          <Route path="/contact" element={<Contact />} />
                           <Route path="/about" element={<About />} />
                           {/* <Route path="/print" element={<Print />} /> */}
                           {/* <Route path="/redirect" element={<Navigate to="/print" />} /> */}

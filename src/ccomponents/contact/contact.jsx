@@ -4,6 +4,8 @@ import CountryList from "../helperComponents/CountryList";
 import fileIconSvg from "../../static/icons/fileUploadIcon.svg";
 import { ContactContext } from "../../context/contactContext";
 
+import { animateScroll as scroll, scroller } from "react-scroll";
+
 const Contact = () => {
   const defaultMsg =
     "Headline & Summary Basically a short summary of related work experience and key skills";
@@ -47,7 +49,14 @@ const Contact = () => {
     };
   }
 
-  console.log(localStorage.getItem("fileName"))
+  const handleScroll = () => {
+    scroller.scrollTo("headerText", {
+      duration: 500,
+      delay: 0,
+      smooth: "easeInOutQuart",
+      offset: -50, // Adjust scrolling offset if needed
+    });
+  };
 
   const handleSubmit = evt => {
     evt.preventDefault();
@@ -68,13 +77,14 @@ const Contact = () => {
       github: github.current.value ? github.current.value : null,
       website: website.current.value ? website.current.value : null,
     };
+    // handleScroll();
     updateContact(contactDetails);
   };
 
   return (
     <form className={styles.itemContainer} onSubmit={handleSubmit}>
       {/* Page header */}
-      <h2 className={styles.formHeader}>Contact & Personal details</h2>
+      <h2 className={styles.formHeader} id="headerText">Contact & Personal details</h2>
       <p className={styles.formSummary}>
         Include relevant contact details. Required fields are marked with red asterisks.
       </p>
