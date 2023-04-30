@@ -124,7 +124,7 @@ const Finalize = () => {
         <h2 className={styles.formHeader}>Additional Activities</h2>
         <p className={styles.formSummary}>(This section is optional)</p>
         <hr className={styles.hr} />
-
+{/*  */}
         {/* award */}
         <div className={styles.awardWrapper}>
           <label htmlFor="award" className={styles.labelText}>

@@ -19,12 +19,12 @@
   cursor: pointer;
   padding: 10px;
   font-family: "Fredericka the Great", cursive;
+  color: #8e5748 !important;
 }
 
 .logoElement,
 .logoElementSmall {
   font-size: 45px;
-  color: #8e5748;
   font-style: italic;
   font-weight: bold;
 }
@@ -46,28 +46,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-weight: bold;
-  font-size: 20px;
   text-transform: capitalize;
   flex: 1;
   color: #374046;
   cursor: pointer;
+  /* background-color: red; */
 }
 
 .link {
-  margin-left: 50px;
+  margin: 0px 4px;
   text-decoration: none;
   transition: all 0.1s;
   font-family: "Roboto Flex", sans-serif;
   color: inherit;
-}
-
-.link:hover {
-  text-decoration: underline;
-  text-decoration-style: solid 1px;
-  text-decoration-color: red;
-  text-underline-offset: 3px;
-  font-size: 21px;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .profileImageWrapper {

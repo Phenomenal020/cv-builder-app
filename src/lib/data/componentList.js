@@ -7,32 +7,44 @@ import Skills from "../../ccomponents/skills/skills";
 import Volunteer from "../../ccomponents/volunteer/volunteer";
 // import CareerObjs from "../../ccomponents/careerObjs/careerObjs";
 import Finalize from "../../ccomponents/finalize/finalize";
+import ContactTest from "../../ccomponents/contact/contactTest";
+import EducationMui from "../../ccomponents/education/educationMui";
+import CertificationsMui from "../../ccomponents/certifications/certificationsMui";
+import EmploymentMui from "../../ccomponents/employment/employmentMui";
+import SkillsMui from "../../ccomponents/skills/skillsMui";
+import VolunteerMui from "../../ccomponents/volunteer/volunteerMui";
+import FinalizeMui from "../../ccomponents/finalize/finalizeMui";
 
 const componentsList = [
   {
     id: 1,
     pageIndex: 1,
-    component: <Contact />
+    // component: <Contact />
+    component: <ContactTest />
   },
   {
     id: 2,
     pageIndex: 2,
-    component: <Education />
+    // component: <Education />
+    component: <EducationMui />
   },
   {
     id: 3,
     pageIndex: 3,
-    component: <Certifications />
+    // component: <Certifications />
+    component: <CertificationsMui />
   },
   {
     id: 4,
     pageIndex: 4,
-    component: <Employment />
+    // component: <Employment />
+    component: <EmploymentMui />
   },
   {
     id: 5,
     pageIndex: 5,
-    component: <Skills />
+    // component: <Skills />
+    component: <SkillsMui />
   },
   // {
   //   id: 6,
@@ -42,7 +54,8 @@ const componentsList = [
   {
     id: 6,
     pageIndex: 6,
-    component: <Volunteer />
+    // component: <Volunteer />
+    component: <VolunteerMui />
   },
   // {
   //   id: 8,
@@ -52,7 +65,8 @@ const componentsList = [
   {
     id: 7,
     pageIndex: 7,
-    component: <Finalize />
+    // component: <Finalize />
+    component: <FinalizeMui />
   }
 ];
 

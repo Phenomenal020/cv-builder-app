@@ -20,6 +20,10 @@ import VolunteerContextProvider from "./context/volunteerContext";
 import FinalizeContextProvider from "./context/finalizeContext";
 import PageContextProvider from "./context/pageContext";
 import TemplateContextProvider from "./context/templateContext";
+import ContactTest from "./ccomponents/contact/contactTest";
+import EducationMui from "./ccomponents/education/educationMui";
+import CertificationsMui from "./ccomponents/certifications/certificationsMui";
+import Auth from "./pages/auth";
 
 export default function App() {
   return (
@@ -39,8 +43,11 @@ export default function App() {
                           <Route path="/" element={<Home />} />
                           {/* CV create page */}
                           <Route path="/create" element={<BuildCv />} />
-                          <Route path="/login" element={<Login />} />
+                          {/* <Route path="/login" element={<Login />} /> */}
+                          <Route path="/signin" element={<Auth />} />
                           <Route path="/about" element={<About />} />
+                          {/* <Route path="/test" element={<EducationMui />} /> */}
+                          <Route path="/test" element={<CertificationsMui />} />
                           {/* <Route path="/print" element={<Print />} /> */}
                           {/* <Route path="/redirect" element={<Navigate to="/print" />} /> */}
                         </Routes>

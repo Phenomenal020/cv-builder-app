@@ -49,14 +49,14 @@ const Contact = () => {
     };
   }
 
-  const handleScroll = () => {
-    scroller.scrollTo("headerText", {
-      duration: 500,
-      delay: 0,
-      smooth: "easeInOutQuart",
-      offset: -50, // Adjust scrolling offset if needed
-    });
-  };
+  // const handleScroll = () => {
+  //   scroller.scrollTo("headerText", {
+  //     duration: 500,
+  //     delay: 0,
+  //     smooth: "easeInOutQuart",
+  //     offset: -50, // Adjust scrolling offset if needed
+  //   });
+  // };
 
   const handleSubmit = evt => {
     evt.preventDefault();

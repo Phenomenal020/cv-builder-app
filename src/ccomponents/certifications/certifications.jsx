@@ -52,6 +52,7 @@ const Certifications = () => {
     if (!certDetails.certification) {
       return null
     } else {
+      // console.log("cert details", certDetails)
       return certDetails
     }
   };
@@ -137,7 +138,6 @@ const Certifications = () => {
           industry. Lorem Ipsum has been the industry's standard dummy text ever
           since the 1500s,
         </p>
-
         <hr className={styles.hr} />
 
         {/* Certification name */}

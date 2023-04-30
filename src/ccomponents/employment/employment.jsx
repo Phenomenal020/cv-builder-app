@@ -19,6 +19,146 @@ const Employment = () => {
   const jobDesc = useRef(null);
   const presently = useRef(null);
 
+  const [startDay, setStartDay] = useState('');
+  const [startMonth, setStartMonth] = useState('');
+  const [startYear, setStartYear] = useState('');
+  const [endDay, setEndDay] = useState('');
+  const [endMonth, setEndMonth] = useState('');
+  const [endYear, setEndYear] = useState('');
+
+  const [editStart, setEditStart] = useState('');
+  const [editEnd, setEditEnd] = useState('');
+
+  const handleStartDayChange = (event) => {
+    setStartDay(event.target.value);
+  };
+
+  const handleStartMonthChange = (event) => {
+    setStartMonth(event.target.value);
+    setStartDay('');
+  };
+
+  const handleStartYearChange = (event) => {
+    setStartYear(event.target.value);
+  };
+
+  const handleEndDayChange = (event) => {
+    setEndDay(event.target.value);
+  };
+
+  const handleEndMonthChange = (event) => {
+    setEndMonth(event.target.value);
+    setEndDay('');
+  };
+
+  const handleEndYearChange = (event) => {
+    setEndYear(event.target.value);
+  };
+
+  const getDaysInMonth = (month, year) => {
+    return new Date(year, month, 0).getDate();
+  };
+
+  const generateStartDayOptions = () => {
+    const numDays = getDaysInMonth(startMonth, startYear);
+    const options = [];
+    for (let i = 1; i <= numDays; i++) {
+      options.push(
+        <option key={i} value={i}>
+          {i}
+        </option>
+      );
+    }
+    return options;
+  };
+
+  const generateEndDayOptions = () => {
+    const numDays = getDaysInMonth(endMonth, endYear);
+    const options = [];
+    for (let i = 1; i <= numDays; i++) {
+      options.push(
+        <option key={i} value={i}>
+          {i}
+        </option>
+      );
+    }
+    return options;
+  };
+
+  const generateEndMonthOptions = () => {
+    const months = [
+      { value: '01', label: 'January' },
+      { value: '02', label: 'February' },
+      { value: '03', label: 'March' },
+      { value: '04', label: 'April' },
+      { value: '05', label: 'May' },
+      { value: '06', label: 'June' },
+      { value: '07', label: 'July' },
+      { value: '08', label: 'August' },
+      { value: '09', label: 'September' },
+      { value: '10', label: 'October' },
+      { value: '11', label: 'November' },
+      { value: '12', label: 'December' },
+    ];
+    return months.map((endMonth) => (
+      <option key={endMonth.value} value={endMonth.value}>
+        {endMonth.label}
+      </option>
+    ));
+  };
+
+  const generateStartMonthOptions = () => {
+    const months = [
+      { value: '01', label: 'January' },
+      { value: '02', label: 'February' },
+      { value: '03', label: 'March' },
+      { value: '04', label: 'April' },
+      { value: '05', label: 'May' },
+      { value: '06', label: 'June' },
+      { value: '07', label: 'July' },
+      { value: '08', label: 'August' },
+      { value: '09', label: 'September' },
+      { value: '10', label: 'October' },
+      { value: '11', label: 'November' },
+      { value: '12', label: 'December' },
+    ];
+    return months.map((startMonth) => (
+      <option key={startMonth.value} value={startMonth.value}>
+        {startMonth.label}
+      </option>
+    ));
+  };
+
+  const generateStartYearOptions = () => {
+    const currentYear = new Date().getFullYear();
+    const years = [];
+    for (let i = currentYear - 100; i <= currentYear; i++) {
+      years.push(
+        <option key={i} value={i}>
+          {i}
+        </option>
+      );
+    }
+    return years;
+  };
+
+  const generateEndYearOptions = () => {
+    const currentYear = new Date().getFullYear();
+    const years = [];
+    for (let i = currentYear - 100; i <= currentYear; i++) {
+      years.push(
+        <option key={i} value={i}>
+          {i}
+        </option>
+      );
+    }
+    return years;
+  };
+
+  // const toggleDropdown = () => {
+  //   toggleDegreeList(prevState => !prevState);
+  // }
+
   const populateFields = () => {
     const employmentDetails = {
       jobId: Math.random() * 10000,
@@ -26,8 +166,8 @@ const Employment = () => {
       companyName: companyName.current.value ? companyName.current.value : null,
       jobDesc: jobDesc.current.value ? jobDesc.current.value : null,
       location: location.current.value ? location.current.value : null,
-      start: start.current.value ? start.current.value : null,
-      end: present ? null : (end.current.value ? end.current.value : null),
+      start: (startMonth && startDay && startYear) ? `${startYear}-${startMonth}-${startDay}` : null,
+      end: present ? null : (endMonth && endDay && endYear) ? `${endYear}-${endMonth}-${endDay}` : null,
       presently: present
     };
     // check required fields
@@ -49,6 +189,14 @@ const Employment = () => {
     presently.current.checked = false;
     setPresent(false);
     // setMsg(defaultMsg)
+    setEditStart("")
+    setEditEnd("")
+    setStartDay("")
+    setStartMonth("")
+    setStartYear("")
+    setEndDay("")
+    setEndMonth("")
+    setEndYear("")
   };
 
   const handleSubmit = evt => {
@@ -72,6 +220,16 @@ const Employment = () => {
       start.current.value = __edit.start;
       end.current.value = __edit.end;
       jobDesc.current.value = __edit.jobDesc;
+      let editStartSplit = __edit.start.split("-");
+      setStartDay(editStartSplit[2])
+      setStartMonth(editStartSplit[1])
+      setStartYear(editStartSplit[0])
+      setEditStart(__edit.start)
+      let editEndSplit = __edit.end.split("-");
+      setEndDay(editEndSplit[2])
+      setEndMonth(editEndSplit[1])
+      setEndYear(editEndSplit[0])
+      setEditEnd(__edit.end)
       setPresent(prevState => __edit.present);
       setEditMode(true)
       setEditId(__edit.jobId)
@@ -158,24 +316,38 @@ const Employment = () => {
         {/* start/end dates */}
         <div className={styles.fieldWrapper}>
           <label htmlFor="start" className={styles.labelText}>Start: <span className={styles.requiredField}>*</span></label>
-          <input
-            ref={start}
-            type="date"
-            placeholder="start"
-            name="start"
-            id="start"
-          ></input>
+          <div className={styles.dateWrapper}>
+            <select value={startMonth} onChange={handleStartMonthChange}>
+              <option value="">Month</option>
+              {generateStartMonthOptions()}
+            </select>
+            <select value={startDay} onChange={handleStartDayChange}>
+              <option value="">Day</option>
+              {generateStartDayOptions()}
+            </select>
+            <select value={startYear} onChange={handleStartYearChange}>
+              <option value="">Year</option>
+              {generateStartYearOptions()}
+            </select>
+          </div>
         </div>
 
         <div className={styles.fieldWrapper}>
           <label htmlFor="end" className={styles.labelText}>End: {present ? "" : <span className={styles.requiredField}>*</span>}</label>
-          <input
-            ref={end}
-            type="date"
-            placeholder="end"
-            name="end"
-            id="end"
-          ></input>
+          <div className={styles.dateWrapper}>
+            <select value={endMonth} onChange={handleEndMonthChange}>
+              <option value="">Month</option>
+              {generateEndMonthOptions()}
+            </select>
+            <select value={endDay} onChange={handleEndDayChange}>
+              <option value="">Day</option>
+              {generateEndDayOptions()}
+            </select>
+            <select value={endYear} onChange={handleEndYearChange}>
+              <option value="">Year</option>
+              {generateEndYearOptions()}
+            </select>
+          </div>
         </div>
 
         <div className={styles.fieldWrapper}>
@@ -213,7 +385,7 @@ const Employment = () => {
             + <span>ADD EMPLOYMENT</span>
           </button>}
         </div>
-
+{/*  */}
       </form>
 
       <section className={styles.editCertContainer}>

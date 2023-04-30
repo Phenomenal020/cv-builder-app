@@ -710,3 +710,7 @@ summary
   padding: 4px;
   padding-right: 0px;
 }
+
+.dateWrapper {
+  display: flex;
+}

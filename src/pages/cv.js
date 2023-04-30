@@ -2,7 +2,6 @@ import styles from "../static/styles/cv.module.css";
 import componentsList from "../lib/data/componentList";
 
 import { useState, useContext } from "react";
-// import TemplateOne from "../ccomponents/templates/templateOne/templateOne";
 
 import { ContactContext } from "../context/contactContext";
 import { EducationContext } from "../context/educationContext";

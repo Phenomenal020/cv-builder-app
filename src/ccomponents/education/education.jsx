@@ -6,30 +6,168 @@ import { EducationContext } from "../../context/educationContext";
 
 const Education = () => {
 
-  // education and state context
   const { education, updateEducation, deleteEducation } = useContext(EducationContext);
-  // edits
+
   const [edit, setEdit] = useState(education)
   const [editMode, setEditMode] = useState(false)
   const [editId, setEditId] = useState(null)
-  // countries and degrees state
+
   const [countryList, toggleCountryList] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [degreeList, toggleDegreeList] = useState(false);
   const [selectedDegree, setSelectedDegree] = useState(null);
 
+  // start
+  const [startDay, setStartDay] = useState('');
+  const [startMonth, setStartMonth] = useState('');
+  const [startYear, setStartYear] = useState('');
+  const [endDay, setEndDay] = useState('');
+  const [endMonth, setEndMonth] = useState('');
+  const [endYear, setEndYear] = useState('');
+
+  const [editStart, setEditStart] = useState('');
+  const [editEnd, setEditEnd] = useState('');
+
+  const handleStartDayChange = (event) => {
+    setStartDay(event.target.value);
+  };
+
+  const handleStartMonthChange = (event) => {
+    setStartMonth(event.target.value);
+    setStartDay('');
+  };
+
+  const handleStartYearChange = (event) => {
+    setStartYear(event.target.value);
+  };
+
+  const handleEndDayChange = (event) => {
+    setEndDay(event.target.value);
+  };
+
+  const handleEndMonthChange = (event) => {
+    setEndMonth(event.target.value);
+    setEndDay('');
+  };
+
+  const handleEndYearChange = (event) => {
+    setEndYear(event.target.value);
+  };
+
+  const getDaysInMonth = (month, year) => {
+    return new Date(year, month, 0).getDate();
+  };
+
+  const generateStartDayOptions = () => {
+    const numDays = getDaysInMonth(startMonth, startYear);
+    const options = [];
+    for (let i = 1; i <= numDays; i++) {
+      options.push(
+        <option key={i} value={i}>
+          {i}
+        </option>
+      );
+    }
+    return options;
+  };
+
+  const generateEndDayOptions = () => {
+    const numDays = getDaysInMonth(endMonth, endYear);
+    const options = [];
+    for (let i = 1; i <= numDays; i++) {
+      options.push(
+        <option key={i} value={i}>
+          {i}
+        </option>
+      );
+    }
+    return options;
+  };
+
+  const generateEndMonthOptions = () => {
+    const months = [
+      { value: '01', label: 'January' },
+      { value: '02', label: 'February' },
+      { value: '03', label: 'March' },
+      { value: '04', label: 'April' },
+      { value: '05', label: 'May' },
+      { value: '06', label: 'June' },
+      { value: '07', label: 'July' },
+      { value: '08', label: 'August' },
+      { value: '09', label: 'September' },
+      { value: '10', label: 'October' },
+      { value: '11', label: 'November' },
+      { value: '12', label: 'December' },
+    ];
+    return months.map((endMonth) => (
+      <option key={endMonth.value} value={endMonth.value}>
+        {endMonth.label}
+      </option>
+    ));
+  };
+
+  const generateStartMonthOptions = () => {
+    const months = [
+      { value: '01', label: 'January' },
+      { value: '02', label: 'February' },
+      { value: '03', label: 'March' },
+      { value: '04', label: 'April' },
+      { value: '05', label: 'May' },
+      { value: '06', label: 'June' },
+      { value: '07', label: 'July' },
+      { value: '08', label: 'August' },
+      { value: '09', label: 'September' },
+      { value: '10', label: 'October' },
+      { value: '11', label: 'November' },
+      { value: '12', label: 'December' },
+    ];
+    return months.map((startMonth) => (
+      <option key={startMonth.value} value={startMonth.value}>
+        {startMonth.label}
+      </option>
+    ));
+  };
+
+  const generateStartYearOptions = () => {
+    const currentYear = new Date().getFullYear();
+    const years = [];
+    for (let i = currentYear - 100; i <= currentYear; i++) {
+      years.push(
+        <option key={i} value={i}>
+          {i}
+        </option>
+      );
+    }
+    return years;
+  };
+
+  const generateEndYearOptions = () => {
+    const currentYear = new Date().getFullYear();
+    const years = [];
+    for (let i = currentYear - 100; i <= currentYear; i++) {
+      years.push(
+        <option key={i} value={i}>
+          {i}
+        </option>
+      );
+    }
+    return years;
+  };
+  // end
+
+
   const toggleDropdown = () => {
     toggleDegreeList(prevState => !prevState);
   }
+  
   // references
   const program = useRef(null);
   const school = useRef(null);
   const state = useRef(null);
-  const start = useRef(null);
-  const end = useRef(null);
   const gpa = useRef(null);
   const relevantCourses = useRef(null)
   const project = useRef(null)
+
   // populate relevant fields
   const populateFields = () => {
     const educationDetails = {
@@ -37,14 +175,13 @@ const Education = () => {
       program: program.current.value ? program.current.value : null,
       school: school.current.value ? school.current.value : null,
       degree: selectedDegree ? selectedDegree : null,
-      end: end.current.value ? end.current.value : null,
-      start: start.current.value ? start.current.value : null,
+      end: (endMonth && endDay && endYear) ? `${endYear}-${endMonth}-${endDay}` : null,
+      start: (startMonth && startDay && startYear) ? `${startYear}-${startMonth}-${startDay}` : null,
       state: state.current.value ? state.current.value : null,
       country: selectedCountry ? selectedCountry : null,
       gpa: gpa.current.value ? gpa.current.value : null,
       relevantCourses: relevantCourses.current.value ? relevantCourses.current.value : null,
       project: project.current.value ? project.current.value : null
-
     };
     // check required fields
     if (!educationDetails.program || !educationDetails.degree || !educationDetails.school || !educationDetails.state || !educationDetails.country || !educationDetails.start || !educationDetails.end) {
@@ -57,18 +194,21 @@ const Education = () => {
   // reset fields
   const resetFields = () => {
     program.current.value = "";
-    // city.current.value = "";
     state.current.value = "";
-    program.current.value = "";
-    start.current.value = "";
-    end.current.value = "";
     gpa.current.value = "";
     school.current.value = "";
-    program.current.value = "";
     relevantCourses.current.value = "";
     project.current.value = "";
     setSelectedCountry(null);
     setSelectedDegree(null);
+    setEditStart("")
+    setEditEnd("")
+    setStartDay("")
+    setStartMonth("")
+    setStartYear("")
+    setEndDay("")
+    setEndMonth("")
+    setEndYear("")
   }
 
   const handleSubmit = evt => {
@@ -88,8 +228,16 @@ const Education = () => {
     if (mode === "update") {
       state.current.value = __edit.state;
       program.current.value = __edit.program;
-      start.current.value = __edit.start;
-      end.current.value = __edit.end;
+      let editStartSplit = __edit.start.split("-");
+      setStartDay(editStartSplit[2])
+      setStartMonth(editStartSplit[1])
+      setStartYear(editStartSplit[0])
+      setEditStart(__edit.start)
+      let editEndSplit = __edit.end.split("-");
+      setEndDay(editEndSplit[2])
+      setEndMonth(editEndSplit[1])
+      setEndYear(editEndSplit[0])
+      setEditEnd(__edit.end)
       gpa.current.value = __edit.gpa;
       school.current.value = __edit.school;
       relevantCourses.current.value = __edit.relevantCourses;
@@ -121,8 +269,6 @@ const Education = () => {
       console.log("Missing one or more required fields")
     }
   }
-
-  // console.log("start", start.current.value)
 
   return (
     <>
@@ -200,43 +346,41 @@ const Education = () => {
           <label htmlFor="start" className={styles.labelText}>
             Start date: <span className={styles.requiredField}>*</span>
           </label>
-          <input
-            ref={start}
-            type="date"
-            placeholder="Start date"
-            name="start"
-            id="start"
-            required
-            className={styles.startDateInput}
-          ></input>
+          <div className={styles.dateWrapper}>
+            <select value={startMonth} onChange={handleStartMonthChange}>
+              <option value="">Month</option>
+              {generateStartMonthOptions()}
+            </select>
+            <select value={startDay} onChange={handleStartDayChange}>
+              <option value="">Day</option>
+              {generateStartDayOptions()}
+            </select>
+            <select value={startYear} onChange={handleStartYearChange}>
+              <option value="">Year</option>
+              {generateStartYearOptions()}
+            </select>
+          </div>
         </div>
-
-        {/* <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <select>
-            <option value="">Year</option>
-          </select>
-          <select>
-            <option value="">Month</option>
-          </select>
-          <select>
-            <option value="">Day</option>
-          </select>
-        </div> */}
 
         {/* end */}
         <div className={styles.end}>
           <label htmlFor="end" className={styles.labelText}>
             End date: <span className={styles.requiredField}>*</span>
           </label>
-          <input
-            ref={end}
-            type="date"
-            placeholder="End date"
-            name="end"
-            id="end"
-            required
-            className={styles.endDateInput}
-          ></input>
+          <div className={styles.dateWrapper}>
+            <select value={endMonth} onChange={handleEndMonthChange}>
+              <option value="">Month</option>
+              {generateEndMonthOptions()}
+            </select>
+            <select value={endDay} onChange={handleEndDayChange}>
+              <option value="">Day</option>
+              {generateEndDayOptions()}
+            </select>
+            <select value={endYear} onChange={handleEndYearChange}>
+              <option value="">Year</option>
+              {generateEndYearOptions()}
+            </select>
+          </div>
         </div>
 
         <div className={styles.textFieldWrapper}>
@@ -314,7 +458,7 @@ const Education = () => {
             </div>
             {/* fourth row */}
             <div className={styles.editInputLine}>
-              <p className={styles.editState}>{_edit.state}</p>
+              <p className={styles.editCountry}>{_edit.state}</p>
             </div>
             {/* fifth row */}
             <div className={styles.editInputLine}>
@@ -322,17 +466,17 @@ const Education = () => {
               <p className={styles.editEnd}>{_edit.end}</p>
             </div>
 
-            <div className={styles.editInputLine}>
+            {_edit.gpa ? <div className={styles.editInputLine}>
               <p className={styles.editGpa}>{_edit.gpa}</p>
-            </div>
+            </div> : ""}
 
-            <div className={styles.editInputLine}>
+            {_edit.relevantCourses ? <div className={styles.editInputLine}>
               <p className={styles.editDetails}>{_edit.relevantCourses}</p>
-            </div>
+            </div> : ""}
 
-            <div className={styles.editInputLine}>
+            {_edit.project ? <div className={styles.editInputLine}>
               <p className={styles.editDetails}>{_edit.project}</p>
-            </div>
+            </div> : ""}
 
             <div className={styles.updateFieldsWrapper}>
               <button type="submit" onClick={() => updateHandler(_edit, "update")} className={styles.iconBtn}><i className="fa fa-pencil" aria-hidden="true"></i></button>

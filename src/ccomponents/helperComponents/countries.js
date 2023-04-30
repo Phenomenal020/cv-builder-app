@@ -1,747 +1,747 @@
 const countries = [
     {
-        "country": "Afghanistan"
+        country: "Afghanistan"
     },
     {
-        "country": "Albania"
+        country: "Albania"
     },
     {
-        "country": "Algeria"
+        country: "Algeria"
     },
     {
-        "country": "American Samoa"
+        country: "American Samoa"
     },
     {
-        "country": "Andorra"
+        country: "Andorra"
     },
     {
-        "country": "Angola"
+        country: "Angola"
     },
     {
-        "country": "Anguilla"
+        country: "Anguilla"
     },
     {
-        "country": "Antarctica"
+        country: "Antarctica"
     },
     {
-        "country": "Antigua and Barbuda"
+        country: "Antigua and Barbuda"
     },
     {
-        "country": "Argentina"
+        country: "Argentina"
     },
     {
-        "country": "Armenia"
+        country: "Armenia"
     },
     {
-        "country": "Aruba"
+        country: "Aruba"
     },
     {
-        "country": "Australia"
+        country: "Australia"
     },
     {
-        "country": "Austria"
+        country: "Austria"
     },
     {
-        "country": "Azerbaijan"
+        country: "Azerbaijan"
     },
     {
-        "country": "Bahamas"
+        country: "Bahamas"
     },
     {
-        "country": "Bahrain"
+        country: "Bahrain"
     },
     {
-        "country": "Bangladesh"
+        country: "Bangladesh"
     },
     {
-        "country": "Barbados"
+        country: "Barbados"
     },
     {
-        "country": "Belarus"
+        country: "Belarus"
     },
     {
-        "country": "Belgium"
+        country: "Belgium"
     },
     {
-        "country": "Belize"
+        country: "Belize"
     },
     {
-        "country": "Benin"
+        country: "Benin"
     },
     {
-        "country": "Bermuda"
+        country: "Bermuda"
     },
     {
-        "country": "Bhutan"
+        country: "Bhutan"
     },
     {
-        "country": "Bolivia"
+        country: "Bolivia"
     },
     {
-        "country": "Bosnia and Herzegovina"
+        country: "Bosnia and Herzegovina"
     },
     {
-        "country": "Botswana"
+        country: "Botswana"
     },
     {
-        "country": "Bouvet Island"
+        country: "Bouvet Island"
     },
     {
-        "country": "Brazil"
+        country: "Brazil"
     },
     {
-        "country": "British Indian Ocean Territory"
+        country: "British Indian Ocean Territory"
     },
     {
-        "country": "Brunei"
+        country: "Brunei"
     },
     {
-        "country": "Bulgaria"
+        country: "Bulgaria"
     },
     {
-        "country": "Burkina Faso"
+        country: "Burkina Faso"
     },
     {
-        "country": "Burundi"
+        country: "Burundi"
     },
     {
-        "country": "Cambodia"
+        country: "Cambodia"
     },
     {
-        "country": "Cameroon"
+        country: "Cameroon"
     },
     {
-        "country": "Canada"
+        country: "Canada"
     },
     {
-        "country": "Cape Verde"
+        country: "Cape Verde"
     },
     {
-        "country": "Cayman Islands"
+        country: "Cayman Islands"
     },
     {
-        "country": "Central African Republic"
+        country: "Central African Republic"
     },
     {
-        "country": "Chad"
+        country: "Chad"
     },
     {
-        "country": "Chile"
+        country: "Chile"
     },
     {
-        "country": "China"
+        country: "China"
     },
     {
-        "country": "Christmas Island"
+        country: "Christmas Island"
     },
     {
-        "country": "Cocos (Keeling) Islands"
+        country: "Cocos (Keeling) Islands"
     },
     {
-        "country": "Colombia"
+        country: "Colombia"
     },
     {
-        "country": "Comoros"
+        country: "Comoros"
     },
     {
-        "country": "Congo"
+        country: "Congo"
     },
     {
-        "country": "The Democratic Republic of Congo"
+        country: "The Democratic Republic of Congo"
     },
     {
-        "country": "Cook Islands"
+        country: "Cook Islands"
     },
     {
-        "country": "Costa Rica"
+        country: "Costa Rica"
     },
     {
-        "country": "Ivory Coast"
+        country: "Ivory Coast"
     },
     {
-        "country": "Croatia"
+        country: "Croatia"
     },
     {
-        "country": "Cuba"
+        country: "Cuba"
     },
     {
-        "country": "Cyprus"
+        country: "Cyprus"
     },
     {
-        "country": "Czech Republic"
+        country: "Czech Republic"
     },
     {
-        "country": "Denmark"
+        country: "Denmark"
     },
     {
-        "country": "Djibouti"
+        country: "Djibouti"
     },
     {
-        "country": "Dominica"
+        country: "Dominica"
     },
     {
-        "country": "Dominican Republic"
+        country: "Dominican Republic"
     },
     {
-        "country": "East Timor"
+        country: "East Timor"
     },
     {
-        "country": "Ecuador"
+        country: "Ecuador"
     },
     {
-        "country": "Egypt"
+        country: "Egypt"
     },
     {
-        "country": "England"
+        country: "England"
     },
     {
-        "country": "El Salvador"
+        country: "El Salvador"
     },
     {
-        "country": "Equatorial Guinea"
+        country: "Equatorial Guinea"
     },
     {
-        "country": "Eritrea"
+        country: "Eritrea"
     },
     {
-        "country": "Estonia"
+        country: "Estonia"
     },
     {
-        "country": "Ethiopia"
+        country: "Ethiopia"
     },
     {
-        "country": "Falkland Islands"
+        country: "Falkland Islands"
     },
     {
-        "country": "Faroe Islands"
+        country: "Faroe Islands"
     },
     {
-        "country": "Fiji Islands"
+        country: "Fiji Islands"
     },
     {
-        "country": "Finland"
+        country: "Finland"
     },
     {
-        "country": "France"
+        country: "France"
     },
     {
-        "country": "French Guiana"
+        country: "French Guiana"
     },
     {
-        "country": "French Polynesia"
+        country: "French Polynesia"
     },
     {
-        "country": "French Southern territories"
+        country: "French Southern territories"
     },
     {
-        "country": "Gabon"
+        country: "Gabon"
     },
     {
-        "country": "Gambia"
+        country: "Gambia"
     },
     {
-        "country": "Georgia"
+        country: "Georgia"
     },
     {
-        "country": "Germany"
+        country: "Germany"
     },
     {
-        "country": "Ghana"
+        country: "Ghana"
     },
     {
-        "country": "Gibraltar"
+        country: "Gibraltar"
     },
     {
-        "country": "Greece"
+        country: "Greece"
     },
     {
-        "country": "Greenland"
+        country: "Greenland"
     },
     {
-        "country": "Grenada"
+        country: "Grenada"
     },
     {
-        "country": "Guadeloupe"
+        country: "Guadeloupe"
     },
     {
-        "country": "Guam"
+        country: "Guam"
     },
     {
-        "country": "Guatemala"
+        country: "Guatemala"
     },
     {
-        "country": "Guernsey"
+        country: "Guernsey"
     },
     {
-        "country": "Guinea"
+        country: "Guinea"
     },
     {
-        "country": "Guinea-Bissau"
+        country: "Guinea-Bissau"
     },
     {
-        "country": "Guyana"
+        country: "Guyana"
     },
     {
-        "country": "Haiti"
+        country: "Haiti"
     },
     {
-        "country": "Heard Island and McDonald Islands"
+        country: "Heard Island and McDonald Islands"
     },
     {
-        "country": "Holy See (Vatican City State)"
+        country: "Holy See (Vatican City State)"
     },
     {
-        "country": "Honduras"
+        country: "Honduras"
     },
     {
-        "country": "Hong Kong"
+        country: "Hong Kong"
     },
     {
-        "country": "Hungary"
+        country: "Hungary"
     },
     {
-        "country": "Iceland"
+        country: "Iceland"
     },
     {
-        "country": "India"
+        country: "India"
     },
     {
-        "country": "Indonesia"
+        country: "Indonesia"
     },
     {
-        "country": "Iran"
+        country: "Iran"
     },
     {
-        "country": "Iraq"
+        country: "Iraq"
     },
     {
-        "country": "Ireland"
+        country: "Ireland"
     },
     {
-        "country": "Israel"
+        country: "Israel"
     },
     {
-        "country": "Isle of Man"
+        country: "Isle of Man"
     },
     {
-        "country": "Italy"
+        country: "Italy"
     },
     {
-        "country": "Jamaica"
+        country: "Jamaica"
     },
     {
-        "country": "Japan"
+        country: "Japan"
     },
     {
-        "country": "Jersey"
+        country: "Jersey"
     },
     {
-        "country": "Jordan"
+        country: "Jordan"
     },
     {
-        "country": "Kazakhstan"
+        country: "Kazakhstan"
     },
     {
-        "country": "Kenya"
+        country: "Kenya"
     },
     {
-        "country": "Kiribati"
+        country: "Kiribati"
     },
     {
-        "country": "Kuwait"
+        country: "Kuwait"
     },
     {
-        "country": "Kyrgyzstan"
+        country: "Kyrgyzstan"
     },
     {
-        "country": "Laos"
+        country: "Laos"
     },
     {
-        "country": "Latvia"
+        country: "Latvia"
     },
     {
-        "country": "Lebanon"
+        country: "Lebanon"
     },
     {
-        "country": "Lesotho"
+        country: "Lesotho"
     },
     {
-        "country": "Liberia"
+        country: "Liberia"
     },
     {
-        "country": "Libyan Arab Jamahiriya"
+        country: "Libyan Arab Jamahiriya"
     },
     {
-        "country": "Liechtenstein"
+        country: "Liechtenstein"
     },
     {
-        "country": "Lithuania"
+        country: "Lithuania"
     },
     {
-        "country": "Luxembourg"
+        country: "Luxembourg"
     },
     {
-        "country": "Macao"
+        country: "Macao"
     },
     {
-        "country": "North Macedonia"
+        country: "North Macedonia"
     },
     {
-        "country": "Madagascar"
+        country: "Madagascar"
     },
     {
-        "country": "Malawi"
+        country: "Malawi"
     },
     {
-        "country": "Malaysia"
+        country: "Malaysia"
     },
     {
-        "country": "Maldives"
+        country: "Maldives"
     },
     {
-        "country": "Mali"
+        country: "Mali"
     },
     {
-        "country": "Malta"
+        country: "Malta"
     },
     {
-        "country": "Marshall Islands"
+        country: "Marshall Islands"
     },
     {
-        "country": "Martinique"
+        country: "Martinique"
     },
     {
-        "country": "Mauritania"
+        country: "Mauritania"
     },
     {
-        "country": "Mauritius"
+        country: "Mauritius"
     },
     {
-        "country": "Mayotte"
+        country: "Mayotte"
     },
     {
-        "country": "Mexico"
+        country: "Mexico"
     },
     {
-        "country": "Micronesia, Federated States of"
+        country: "Micronesia, Federated States of"
     },
     {
-        "country": "Moldova"
+        country: "Moldova"
     },
     {
-        "country": "Monaco"
+        country: "Monaco"
     },
     {
-        "country": "Mongolia"
+        country: "Mongolia"
     },
     {
-        "country": "Montserrat"
+        country: "Montserrat"
     },
     {
-        "country": "Montenegro"
+        country: "Montenegro"
     },
     {
-        "country": "Morocco"
+        country: "Morocco"
     },
     {
-        "country": "Mozambique"
+        country: "Mozambique"
     },
     {
-        "country": "Myanmar"
+        country: "Myanmar"
     },
     {
-        "country": "Namibia"
+        country: "Namibia"
     },
     {
-        "country": "Nauru"
+        country: "Nauru"
     },
     {
-        "country": "Nepal"
+        country: "Nepal"
     },
     {
-        "country": "Netherlands"
+        country: "Netherlands"
     },
     {
-        "country": "Netherlands Antilles"
+        country: "Netherlands Antilles"
     },
     {
-        "country": "New Caledonia"
+        country: "New Caledonia"
     },
     {
-        "country": "New Zealand"
+        country: "New Zealand"
     },
     {
-        "country": "Nicaragua"
+        country: "Nicaragua"
     },
     {
-        "country": "Niger"
+        country: "Niger"
     },
     {
-        "country": "Nigeria"
+        country: "Nigeria"
     },
     {
-        "country": "Niue"
+        country: "Niue"
     },
     {
-        "country": "Norfolk Island"
+        country: "Norfolk Island"
     },
     {
-        "country": "North Korea"
+        country: "North Korea"
     },
     {
-        "country": "Northern Ireland"
+        country: "Northern Ireland"
     },
     {
-        "country": "Northern Mariana Islands"
+        country: "Northern Mariana Islands"
     },
     {
-        "country": "Norway"
+        country: "Norway"
     },
     {
-        "country": "Oman"
+        country: "Oman"
     },
     {
-        "country": "Pakistan"
+        country: "Pakistan"
     },
     {
-        "country": "Palau"
+        country: "Palau"
     },
     {
-        "country": "Palestine"
+        country: "Palestine"
     },
     {
-        "country": "Panama"
+        country: "Panama"
     },
     {
-        "country": "Papua New Guinea"
+        country: "Papua New Guinea"
     },
     {
-        "country": "Paraguay"
+        country: "Paraguay"
     },
     {
-        "country": "Peru"
+        country: "Peru"
     },
     {
-        "country": "Philippines"
+        country: "Philippines"
     },
     {
-        "country": "Pitcairn"
+        country: "Pitcairn"
     },
     {
-        "country": "Poland"
+        country: "Poland"
     },
     {
-        "country": "Portugal"
+        country: "Portugal"
     },
     {
-        "country": "Puerto Rico"
+        country: "Puerto Rico"
     },
     {
-        "country": "Qatar"
+        country: "Qatar"
     },
     {
-        "country": "Reunion"
+        country: "Reunion"
     },
     {
-        "country": "Romania"
+        country: "Romania"
     },
     {
-        "country": "Russian Federation"
+        country: "Russian Federation"
     },
     {
-        "country": "Rwanda"
+        country: "Rwanda"
     },
     {
-        "country": "Saint Helena"
+        country: "Saint Helena"
     },
     {
-        "country": "Saint Kitts and Nevis"
+        country: "Saint Kitts and Nevis"
     },
     {
-        "country": "Saint Lucia"
+        country: "Saint Lucia"
     },
     {
-        "country": "Saint Pierre and Miquelon"
+        country: "Saint Pierre and Miquelon"
     },
     {
-        "country": "Saint Vincent and the Grenadines"
+        country: "Saint Vincent and the Grenadines"
     },
     {
-        "country": "Samoa"
+        country: "Samoa"
     },
     {
-        "country": "San Marino"
+        country: "San Marino"
     },
     {
-        "country": "Sao Tome and Principe"
+        country: "Sao Tome and Principe"
     },
     {
-        "country": "Saudi Arabia"
+        country: "Saudi Arabia"
     },
     {
-        "country": "Scotland"
+        country: "Scotland"
     },
     {
-        "country": "Senegal"
+        country: "Senegal"
     },
     {
-        "country": "Serbia"
+        country: "Serbia"
     },
     {
-        "country": "Seychelles"
+        country: "Seychelles"
     },
     {
-        "country": "Sierra Leone"
+        country: "Sierra Leone"
     },
     {
-        "country": "Singapore"
+        country: "Singapore"
     },
     {
-        "country": "Slovakia"
+        country: "Slovakia"
     },
     {
-        "country": "Slovenia"
+        country: "Slovenia"
     },
     {
-        "country": "Solomon Islands"
+        country: "Solomon Islands"
     },
     {
-        "country": "Somalia"
+        country: "Somalia"
     },
     {
-        "country": "South Africa"
+        country: "South Africa"
     },
     {
-        "country": "South Georgia and the South Sandwich Islands"
+        country: "South Georgia and the South Sandwich Islands"
     },
     {
-        "country": "South Korea"
+        country: "South Korea"
     },
     {
-        "country": "South Sudan"
+        country: "South Sudan"
     },
     {
-        "country": "Spain"
+        country: "Spain"
     },
     {
-        "country": "Sri Lanka"
+        country: "Sri Lanka"
     },
     {
-        "country": "Sudan"
+        country: "Sudan"
     },
     {
-        "country": "Suriname"
+        country: "Suriname"
     },
     {
-        "country": "Svalbard and Jan Mayen"
+        country: "Svalbard and Jan Mayen"
     },
     {
-        "country": "Swaziland"
+        country: "Swaziland"
     },
     {
-        "country": "Sweden"
+        country: "Sweden"
     },
     {
-        "country": "Switzerland"
+        country: "Switzerland"
     },
     {
-        "country": "Syria"
+        country: "Syria"
     },
     {
-        "country": "Tajikistan"
+        country: "Tajikistan"
     },
     {
-        "country": "Tanzania"
+        country: "Tanzania"
     },
     {
-        "country": "Thailand"
+        country: "Thailand"
     },
     {
-        "country": "Timor-Leste"
+        country: "Timor-Leste"
     },
     {
-        "country": "Togo"
+        country: "Togo"
     },
     {
-        "country": "Tokelau"
+        country: "Tokelau"
     },
     {
-        "country": "Tonga"
+        country: "Tonga"
     },
     {
-        "country": "Trinidad and Tobago"
+        country: "Trinidad and Tobago"
     },
     {
-        "country": "Tunisia"
+        country: "Tunisia"
     },
     {
-        "country": "Turkey"
+        country: "Turkey"
     },
     {
-        "country": "Turkmenistan"
+        country: "Turkmenistan"
     },
     {
-        "country": "Turks and Caicos Islands"
+        country: "Turks and Caicos Islands"
     },
     {
-        "country": "Tuvalu"
+        country: "Tuvalu"
     },
     {
-        "country": "Uganda"
+        country: "Uganda"
     },
     {
-        "country": "Ukraine"
+        country: "Ukraine"
     },
     {
-        "country": "United Arab Emirates"
+        country: "United Arab Emirates"
     },
     {
-        "country": "United Kingdom"
+        country: "United Kingdom"
     },
     {
-        "country": "United States"
+        country: "United States"
     },
     {
-        "country": "United States Minor Outlying Islands"
+        country: "United States Minor Outlying Islands"
     },
     {
-        "country": "Uruguay"
+        country: "Uruguay"
     },
     {
-        "country": "Uzbekistan"
+        country: "Uzbekistan"
     },
     {
-        "country": "Vanuatu"
+        country: "Vanuatu"
     },
     {
-        "country": "Venezuela"
+        country: "Venezuela"
     },
     {
-        "country": "Vietnam"
+        country: "Vietnam"
     },
     {
-        "country": "Virgin Islands, British"
+        country: "Virgin Islands, British"
     },
     {
-        "country": "Virgin Islands, U.S."
+        country: "Virgin Islands, U.S."
     },
     {
-        "country": "Wales"
+        country: "Wales"
     },
     {
-        "country": "Wallis and Futuna"
+        country: "Wallis and Futuna"
     },
     {
-        "country": "Western Sahara"
+        country: "Western Sahara"
     },
     {
-        "country": "Yemen"
+        country: "Yemen"
     },
     {
-        "country": "Zambia"
+        country: "Zambia"
     },
     {
-        "country": "Zimbabwe"
+        country: "Zimbabwe"
     }
 ]
 
